@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import saasHeroIllustration from './assets/saas_hero_illustration.png';
 import Header from './components/common/Header';
 import Home from './pages/Home/Home';
 import Footer from './components/common/Footer';
 import Cursor from './components/common/Cursor';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 // Page Imports
 import About from './pages/About/About';
@@ -87,6 +89,104 @@ function App() {
   const [txhubActiveIndex, setTxhubActiveIndex] = useState(0);
   const txhubScreens = [txhub1, txhub2, txhub3, txhub4];
 
+  const illustrationRef = useRef(null);
+
+  useEffect(() => {
+    if (currentHash !== '#home') return;
+
+    const el = illustrationRef.current;
+    if (!el) return;
+
+    const img = el.querySelector('.hero-illustration-img');
+    const platform = el.querySelector('.anti-gravity-platform');
+    const glow = el.querySelector('.hero-ambient-glow');
+    const particles = el.querySelectorAll('.hero-particle');
+
+    // Floating animations array to pause/play
+    const tweens = [];
+
+    if (img) {
+      tweens.push(
+        gsap.fromTo(img, 
+          { y: -6 }, 
+          { y: 6, duration: 6, repeat: -1, yoyo: true, ease: 'sine.inOut' }
+        )
+      );
+    }
+
+    // Glow pulse animation
+    if (glow) {
+      tweens.push(
+        gsap.fromTo(glow,
+          { scale: 0.92, opacity: 0.75 },
+          { scale: 1.08, opacity: 0.95, duration: 7, repeat: -1, yoyo: true, ease: 'sine.inOut' }
+        )
+      );
+    }
+
+    // Particles slow floating animations
+    if (particles.length > 0) {
+      particles.forEach((p, idx) => {
+        const dirY = idx % 2 === 0 ? 15 : -15;
+        const dirX = idx % 3 === 0 ? 10 : -10;
+        tweens.push(
+          gsap.fromTo(p,
+            { y: -dirY, x: -dirX, opacity: 0.4 },
+            { y: dirY, x: dirX, opacity: 0.9, duration: 4 + (idx * 0.8), repeat: -1, yoyo: true, ease: 'sine.inOut' }
+          )
+        );
+      });
+    }
+
+    // Mouse parallax
+    const handleMouseMove = (e) => {
+      if (window.innerWidth < 768) return;
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+      const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+
+      if (img) {
+        gsap.to(img, {
+          x: x * 10,
+          y: y * 10,
+          rotateY: x * 6,
+          rotateX: -y * 6,
+          duration: 1.2,
+          ease: 'power2.out',
+          overwrite: 'auto'
+        });
+      }
+
+      if (platform) {
+        gsap.to(platform, {
+          x: x * 5,
+          y: y * 5,
+          duration: 1.2,
+          ease: 'power2.out',
+          overwrite: 'auto'
+        });
+      }
+    };
+
+    // Pause when tab is inactive, resume when active
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        tweens.forEach(t => t.pause());
+      } else {
+        tweens.forEach(t => t.play());
+      }
+    };
+
+    el.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      tweens.forEach(tween => tween.kill());
+      el.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [currentHash]);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setRenntoActiveIndex((prev) => (prev + 1) % renntoScreens.length);
@@ -115,57 +215,156 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (currentHash === '#home') {
-      // Swipe animation for Directory cards
-      const cards = gsap.utils.toArray('.directory-card-modern-grad');
-      if (cards.length >= 3) {
+    if (currentHash !== '#home') return;
+
+    // Track active GSAP tweens/scrolltriggers to clean them up properly
+    const tweens = [];
+    const scrollTriggers = [];
+
+    // Swipe animation for Directory cards
+    const cards = gsap.utils.toArray('.orbit-card');
+    if (cards.length >= 3) {
+      tweens.push(
         gsap.fromTo(cards[0], 
-          { x: -150, opacity: 0 },
+          { x: -80, opacity: 0 },
           { 
             x: 0, 
             opacity: 1, 
             duration: 1.2, 
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: '.directory-container-three-col',
+              trigger: '.orbital-section',
               start: 'top 85%',
-              toggleActions: 'play none none none'
+              toggleActions: 'play reverse play reverse'
             }
           }
-        );
+        )
+      );
 
+      tweens.push(
         gsap.fromTo(cards[1], 
-          { y: 120, opacity: 0 },
+          { y: 80, opacity: 0 },
           { 
             y: 0, 
             opacity: 1, 
             duration: 1.2, 
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: '.directory-container-three-col',
+              trigger: '.orbital-section',
               start: 'top 85%',
-              toggleActions: 'play none none none'
+              toggleActions: 'play reverse play reverse'
             }
           }
-        );
+        )
+      );
 
+      tweens.push(
         gsap.fromTo(cards[2], 
-          { x: 150, opacity: 0 },
+          { x: 80, opacity: 0 },
           { 
             x: 0, 
             opacity: 1, 
             duration: 1.2, 
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: '.directory-container-three-col',
+              trigger: '.orbital-section',
               start: 'top 85%',
-              toggleActions: 'play none none none'
+              toggleActions: 'play reverse play reverse'
             }
           }
-        );
-      }
+        )
+      );
 
-      // Parallax for Newsletter Orbs
+      // Setup network-particle initial position and motionPath loop
+      const particle = document.getElementById("network-particle");
+      if (particle) {
+        gsap.set(particle, {
+          attr: {
+            cx: 220,
+            cy: 15
+          }
+        });
+        const particleTween = gsap.to(particle, {
+          duration: 12,
+          repeat: -1,
+          ease: "none",
+          motionPath: {
+            path: "#networkPath",
+            align: "#networkPath",
+            autoRotate: false
+          }
+        });
+        tweens.push(particleTween);
+
+        // Hover triggers for speed timescale tweaks on hover
+        const c1Enter = () => {
+          gsap.to(particleTween, { timeScale: 2.2, duration: 0.4 });
+          gsap.to('.orbit-1', { strokeWidth: 3.5, opacity: 0.55, duration: 0.4 });
+          gsap.to('.orbit-2', { strokeWidth: 2.5, opacity: 0.35, duration: 0.4 });
+          gsap.to(cards[0].querySelector('.view-all-link-modern .link-arrow'), { x: 4, duration: 0.3 });
+        };
+        const c1Leave = () => {
+          gsap.to(particleTween, { timeScale: 1.0, duration: 0.4 });
+          gsap.to('.orbit-1', { strokeWidth: 2.5, opacity: 0.35, duration: 0.4 });
+          gsap.to('.orbit-2', { strokeWidth: 2.5, opacity: 0.35, duration: 0.4 });
+          gsap.to(cards[0].querySelector('.view-all-link-modern .link-arrow'), { x: 0, duration: 0.3 });
+        };
+
+        const c2Enter = () => {
+          gsap.to(particleTween, { timeScale: 2.2, duration: 0.4 });
+          gsap.to('.orbit-2', { strokeWidth: 3.5, opacity: 0.55, duration: 0.4 });
+          gsap.to('.orbit-1, .orbit-3', { strokeWidth: 2.5, opacity: 0.35, duration: 0.4 });
+          gsap.to(cards[1].querySelector('.view-all-link-modern .link-arrow'), { x: 4, duration: 0.3 });
+        };
+        const c2Leave = () => {
+          gsap.to(particleTween, { timeScale: 1.0, duration: 0.4 });
+          gsap.to('.orbit-2', { strokeWidth: 2.5, opacity: 0.35, duration: 0.4 });
+          gsap.to('.orbit-1, .orbit-3', { strokeWidth: 2.5, opacity: 0.35, duration: 0.4 });
+          gsap.to(cards[1].querySelector('.view-all-link-modern .link-arrow'), { x: 0, duration: 0.3 });
+        };
+
+        const c3Enter = () => {
+          gsap.to(particleTween, { timeScale: 2.2, duration: 0.4 });
+          gsap.to('.orbit-3', { strokeWidth: 3.5, opacity: 0.55, duration: 0.4 });
+          gsap.to('.orbit-2', { strokeWidth: 2.5, opacity: 0.35, duration: 0.4 });
+          gsap.to(cards[2].querySelector('.view-all-link-modern .link-arrow'), { x: 4, duration: 0.3 });
+        };
+        const c3Leave = () => {
+          gsap.to(particleTween, { timeScale: 1.0, duration: 0.4 });
+          gsap.to('.orbit-3', { strokeWidth: 2.5, opacity: 0.35, duration: 0.4 });
+          gsap.to('.orbit-2', { strokeWidth: 2.5, opacity: 0.35, duration: 0.4 });
+          gsap.to(cards[2].querySelector('.view-all-link-modern .link-arrow'), { x: 0, duration: 0.3 });
+        };
+
+        cards[0].addEventListener('mouseenter', c1Enter);
+        cards[0].addEventListener('mouseleave', c1Leave);
+        cards[1].addEventListener('mouseenter', c2Enter);
+        cards[1].addEventListener('mouseleave', c2Leave);
+        cards[2].addEventListener('mouseenter', c3Enter);
+        cards[2].addEventListener('mouseleave', c3Leave);
+
+        // Clean up event listeners on unmount
+        tweens.push({
+          kill: () => {
+            if (cards[0]) {
+              cards[0].removeEventListener('mouseenter', c1Enter);
+              cards[0].removeEventListener('mouseleave', c1Leave);
+            }
+            if (cards[1]) {
+              cards[1].removeEventListener('mouseenter', c2Enter);
+              cards[1].removeEventListener('mouseleave', c2Leave);
+            }
+            if (cards[2]) {
+              cards[2].removeEventListener('mouseenter', c3Enter);
+              cards[2].removeEventListener('mouseleave', c3Leave);
+            }
+          }
+        });
+      }
+    }
+
+    // Parallax for Newsletter Orbs
+    tweens.push(
       gsap.fromTo('.newsletter-bg-orb-1', 
         { y: -80, scale: 0.8 },
         {
@@ -178,7 +377,9 @@ function App() {
             scrub: 1.2
           }
         }
-      );
+      )
+    );
+    tweens.push(
       gsap.fromTo('.newsletter-bg-orb-2', 
         { y: 80, scale: 0.95 },
         {
@@ -191,9 +392,11 @@ function App() {
             scrub: 1.2
           }
         }
-      );
+      )
+    );
 
-      // Parallax for Accelerate Shapes
+    // Parallax for Accelerate Shapes
+    tweens.push(
       gsap.fromTo('.accelerate-bg-shape-1', 
         { y: -70, x: -20, rotate: 0 },
         {
@@ -207,7 +410,9 @@ function App() {
             scrub: 1
           }
         }
-      );
+      )
+    );
+    tweens.push(
       gsap.fromTo('.accelerate-bg-shape-2', 
         { y: 70, x: 20, rotate: 0 },
         {
@@ -221,8 +426,12 @@ function App() {
             scrub: 1
           }
         }
-      );
-    }
+      )
+    );
+
+    return () => {
+      tweens.forEach(t => t.kill());
+    };
   }, [currentHash]);
 
   const renderContent = () => {
@@ -309,22 +518,32 @@ function App() {
                   </div>
                 </div>
 
-                {/* Right Column: High-end animation video */}
+                {/* Right Column: Premium SaaS Illustration Image */}
                 <div className="hero-right-col">
-                  <video 
-                    src={animationHomeVideo}
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    ref={(el) => {
-                      if (el) {
-                        el.muted = true;
-                        el.play().catch(err => console.log("Autoplay failed:", err));
-                      }
-                    }}
-                    className="hero-animation-video"
-                  />
+                  {/* Large Ambient Glow behind wrapper */}
+                  <div className="hero-ambient-glow"></div>
+                  
+                  <div className="hero-illustration-wrapper" ref={illustrationRef}>
+                    <img src={saasHeroIllustration} alt="Tanvox SaaS Technology Solution Dashboard" className="hero-illustration-img" />
+                    
+                    {/* Layered Anti-Gravity Platform */}
+                    <div className="anti-gravity-platform">
+                      <div className="platform-ring platform-ring-outer"></div>
+                      <div className="platform-ring platform-ring-middle"></div>
+                      <div className="platform-ring platform-ring-inner"></div>
+                      <div className="platform-glow"></div>
+                    </div>
+
+
+
+                    {/* Subtle Glowing Particles (Capped for performance) */}
+                    <div className="hero-particle hp-1"></div>
+                    <div className="hero-particle hp-2"></div>
+                    <div className="hero-particle hp-3"></div>
+                    <div className="hero-particle hp-4"></div>
+                    <div className="hero-particle hp-5"></div>
+                    <div className="hero-particle hp-6"></div>
+                  </div>
                 </div>
               </div>
             </main>
@@ -352,68 +571,82 @@ function App() {
                     <span>Certifications & Compliance</span>
                   </div>
 
-                  <div className="certifications-grid-modern">
-                    <div className="cert-card-modern card-c-1">
-                      <CertIcon />
-                      <div className="cert-card-info">
-                        <h3>ISO 9001:2015</h3>
-                        <p>Quality Management</p>
+                  <div className="certifications-marquee-container">
+                    <div className="certifications-marquee-track">
+                      {/* Original Set */}
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 9001:2015</span>
                       </div>
-                    </div>
-                    <div className="cert-card-modern card-c-2">
-                      <ShieldIcon />
-                      <div className="cert-card-info">
-                        <h3>ISO 27001</h3>
-                        <p>Information Security</p>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 27001</span>
                       </div>
-                    </div>
-                    <div className="cert-card-modern card-c-3">
-                      <ShieldIcon />
-                      <div className="cert-card-info">
-                        <h3>SOC 2 Type II</h3>
-                        <p>Security & Availability</p>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">SOC 2 Type II</span>
                       </div>
-                    </div>
-                    <div className="cert-card-modern card-c-4">
-                      <CertIcon />
-                      <div className="cert-card-info">
-                        <h3>ISO 20000-1</h3>
-                        <p>Service Management</p>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 20000-1</span>
                       </div>
-                    </div>
-                    <div className="cert-card-modern card-c-5">
-                      <CertIcon />
-                      <div className="cert-card-info">
-                        <h3>ISO 22301</h3>
-                        <p>Business Continuity</p>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 22301</span>
                       </div>
-                    </div>
-                    <div className="cert-card-modern card-c-6">
-                      <CardIcon />
-                      <div className="cert-card-info">
-                        <h3>PCI DSS</h3>
-                        <p>Data Security</p>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">PCI DSS</span>
                       </div>
-                    </div>
-                    <div className="cert-card-modern card-c-7">
-                      <GdprIcon />
-                      <div className="cert-card-info">
-                        <h3>GDPR Compliance</h3>
-                        <p>Data Protection</p>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">GDPR Compliance</span>
                       </div>
-                    </div>
-                    <div className="cert-card-modern card-c-8">
-                      <ShieldIcon />
-                      <div className="cert-card-info">
-                        <h3>ISO 27701</h3>
-                        <p>Privacy Information</p>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 27701</span>
                       </div>
-                    </div>
-                    <div className="cert-card-modern card-c-9">
-                      <CertIcon />
-                      <div className="cert-card-info">
-                        <h3>ISO 42001</h3>
-                        <p>AI Management</p>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 42001</span>
+                      </div>
+
+                      {/* Duplicate Set for Loop */}
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 9001:2015</span>
+                      </div>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 27001</span>
+                      </div>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">SOC 2 Type II</span>
+                      </div>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 20000-1</span>
+                      </div>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 22301</span>
+                      </div>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">PCI DSS</span>
+                      </div>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">GDPR Compliance</span>
+                      </div>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 27701</span>
+                      </div>
+                      <div className="cert-marquee-pill">
+                        <span className="cert-pill-check">✓</span>
+                        <span className="cert-pill-text">ISO 42001</span>
                       </div>
                     </div>
                   </div>
@@ -482,7 +715,7 @@ function App() {
                 </div>
                 <div className="services-grid">
                   {/* Card 1: Software Development */}
-                  <div className="service-card">
+                  <div className="service-card service-card-blue">
                     <div className="service-card-image-wrapper blue-glow-border">
                       <img src={softwareDevImg} alt="Software Development Services" className="service-card-img" />
                     </div>
@@ -496,7 +729,7 @@ function App() {
                   </div>
  
                   {/* Card 2: Cloud Services */}
-                  <div className="service-card">
+                  <div className="service-card service-card-purple">
                     <div className="service-card-image-wrapper purple-glow-border">
                       <img src={cloudServicesImg} alt="Cloud Services" className="service-card-img" />
                     </div>
@@ -510,7 +743,7 @@ function App() {
                   </div>
  
                   {/* Card 3: DevOps & Automation */}
-                  <div className="service-card">
+                  <div className="service-card service-card-red">
                     <div className="service-card-image-wrapper red-glow-border">
                       <img src={devopsAutomationImg} alt="DevOps & Automation" className="service-card-img" />
                     </div>
@@ -524,7 +757,7 @@ function App() {
                   </div>
  
                   {/* Card 4: AI & Intelligent Automation */}
-                  <div className="service-card">
+                  <div className="service-card service-card-blue">
                     <div className="service-card-image-wrapper blue-glow-border">
                       <img src={aiAutomationImg} alt="AI & Intelligent Automation" className="service-card-img" />
                     </div>
@@ -538,7 +771,7 @@ function App() {
                   </div>
  
                   {/* Card 5: Cybersecurity Services */}
-                  <div className="service-card">
+                  <div className="service-card service-card-purple">
                     <div className="service-card-image-wrapper purple-glow-border">
                       <img src={cybersecurityImg} alt="Cybersecurity Services" className="service-card-img" />
                     </div>
@@ -552,7 +785,7 @@ function App() {
                   </div>
  
                   {/* Card 6: IT Infrastructure Services */}
-                  <div className="service-card">
+                  <div className="service-card service-card-red">
                     <div className="service-card-image-wrapper red-glow-border">
                       <img src={itInfrastructureImg} alt="IT Infrastructure Services" className="service-card-img" />
                     </div>
@@ -566,7 +799,7 @@ function App() {
                   </div>
  
                   {/* Card 7: Managed IT Services */}
-                  <div className="service-card">
+                  <div className="service-card service-card-blue">
                     <div className="service-card-image-wrapper blue-glow-border">
                       <img src={managedItImg} alt="Managed IT Services" className="service-card-img" />
                     </div>
@@ -580,7 +813,7 @@ function App() {
                   </div>
  
                   {/* Card 8: Support & Maintenance */}
-                  <div className="service-card">
+                  <div className="service-card service-card-purple">
                     <div className="service-card-image-wrapper purple-glow-border">
                       <img src={supportMaintenanceImg} alt="Support & Maintenance" className="service-card-img" />
                     </div>
@@ -627,11 +860,11 @@ function App() {
                         </div>
                         <div className="product-item-title-desc">
                           <h3>Rennto</h3>
-                          <span className="product-tag">Operations & Logistics</span>
+                          <span className="product-tag">Hostel, PG & Space Management</span>
                         </div>
                       </div>
                       <div className="product-item-info">
-                        <p>Business operations & service management platform designed to streamline logistics, governance, and resource tracking.</p>
+                        <p>Comprehensive operations platform designed to streamline hostel, PG, and commercial space management. Efficiently handle bookings, automate rent collections, manage room allocations, and simplify operations.</p>
                         
                         {/* Interactive Screenshot Showcase */}
                         <div className="rennto-screenshot-showcase">
@@ -680,7 +913,15 @@ function App() {
                           </div>
                         </div>
                         
-                        <a href="#products" className="view-demo-link text-blue">Request Demo &rarr;</a>
+                        {/* Features Badge Grid */}
+                        <div className="product-features-tags">
+                          <span className="badge-blue">✓ Hostel & PG Bookings</span>
+                          <span className="badge-blue">✓ Room & Bed Allocations</span>
+                          <span className="badge-blue">✓ Tenant Verification</span>
+                          <span className="badge-blue">✓ Maintenance Tracking</span>
+                        </div>
+
+                        <a href="#products" className="view-demo-link text-blue">View App &rarr;</a>
                       </div>
                     </div>
 
@@ -688,15 +929,21 @@ function App() {
                     <div className="product-item-inner item-red txhub-product-card">
                       <div className="product-item-header">
                         <div className="product-item-logo-wrapper">
-                          <img src={txhubLogo} alt="TX-Hub Logo" className="rennto-logo-img" />
+                          <a href="https://txhub.in/" target="_blank" rel="noopener noreferrer">
+                            <img src={txhubLogo} alt="TX-Hub Logo" className="rennto-logo-img" />
+                          </a>
                         </div>
                         <div className="product-item-title-desc">
-                          <h3>TX-Hub</h3>
-                          <span className="product-tag">Workflow & Analytics</span>
+                          <h3>
+                            <a href="https://txhub.in/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                              TX-Hub
+                            </a>
+                          </h3>
+                          <span className="product-tag">Training & Internships</span>
                         </div>
                       </div>
                       <div className="product-item-info">
-                        <p>Workflow automation, collaboration & analytics platform to unify engineering pipelines and optimize deployment loops.</p>
+                        <p>Advanced training and internship platform providing structured online courses, industrial placement programs, student-to-mentor allocation, and real-time career tracking tools.</p>
                         
                         {/* Interactive Screenshot Showcase */}
                         <div className="rennto-screenshot-showcase">
@@ -745,7 +992,17 @@ function App() {
                           </div>
                         </div>
                         
-                        <a href="#products" className="view-demo-link text-red">Request Demo &rarr;</a>
+                        {/* Features Badge Grid */}
+                        <div className="product-features-tags">
+                          <span className="badge-red">✓ Internship Placements</span>
+                          <span className="badge-red">✓ Structured Training</span>
+                          <span className="badge-red">✓ Student-Mentor Match</span>
+                          <span className="badge-red">✓ Skill Assessments</span>
+                          <span className="badge-red">✓ Progress Tracking</span>
+                          <span className="badge-red">✓ Career Analytics</span>
+                        </div>
+
+                        <a href="https://txhub.in/" target="_blank" rel="noopener noreferrer" className="view-demo-link text-red">Visit Website &rarr;</a>
                       </div>
                     </div>
 
@@ -754,81 +1011,94 @@ function App() {
               </div>
             </section>
 
-            {/* Directory Showcase (3 Columns Layout) */}
-             {/* Directory Showcase (3 Columns Layout wrapped in stylish cards) */}
-            <section className="directory-showcase-section">
-              <div className="directory-container-three-col">
-                
+            {/* Connected Overlapping Circles Showcase */}
+            <section className="orbital-section">
+              <div className="orbital-wrapper">
+                <svg className="orbital-network" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid meet">
+                  <defs>
+                    <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#3B82F6" />
+                      <stop offset="50%" stopColor="#8B5CF6" />
+                      <stop offset="100%" stopColor="#EC4899" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Invisible motionPath track for network particle */}
+                  <path id="networkPath" d="M 220 15 C 40 15, 40 375, 220 375 C 310 375, 345 245, 360 195 C 375 245, 410 375, 500 375 C 590 375, 625 245, 640 195 C 655 245, 690 375, 780 375 C 960 375, 960 15, 780 15 C 690 15, 655 145, 640 195 C 625 145, 590 15, 500 15 C 410 15, 375 145, 360 195 C 345 145, 310 15, 220 15 Z" fill="none" stroke="none" />
+
+                  {/* Circles */}
+                  <circle cx="220" cy="195" r="180" className="orbit orbit-1" />
+                  <circle cx="500" cy="195" r="180" className="orbit orbit-2" />
+                  <circle cx="780" cy="195" r="180" className="orbit orbit-3" />
+
+                  {/* Subtle pulse nodes */}
+                  <circle cx="360" cy="195" r="5" className="pulse-node" />
+                  <circle cx="640" cy="195" r="5" className="pulse-node" />
+
+                  {/* Network traveling particle */}
+                  <circle id="network-particle" r="4" fill="#8b5cf6" />
+                </svg>
+
                 {/* Column 1: Solutions We Provide */}
-                <div className="directory-card-modern-grad grad-blue">
-                  <div className="directory-card-blur-bg"></div>
-                  <div className="directory-card-header">
-                    <div className="directory-icon-circle bg-blue-grad">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                        <line x1="9" y1="3" x2="9" y2="21"/>
-                      </svg>
-                    </div>
-                    <h3>Solutions We Provide</h3>
+                <div className="orbit-card solutions grad-blue">
+                  <div className="directory-icon-circle bg-blue-grad">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                      <line x1="9" y1="3" x2="9" y2="21"/>
+                    </svg>
                   </div>
+                  <h3>Solutions We Provide</h3>
                   <ul className="directory-list-modern">
-                    <li><span className="bullet-arrow-grad text-blue">&#9656;</span> Digital Transformation Solutions</li>
-                    <li><span className="bullet-arrow-grad text-blue">&#9656;</span> Enterprise Business Solutions</li>
-                    <li><span className="bullet-arrow-grad text-blue">&#9656;</span> Cloud & Infrastructure Solutions</li>
-                    <li><span className="bullet-arrow-grad text-blue">&#9656;</span> DevOps & Platform Solutions</li>
-                    <li><span className="bullet-arrow-grad text-blue">&#9656;</span> AI & Data Solutions</li>
-                    <li><span className="bullet-arrow-grad text-blue">&#9656;</span> Cybersecurity Solutions</li>
-                    <li><span className="bullet-arrow-grad text-blue">&#9656;</span> Startup & SME Solutions</li>
+                    <li>Digital Transformation Solutions</li>
+                    <li>Enterprise Business Solutions</li>
+                    <li>Cloud & Infrastructure Solutions</li>
+                    <li>DevOps & Platform Solutions</li>
+                    <li>AI & Data Solutions</li>
                   </ul>
-                  <a href="#solutions" className="view-all-link-modern border-bottom-blue">View All Solutions &rarr;</a>
+                  <a href="#solutions" className="view-all-link-modern border-bottom-blue">
+                    View All Solutions <span className="link-arrow">&rarr;</span>
+                  </a>
                 </div>
 
                 {/* Column 2: Industries Served */}
-                <div className="directory-card-modern-grad grad-red">
-                  <div className="directory-card-blur-bg"></div>
-                  <div className="directory-card-header">
-                    <div className="directory-icon-circle bg-red-grad">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                      </svg>
-                    </div>
-                    <h3>Industries Served</h3>
+                <div className="orbit-card industries grad-red">
+                  <div className="directory-icon-circle bg-red-grad">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
                   </div>
+                  <h3>Industries Served</h3>
                   <ul className="directory-list-modern">
-                    <li><span className="bullet-arrow-grad text-red">&#9656;</span> Banking, Financial Services & Insurance</li>
-                    <li><span className="bullet-arrow-grad text-red">&#9656;</span> Healthcare & Life Sciences</li>
-                    <li><span className="bullet-arrow-grad text-red">&#9656;</span> Retail & E-Commerce</li>
-                    <li><span className="bullet-arrow-grad text-red">&#9656;</span> Manufacturing & Industry 4.0</li>
-                    <li><span className="bullet-arrow-grad text-red">&#9656;</span> Logistics & Supply Chain</li>
-                    <li><span className="bullet-arrow-grad text-red">&#9656;</span> Education & EdTech</li>
-                    <li><span className="bullet-arrow-grad text-red">&#9656;</span> Startups & Small Business</li>
+                    <li>Banking, BFSI & Insurance</li>
+                    <li>Healthcare & Life Sciences</li>
+                    <li>Retail & E-Commerce</li>
+                    <li>Logistics & Supply Chain</li>
+                    <li>Manufacturing & Industry 4.0</li>
                   </ul>
-                  <a href="#industries" className="view-all-link-modern border-bottom-red">View All Industries &rarr;</a>
+                  <a href="#industries" className="view-all-link-modern border-bottom-red">
+                    View All Industries <span className="link-arrow">&rarr;</span>
+                  </a>
                 </div>
 
                 {/* Column 3: Technology Expertise */}
-                <div className="directory-card-modern-grad grad-purple">
-                  <div className="directory-card-blur-bg"></div>
-                  <div className="directory-card-header">
-                    <div className="directory-icon-circle bg-purple-grad">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
-                      </svg>
-                    </div>
-                    <h3>Technology Expertise</h3>
+                <div className="orbit-card technology grad-purple">
+                  <div className="directory-icon-circle bg-purple-grad">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+                    </svg>
                   </div>
+                  <h3>Technology Expertise</h3>
                   <ul className="directory-list-modern">
-                    <li><span className="bullet-arrow-grad text-purple">&#9656;</span> Cloud Platforms</li>
-                    <li><span className="bullet-arrow-grad text-purple">&#9656;</span> Mobile Development</li>
-                    <li><span className="bullet-arrow-grad text-purple">&#9656;</span> Web Application</li>
-                    <li><span className="bullet-arrow-grad text-purple">&#9656;</span> Databases</li>
-                    <li><span className="bullet-arrow-grad text-purple">&#9656;</span> DevOps & Automation</li>
-                    <li><span className="bullet-arrow-grad text-purple">&#9656;</span> Security</li>
-                    <li><span className="bullet-arrow-grad text-purple">&#9656;</span> Data Engineering & Analytics</li>
+                    <li>Cloud Platforms</li>
+                    <li>Mobile Development</li>
+                    <li>Web Application</li>
+                    <li>DevOps & Automation</li>
+                    <li>Data Engineering & Analytics</li>
                   </ul>
-                  <a href="#technology" className="view-all-link-modern border-bottom-purple">View All Technologies &rarr;</a>
+                  <a href="#technology" className="view-all-link-modern border-bottom-purple">
+                    View All Technologies <span className="link-arrow">&rarr;</span>
+                  </a>
                 </div>
-
               </div>
             </section>
 
