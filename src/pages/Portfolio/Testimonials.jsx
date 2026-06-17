@@ -359,7 +359,7 @@ export default function Testimonials() {
       </section>
 
       {/* =================== TESTIMONIAL CAROUSEL (Original Slider) =================== */}
-      <div className="saas-container" style={{ marginTop: '80px' }} id="testi-cta">
+      <div className="saas-container" style={{ marginTop: '32px' }} id="testi-cta">
         <div className="saas-products-section" style={{ width: '100%' }}>
           <motion.h2 
             className="saas-section-title"
@@ -404,7 +404,8 @@ export default function Testimonials() {
                   color: '#1e293b', 
                   marginBottom: '28px', 
                   fontStyle: 'italic',
-                  fontWeight: '500'
+                  fontWeight: '500',
+                  fontFamily: 'inherit'
                 }}>
                   "{testimonials[activeIndex].text}"
                 </p>
@@ -446,7 +447,7 @@ export default function Testimonials() {
       </div>
 
       {/* =================== ANIMATED METRICS =================== */}
-      <div className="saas-container" style={{ marginTop: '80px' }}>
+      <div className="saas-container" style={{ marginTop: '32px' }}>
         <motion.div className="saas-section-header-centered"
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.7 }}>
@@ -462,7 +463,7 @@ export default function Testimonials() {
       </div>
 
       {/* =================== INDUSTRIES =================== */}
-      <div className="saas-container" style={{ marginTop: '80px' }}>
+      <div className="saas-container" style={{ marginTop: '32px' }}>
         <motion.div className="saas-section-header-centered"
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.7 }}>
@@ -490,7 +491,7 @@ export default function Testimonials() {
       </div>
 
       {/* =================== WHY CHOOSE TANVOX =================== */}
-      <div className="saas-container" style={{ marginTop: '80px' }}>
+      <div className="saas-container" style={{ marginTop: '32px' }}>
         <motion.div className="saas-section-header-centered"
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.7 }}>
@@ -516,7 +517,7 @@ export default function Testimonials() {
       </div>
 
       {/* =================== CTA SECTION =================== */}
-      <div className="saas-container" style={{ marginTop: '80px', marginBottom: '60px' }}>
+      <div className="saas-container" style={{ marginTop: '32px', marginBottom: '24px' }}>
         <motion.div
           className="saas-glass-card testi-cta-card"
           initial={{ opacity: 0, y: 40 }}

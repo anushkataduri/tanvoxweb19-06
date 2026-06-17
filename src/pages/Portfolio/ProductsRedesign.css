@@ -7,7 +7,7 @@
   background-color: #ffffff; /* Premium light theme background */
   overflow: hidden;
   color: #0f172a;
-  padding: 120px 24px;
+  padding: 50px 24px 30px 24px;
 }
 
 /* Floating Blurred Blobs - Subtle pastel overlay */
@@ -87,7 +87,7 @@
 .saas-hero {
   text-align: center;
   max-width: 860px;
-  margin: 0 auto 80px auto;
+  margin: 0 auto 30px auto;
   padding: 0 16px;
 }
 
@@ -136,8 +136,8 @@
 
 /* --- Glassmorphism Card Base --- */
 .saas-glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid rgba(15, 23, 42, 0.22);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 24px;
@@ -145,7 +145,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
 }
 
 .saas-glass-card::before {
@@ -174,7 +174,7 @@
 
 /* --- Products Page Grid --- */
 .saas-products-section {
-  margin-top: 40px;
+  margin-top: 15px;
 }
 
 .saas-section-title {
@@ -482,6 +482,12 @@
   z-index: 1;
 }
 
+.saas-btn-primary.rennto-gradient-btn,
+.saas-btn-primary.txhub-gradient-btn {
+  padding: 10px 24px !important;
+  font-size: 0.88rem !important;
+}
+
 .saas-btn-primary.tx-btn {
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
@@ -681,7 +687,7 @@
   width: 100%;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.08) 50%, transparent);
-  margin: 70px 0;
+  margin: 12px 0;
 }
 
 /* --- Section layouts for details --- */
@@ -1623,8 +1629,8 @@
 .saas-showcase-flow {
   display: flex;
   flex-direction: column;
-  gap: 120px;
-  margin-bottom: 100px;
+  gap: 40px;
+  margin-bottom: 24px;
 }
 
 .saas-showcase-row {
@@ -1642,6 +1648,12 @@
 }
 
 /* Premium Marketing Illustration Frames */
+.saas-showcase-image-col {
+  max-width: 520px;
+  width: 100%;
+  justify-self: center;
+}
+
 .saas-showcase-marketing-frame {
   position: relative;
   border-radius: 20px;
@@ -1712,6 +1724,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start; /* Do not stretch children, keep buttons small! */
 }
 
 .saas-showcase-brand-header {
@@ -2006,7 +2019,7 @@
   color: #475569;
   padding: 10px 14px;
   background: rgba(15, 23, 42, 0.02);
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  border: 1.5px solid rgba(15, 23, 42, 0.16);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -2021,12 +2034,33 @@
 /* Call to Action card on Projects */
 .projects-demo-cta-card {
   text-align: center;
-  padding: 70px 40px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 0, 102, 0.02) 100%);
-  border: 1px solid rgba(255, 0, 102, 0.12);
+  padding: 35px 30px !important;
+  max-width: 800px;
+  margin: 0 auto 30px auto !important;
+  background: var(--grad-primary) !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
   position: relative;
   overflow: hidden;
-  margin-bottom: 60px;
+}
+
+
+.projects-demo-cta-card .cta-title {
+  font-size: 1.75rem !important;
+  color: #ffffff !important;
+}
+
+.projects-demo-cta-card .cta-subtitle {
+  font-size: 1rem !important;
+  margin-bottom: 10px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.projects-demo-cta-card .cta-desc {
+  font-size: 0.88rem !important;
+  margin-bottom: 20px !important;
+  max-width: 540px !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .cta-radial-glow {
@@ -2109,9 +2143,17 @@
   font-weight: 700; 
   border-radius: 99px; 
   cursor: pointer;
-  background: rgba(15, 23, 42, 0.02);
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  color: #334155;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.cta-btn-outline-dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 
@@ -2811,7 +2853,7 @@
 }
 
 .projects-demo-cta-card:hover {
-  border-color: rgba(59, 130, 246, 0.25) !important;
+  border-color: rgba(59, 130, 246, 0.45) !important;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35), 0 0 40px rgba(59, 130, 246, 0.08);
 }
 
@@ -3470,10 +3512,34 @@
 .tech-cta-card {
   position: relative;
   text-align: center;
-  padding: 64px 48px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(59,130,246,0.04) 100%);
-  border: 1px solid rgba(59, 130, 246, 0.15);
+  padding: 35px 30px !important;
+  max-width: 800px;
+  margin: 0 auto 30px auto !important;
+  background: var(--grad-primary) !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
   overflow: hidden;
+  border-radius: 24px !important;
+  animation: ctaFloatShake 6s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.tech-cta-card:hover {
+  border-color: #ff0066;
+  box-shadow: 0 15px 35px rgba(255, 0, 102, 0.12);
+}
+
+.tech-cta-card .tech-cta-title {
+  font-size: 1.75rem !important;
+  color: #ffffff !important;
+}
+
+.tech-cta-card .tech-cta-subtitle {
+  font-size: 0.88rem !important;
+  margin-bottom: 20px !important;
+  max-width: 540px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .tech-cta-glow-orb {
@@ -3783,12 +3849,42 @@
 
 .testi-metric-card {
   position: relative;
-  padding: 36px 24px 32px;
-  border-radius: 20px;
+  padding: 20px 16px 20px !important;
+  border-radius: 16px !important;
   text-align: center;
   overflow: hidden;
   border-bottom: 3px solid var(--metric-color, #3b82f6) !important;
   cursor: default;
+}
+
+.metric-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem !important;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -0.03em;
+  position: relative;
+  z-index: 1;
+}
+
+.metric-label {
+  font-family: var(--font-display);
+  font-size: 0.85rem !important;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.metric-desc {
+  font-family: var(--font-body);
+  font-size: 0.72rem !important;
+  color: #64748b;
+  line-height: 1.3;
+  position: relative;
+  z-index: 1;
 }
 
 .metric-glow-top {
@@ -4002,11 +4098,32 @@
 .testi-cta-card {
   position: relative;
   text-align: center;
-  padding: 72px 48px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(139,92,246,0.04) 100%);
-  border: 1px solid rgba(139, 92, 246, 0.15);
+  padding: 35px 30px !important;
+  max-width: 800px;
+  margin: 0 auto 30px auto !important;
+  background: var(--grad-primary) !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
   overflow: hidden;
-  border-radius: 32px;
+  border-radius: 24px !important;
+  animation: ctaFloatShake 6s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.testi-cta-card:hover {
+  border-color: #ff0066;
+  box-shadow: 0 15px 35px rgba(255, 0, 102, 0.12);
+}
+
+.testi-cta-card .testi-cta-title {
+  font-size: 1.75rem !important;
+}
+
+.testi-cta-card .testi-cta-subtitle {
+  font-size: 0.88rem !important;
+  margin-bottom: 20px !important;
+  max-width: 540px !important;
 }
 
 .testi-cta-glow-ring {
@@ -4070,4 +4187,9 @@
   flex-wrap: wrap;
   position: relative;
   z-index: 1;
+}
+
+@keyframes ctaFloatShake {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }

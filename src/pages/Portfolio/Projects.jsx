@@ -551,7 +551,7 @@ export default function Projects() {
       </section>
 
       {/* Main Container for the sections below Hero */}
-      <div className="saas-container" style={{ marginTop: '80px' }}>
+      <div className="saas-container" style={{ marginTop: '32px' }}>
         
         {/* ================= SECTION 2: OUR PRODUCTS SECTION ================= */}
         <section id="our-products" className="saas-products-section scroll-margin-top">

@@ -1,18 +1,203 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import './Collaboration.css';
+import collaborationHero from '../../assets/collabhero.png';
+
+// --- Animated Counter Component ---
+function Counter({ value, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    let observer;
+    let start = 0;
+    const end = parseInt(value, 10);
+    if (isNaN(end)) {
+      // If not a number (e.g. "Global"), just set the value directly
+      setCount(value);
+      return;
+    }
+
+    const duration = 2000; // 2 seconds
+    const increment = end / (duration / 16);
+
+    const runCounter = () => {
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          clearInterval(timer);
+          setCount(end);
+        } else {
+          setCount(Math.floor(start));
+        }
+      }, 16);
+    };
+
+    if (ref.current) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            runCounter();
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, [value]);
+
+  return (
+    <span ref={ref} className="stat-number">
+      {count}
+      {suffix}
+    </span>
+  );
+}
+
+// --- Magnetic Button Wrapper ---
+function MagneticButton({ children, className, onClick, href }) {
+  const buttonRef = useRef(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+    const distanceX = clientX - centerX;
+    const distanceY = clientY - centerY;
+
+    // Only pull if cursor is close enough (within 100px)
+    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+    if (distance < 120) {
+      setPosition({ x: distanceX * 0.35, y: distanceY * 0.35 });
+    } else {
+      setPosition({ x: 0, y: 0 });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const Tag = href ? 'a' : 'button';
+
+  return (
+    <motion.div
+      ref={buttonRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      animate={{ x: position.x, y: position.y }}
+      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      style={{ display: 'inline-block' }}
+    >
+      <Tag href={href} className={className} onClick={onClick}>
+        {children}
+      </Tag>
+    </motion.div>
+  );
+}
 
 export default function Collaboration() {
+  // Page Global State & Refs
+  const containerRef = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [clickedCard, setClickedCard] = useState(null);
+  const [iconRotations, setIconRotations] = useState({});
+
+  const handleCardClick = (idx) => {
+    setClickedCard(clickedCard === idx ? null : idx);
+  };
+
+  const handleBenefitClick = (idx) => {
+    setIconRotations(prev => ({
+      ...prev,
+      [idx]: (prev[idx] || 0) + 360
+    }));
+  };
+
+  // Framer Motion variants for stagger entry
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+  };
+
+  // Form State
   const [formData, setFormData] = useState({
+    fullName: '',
     companyName: '',
-    contactPerson: '',
     email: '',
     phone: '',
-    partnershipType: 'Technology Partners',
+    country: '',
+    companyWebsite: '',
+    partnershipType: 'Technology Partner',
+    companySize: '1-10 Employees',
+    areasExpertise: '',
+    partnershipGoals: '',
     message: ''
   });
-
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
+  // Form focus states for floating labels
+  const [focusedField, setFocusedField] = useState(null);
+
+  // Custom select dropdown state & refs
+  const [partnershipTypeOpen, setPartnershipTypeOpen] = useState(false);
+  const [companySizeOpen, setCompanySizeOpen] = useState(false);
+  const partnershipTypeRef = useRef(null);
+  const companySizeRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (partnershipTypeRef.current && !partnershipTypeRef.current.contains(e.target)) {
+        setPartnershipTypeOpen(false);
+      }
+      if (companySizeRef.current && !companySizeRef.current.contains(e.target)) {
+        setCompanySizeOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
+
+  // Global mouse move tracker for spotlight cursor-glow
+  const handleGlobalMouseMove = (e) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      });
+    }
+  };
+
+  // Individual Card mouse spotlight tracking
+  const handleCardMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
+  // Form Submission
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -31,14 +216,15 @@ export default function Collaboration() {
     e.preventDefault();
     const newErrors = {};
 
+    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
     if (!formData.companyName.trim()) newErrors.companyName = 'Company name is required';
-    if (!formData.contactPerson.trim()) newErrors.contactPerson = 'Contact person is required';
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = 'Business email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Invalid email address';
     }
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+    if (!formData.country.trim()) newErrors.country = 'Country is required';
     if (!formData.message.trim()) newErrors.message = 'Message is required';
 
     if (Object.keys(newErrors).length > 0) {
@@ -49,55 +235,257 @@ export default function Collaboration() {
     setFormSubmitted(true);
     setTimeout(() => {
       setFormData({
+        fullName: '',
         companyName: '',
-        contactPerson: '',
         email: '',
         phone: '',
-        partnershipType: 'Technology Partners',
+        country: '',
+        companyWebsite: '',
+        partnershipType: 'Technology Partner',
+        companySize: '1-10 Employees',
+        areasExpertise: '',
+        partnershipGoals: '',
         message: ''
       });
       setFormSubmitted(false);
     }, 5000);
   };
 
-  // Benefits List
-  const benefits = [
+  const scrollToForm = () => {
+    const el = document.getElementById('become-partner-form');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Data Definitions
+  const partnerBenefits = [
     {
-      title: 'Revenue Growth',
-      desc: 'Unlock joint sales pipelines, referral incentives, and structured revenue-sharing models.',
+      title: "Increased Revenue Opportunities",
+      desc: "Access new markets, customers, and business opportunities through joint sales and collaborative engagements.",
       icon: (
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <line x1="12" y1="1" x2="12" y2="23" />
-          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+          <line x1="18" y1="20" x2="18" y2="10" />
+          <line x1="12" y1="20" x2="12" y2="4" />
+          <line x1="6" y1="20" x2="6" y2="14" />
+          <polyline points="18 10 12 4 6 10" />
         </svg>
       )
     },
     {
-      title: 'Expanded Reach',
-      desc: 'Extend your market presence globally in enterprise sectors through co-marketing and sales initiatives.',
+      title: "Expanded Service Portfolio",
+      desc: "Enhance your offerings with our expertise in software development, cloud solutions, DevOps, AI, cybersecurity, and digital transformation.",
       icon: (
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+          <rect x="3" y="3" width="7" height="9" />
+          <rect x="14" y="3" width="7" height="5" />
+          <rect x="14" y="12" width="7" height="9" />
+          <rect x="3" y="16" width="7" height="5" />
+        </svg>
+      )
+    },
+    {
+      title: "Faster Time-to-Market",
+      desc: "Leverage proven frameworks, methodologies, and technology solutions to accelerate project delivery.",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
           <circle cx="12" cy="12" r="10" />
-          <line x1="2" y1="12" x2="22" y2="12" />
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          <polyline points="12 6 12 12 16 14" />
         </svg>
       )
     },
     {
-      title: 'Joint Innovation',
-      desc: 'Co-develop next-generation products, SaaS platforms, and integrations built on shared expertise.',
+      title: "Joint Go-to-Market Initiatives",
+      desc: "Participate in co-marketing campaigns, events, webinars, and business development programs.",
       icon: (
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
-          <line x1="12" y1="2" x2="12" y2="12" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+          <path d="M11 5L6 9H2v6h4l5 4V5z" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
         </svg>
       )
     },
     {
-      title: 'Technical Expertise',
-      desc: 'Access specialized engineering resources and frameworks across Cloud, DevOps, AI, and Cybersecurity.',
+      title: "Technical Expertise",
+      desc: "Gain access to experienced professionals, solution architects, and technology specialists.",
       icon: (
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+      )
+    },
+    {
+      title: "Innovation & Growth",
+      desc: "Collaborate on emerging technologies and next-generation digital solutions.",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+          <path d="M15 14c.2-.2.4-.4.6-.7C16.8 11.7 17 10 15.8 8.3c-1.3-1.8-4.3-1.8-5.6 0-1.2 1.7-1 3.4.2 5 .2.3.4.5.6.7v3h4v-3zM9 18h6" />
+        </svg>
+      )
+    }
+  ];
+
+  const partnerCategories = [
+    {
+      title: "Technology Companies",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+      )
+    },
+    {
+      title: "Software Vendors",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <rect x="2" y="2" width="20" height="20" rx="2.5" />
+          <line x1="2" y1="8" x2="22" y2="8" />
+          <line x1="6" y1="2" x2="6" y2="8" />
+        </svg>
+      )
+    },
+    {
+      title: "Cloud Providers",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+        </svg>
+      )
+    },
+    {
+      title: "Consulting Firms",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+        </svg>
+      )
+    },
+    {
+      title: "System Integrators",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+        </svg>
+      )
+    },
+    {
+      title: "Managed Service Providers (MSPs)",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        </svg>
+      )
+    },
+    {
+      title: "Startups",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <path d="M22 2l-11.5 11.5" />
+          <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+        </svg>
+      )
+    },
+    {
+      title: "Educational Institutions",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+        </svg>
+      )
+    },
+    {
+      title: "Government Organizations",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <path d="M3 22v-6h18v6M12 2L2 7h20zM5 7v9M21 7v9M10 7v9M14 7v9" />
+        </svg>
+      )
+    },
+    {
+      title: "Enterprise Solution Providers",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </svg>
+      )
+    },
+    {
+      title: "Cybersecurity Firms",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+      )
+    },
+    {
+      title: "AI and Data Analytics Companies",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+        </svg>
+      )
+    }
+  ];
+
+
+
+  const partnerResources = [
+    {
+      title: "Sales Enablement Materials",
+      desc: "Pitch decks, battlecards, and co-branded collateral to accelerate pipelines.",
+      sizeClass: "bento-normal",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+        </svg>
+      )
+    },
+    {
+      title: "Product Documentation",
+      desc: "Deep-dive API references, sandbox credentials, and platform integration guides to streamline developer workflows.",
+      sizeClass: "bento-w2",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+        </svg>
+      )
+    },
+    {
+      title: "Technical Training Programs",
+      desc: "Instructor-led courses, sandbox code labs, and developer certifications.",
+      sizeClass: "bento-normal",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+      )
+    },
+    {
+      title: "Solution Architecture Support",
+      desc: "1-on-1 consultations with senior systems architects to design, review, and validate complex integration plans.",
+      sizeClass: "bento-h2",
+      image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
           <polygon points="12 2 2 7 12 12 22 7 12 2" />
           <polyline points="2 17 12 22 22 17" />
           <polyline points="2 12 12 17 22 12" />
@@ -105,19 +493,112 @@ export default function Collaboration() {
       )
     },
     {
-      title: 'Faster Go-To-Market',
-      desc: 'Accelerate project cycles using our pre-built platforms and priority implementation support.',
+      title: "Marketing Resources",
+      desc: "Campaign playbooks, brand assets, and co-marketing guidelines.",
+      sizeClass: "bento-normal",
+      image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=400&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+          <path d="M11 5L6 9H2v6h4l5 4V5z" />
         </svg>
       )
     },
     {
-      title: 'Long-Term Collaboration',
-      desc: 'Build trust-based, sustainable alliances focused on long-term mutual customer satisfaction.',
+      title: "Joint Webinar Opportunities",
+      desc: "Co-host thought leadership sessions and webinar product demos to generate qualified pipeline.",
+      sizeClass: "bento-normal",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=400&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+          <path d="M23 7a2 2 0 0 0-2.45-1.45L16 7V5a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2l4.55 1.45A2 2 0 0 0 23 17V7z" />
+        </svg>
+      )
+    },
+    {
+      title: "Case Studies & Success Stories",
+      desc: "Leverage published impact reports and reference architectures to accelerate client sales bids.",
+      sizeClass: "bento-w2",
+      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      )
+    },
+    {
+      title: "Business Development Assistance",
+      desc: "Lead sharing pipelines, target accounts mapping, and warm intro programs.",
+      sizeClass: "bento-normal",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+          <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" />
+          <line x1="12" y1="22" x2="12" y2="12" />
+          <line x1="12" y1="12" x2="22" y2="8.5" />
+          <line x1="12" y1="12" x2="2" y2="8.5" />
+        </svg>
+      )
+    },
+    {
+      title: "Dedicated Partner Support",
+      desc: "Direct 24/7 Slack workspace channel integration and dedicated partner relationship desks.",
+      sizeClass: "bento-normal",
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </svg>
+      )
+    }
+  ];
+
+  const whyChooseUs = [
+    {
+      title: "Industry Expertise",
+      desc: "Deep experience across multiple industries and technology domains.",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="28" height="28">
+          <circle cx="12" cy="8" r="7" />
+          <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+        </svg>
+      )
+    },
+    {
+      title: "End-to-End Capabilities",
+      desc: "Comprehensive services from strategy and development to deployment and support.",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="28" height="28">
+          <ellipse cx="12" cy="5" rx="9" ry="3" />
+          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+          <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
+        </svg>
+      )
+    },
+    {
+      title: "Innovation-Driven Approach",
+      desc: "Focus on emerging technologies and future-ready solutions.",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="28" height="28">
+          <path d="M15 14c.2-.2.4-.4.6-.7C16.8 11.7 17 10 15.8 8.3c-1.3-1.8-4.3-1.8-5.6 0-1.2 1.7-1 3.4.2 5 .2.3.4.5.6.7v3h4v-3zM9 18h6" />
+        </svg>
+      )
+    },
+    {
+      title: "Global Delivery Model",
+      desc: "Scalable engagement models supporting businesses worldwide.",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="28" height="28">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="2" y1="12" x2="22" y2="12" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+      )
+    },
+    {
+      title: "Customer-Centric Mindset",
+      desc: "Commitment to delivering measurable value and exceptional customer experiences.",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="28" height="28">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
           <circle cx="9" cy="7" r="4" />
           <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -127,305 +608,572 @@ export default function Collaboration() {
     }
   ];
 
-  // Categories List
-  const categories = [
-    {
-      title: 'Cloud Partners',
-      desc: 'Collaborate to deliver scalable, secure cloud migrations, native architecture, and managed multi-cloud systems.',
-      color: 'blue'
-    },
-    {
-      title: 'AI & Data Partners',
-      desc: 'Integrate advanced predictive analytics, ML model deployment tools, and intelligent data lakehouses.',
-      color: 'purple'
-    },
-    {
-      title: 'Cybersecurity Partners',
-      desc: 'Deploy Zero-Trust compliance architectures, identity governance, and threat detection solutions.',
-      color: 'red'
-    },
-    {
-      title: 'Infrastructure Partners',
-      desc: 'Provide robust hardware integrations, virtualization clusters, and high-availability compute layers.',
-      color: 'blue'
-    },
-    {
-      title: 'DevOps Partners',
-      desc: 'Optimize CI/CD toolchains, GitOps deployment automations, and container orchestration runtimes.',
-      color: 'purple'
-    },
-    {
-      title: 'System Integration Partners',
-      desc: 'Ensure seamless system connections, legacy enterprise middleware upgrades, and API gateway routing.',
-      color: 'red'
-    }
-  ];
 
-  // Process Steps
-  const steps = [
-    { num: '1', title: 'Discover', desc: 'Identify shared goals, alliance synergies, and mutual market fits.' },
-    { num: '2', title: 'Evaluate', desc: 'Deep-dive assessment of integration scopes and target business models.' },
-    { num: '3', title: 'Align', desc: 'Determine partnership tiering, service levels, and success criteria.' },
-    { num: '4', title: 'Onboard', desc: 'Access training sandboxes, documentation toolkits, and shared code.' },
-    { num: '5', title: 'Launch', desc: 'Deploy joint offerings and initiate cooperative pipelines.' },
-    { num: '6', title: 'Grow', desc: 'Scale customer success models and review strategic business values.' }
-  ];
 
-  // Resources List
-  const resources = [
-    {
-      title: 'Technical Support',
-      desc: 'Dedicated developer desks, sandbox channels, and 24/7 priority integration assistance.',
-      icon: '🔧'
-    },
-    {
-      title: 'Documentation',
-      desc: 'Fully mapped RESTful APIs, integration blueprints, wikis, and software repositories.',
-      icon: '📖'
-    },
-    {
-      title: 'Training',
-      desc: 'Bootcamps, product onboarding guides, and technology certification workflows.',
-      icon: '🎓'
-    },
-    {
-      title: 'Co-Marketing',
-      desc: 'Co-branded case studies, marketing collateral, webinars, and promotional resources.',
-      icon: '📢'
-    },
-    {
-      title: 'BizDev Support',
-      desc: 'Strategic pipeline sharing, customer routing, and regular sales mapping reviews.',
-      icon: '💼'
-    }
-  ];
 
-  // Why Us List
-  const whyUs = [
-    {
-      title: 'Enterprise Expertise',
-      desc: 'Proven engineering methodologies crafted for Fortune 500 companies and government departments.'
-    },
-    {
-      title: 'Global Delivery Model',
-      desc: 'Continuous project execution using regional support desks and secure remote delivery networks.'
-    },
-    {
-      title: 'Innovation Focus',
-      desc: 'Relentless proof-of-concept testing, tech stack prototyping, and agile research cycles.'
-    },
-    {
-      title: 'Customer-Centric Approach',
-      desc: 'High customer satisfaction and client retention ratings built on transparent Service Level Agreements.'
-    }
-  ];
+
+
 
   return (
-    <div className="tech-partners-page-container">
+    <div 
+      className="tech-partners-page-container" 
+      ref={containerRef}
+      onMouseMove={handleGlobalMouseMove}
+    >
+      {/* 0. Ambient Effects */}
+      <div className="collab-bg-grid"></div>
+      <div className="collab-ambient-orb orb-blue"></div>
+      <div className="collab-ambient-orb orb-pink"></div>
+      <div className="collab-ambient-orb orb-purple"></div>
+      <div className="light-beam beam-1"></div>
+      <div className="light-beam beam-2"></div>
+      
+      {/* Cursor Follow Glow Effect */}
+      <div 
+        className="cursor-follow-glow" 
+        style={{
+          left: `${mousePosition.x}px`,
+          top: `${mousePosition.y}px`,
+          transform: 'translate(-50%, -50%)'
+        }}
+      ></div>
+
       {/* 1. Hero Section */}
       <section className="tech-partners-hero">
-        <div className="hero-network-overlay"></div>
-        <div className="hero-glow-dot-1"></div>
-        <div className="hero-glow-dot-2"></div>
-        <div className="section-container">
-          <div className="tech-hero-content">
-            <span className="partners-subtitle">COLLABORATION PORTAL</span>
-            <h1 className="partners-title">
-              Build Stronger Solutions <br />
-              Through <span className="text-red">Strategic</span> Partnerships
-            </h1>
-            <p className="partners-desc">
-              Join the Tanvox Technologies partner ecosystem to co-innovate, expand market capabilities, and deliver next-generation digital transformation tools to global enterprise clients.
+        <div className="hero-bg-image-wrapper"></div>
+        <div className="hero-bg-blur-overlay"></div>
+        <div className="hero-bg-fade-overlay"></div>
+        <div className="collab-container">
+          <div className="tech-hero-grid">
+            <motion.div 
+              className="tech-hero-text-side"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <span className="partners-subtitle">
+                <span className="badge-glow-dot pink"></span>
+                Become a Partner
+              </span>
+              <h1 className="partners-title">
+                Grow Together Through <span className="grad-text">Innovation, Collaboration, and Shared Success</span>
+              </h1>
+              <p className="partners-desc">
+                Join our global partner ecosystem and unlock new opportunities to expand your business, deliver greater value to your customers, and accelerate digital transformation initiatives. Whether you are a technology provider, consulting firm, system integrator, reseller, cloud provider, startup, or enterprise partner, we believe that strong partnerships drive innovation and long-term success.
+              </p>
+              
+              <div className="partners-hero-actions">
+                <button className="btn-primary-purple" onClick={scrollToForm}>
+                  Apply to Become a Partner
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+                <a className="btn-outline-white" href="#become-partner-form">
+                  Talk to Our Partnership Team
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right Side Spacer so background image displays clearly */}
+            <div className="tech-hero-visual-side empty-spacer"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Why Partner With Us Section */}
+      <section className="collab-section">
+        <div className="collab-container">
+          <div className="collab-section-header">
+            <span className="section-subtitle">WHY PARTNER WITH US</span>
+            <h2>Build Stronger Businesses Through Strategic Collaboration</h2>
+            <p style={{ maxWidth: '680px', margin: '0 auto', fontSize: '1.05rem', color: 'var(--collab-text-muted)', lineHeight: '1.6' }}>
+              We work closely with our partners to create mutually beneficial relationships that deliver measurable business outcomes.
             </p>
-            <div className="partners-hero-actions">
-              <a href="#partner-form" className="cta-button">Become a Partner</a>
-              <a href="#contact" className="hero-btn-outline">Talk to Alliance Team</a>
+          </div>
+
+          <motion.div 
+            className="benefits-unified-card"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            <div className="unified-card-grid">
+              {partnerBenefits.map((item, idx) => (
+                <motion.div 
+                  className="unified-card-item" 
+                  key={idx} 
+                  variants={itemVariants}
+                  onClick={() => handleBenefitClick(idx)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <motion.div 
+                    className="benefit-circle-icon-wrapper"
+                    animate={{ rotate: iconRotations[idx] || 0 }}
+                    transition={{ type: "spring", stiffness: 120, damping: 12 }}
+                  >
+                    {item.icon}
+                  </motion.div>
+                  <div className="benefit-text-wrapper">
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2.5 Who We Partner With Section */}
+      <section className="collab-section bg-dark-accent">
+        <div className="collab-container">
+          <div className="collab-section-header">
+            <span className="section-subtitle">Target Verticals</span>
+            <h2>Who We Partner With</h2>
+            <p style={{ maxWidth: '620px', margin: '0 auto', fontSize: '1.05rem', color: 'var(--collab-text-muted)', lineHeight: '1.6' }}>
+              We welcome partnerships from organizations across diverse technology, cloud, and consulting frameworks:
+            </p>
+          </div>
+
+          <div className="partner-marquee-container">
+            <div className="partner-marquee-wrapper">
+              <div className="partner-marquee-fade-left"></div>
+              <div className="partner-marquee-fade-right"></div>
+              
+              <div className="partner-marquee-track">
+                {partnerCategories.slice(0, 6).concat(partnerCategories.slice(0, 6)).map((cat, idx) => (
+                  <div className="partner-pill-badge" key={idx}>
+                    {cat.icon}
+                    <span>{cat.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="partner-marquee-wrapper" style={{ marginTop: '16px' }}>
+              <div className="partner-marquee-fade-left"></div>
+              <div className="partner-marquee-fade-right"></div>
+              
+              <div className="partner-marquee-track" style={{ animationDirection: 'reverse' }}>
+                {partnerCategories.slice(6, 12).concat(partnerCategories.slice(6, 12)).map((cat, idx) => (
+                  <div className="partner-pill-badge" key={idx}>
+                    {cat.icon}
+                    <span>{cat.title}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Benefits of Partnering */}
-      <section className="partners-benefits-section">
-        <div className="section-container">
-          <div className="partners-section-header">
-            <span className="section-subtitle">MUTUAL VALUES</span>
-            <h2 className="section-title">Benefits of Partnering with Tanvox</h2>
-            <p className="section-desc">Unlock strategic business growth, shared development opportunities, and continuous technical innovation.</p>
-          </div>
-          <div className="partners-benefits-grid">
-            {benefits.map((b, idx) => (
-              <div className="partner-benefit-card" key={idx}>
-                <div className="benefit-icon-wrapper">
-                  {b.icon}
+
+
+         {/* 4. Partner Resources Section */}
+         <section className="collab-section">
+           <div className="collab-container">
+             <div className="collab-section-header">
+               <span className="section-subtitle">PARTNER RESOURCES</span>
+               <h2>Tools and Support for Partner Success</h2>
+               <p className="collab-section-subdesc">
+                 Unlock growth pipelines using our comprehensive partner resource bento hub (click to highlight).
+               </p>
+             </div>
+  
+             <motion.div 
+               className="bento-grid-container"
+               variants={containerVariants}
+               initial="hidden"
+               whileInView="show"
+               viewport={{ once: true, amount: 0.05 }}
+             >
+               {partnerResources.map((res, idx) => (
+                 <motion.div 
+                   className={`bento-card ${res.sizeClass} ${clickedCard === idx ? 'bento-active' : ''}`}
+                   key={idx}
+                   variants={itemVariants}
+                   onMouseMove={handleCardMouseMove}
+                   onClick={() => handleCardClick(idx)}
+                   whileTap={{ scale: 0.96 }}
+                   style={{ cursor: 'pointer' }}
+                 >
+                   <motion.div 
+                     className="bento-card-bg-image" 
+                     style={{ backgroundImage: `url(${res.image})` }}
+                     animate={{ scale: clickedCard === idx ? 1.25 : 1 }}
+                     transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                   />
+                   <div className="bento-card-overlay"></div>
+                   
+                   <div className="bento-icon-wrapper">
+                     {res.icon}
+                   </div>
+                   <div className="bento-content">
+                     <h4>{res.title}</h4>
+                     <p>{res.desc}</p>
+                   </div>
+                 </motion.div>
+               ))}
+             </motion.div>
+           </div>
+         </section>
+
+      {/* 4.5 Why Organizations Choose Us Section */}
+      <section className="collab-section">
+        <div className="collab-container">
+          <motion.div 
+            className="choose-us-unified-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="choose-us-header">
+              <span className="choose-us-subtitle">WHY ORGANIZATIONS CHOOSE US</span>
+              <h2>Strategic Advantages & Execution Depth</h2>
+            </div>
+            
+            <div className="choose-us-grid">
+              {whyChooseUs.map((item, idx) => (
+                <div className="choose-us-item" key={idx}>
+                  <div className="choose-us-icon-wrapper">
+                    {item.icon}
+                  </div>
+                  <div className="choose-us-text">
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                  </div>
                 </div>
-                <h3>{b.title}</h3>
-                <p>{b.desc}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
 
 
-      {/* 5. Partner Resources & Support */}
-      <section className="partners-resources-section">
-        <div className="section-container">
-          <div className="partners-section-header">
-            <span className="section-subtitle">PARTNER TOOLKIT</span>
-            <h2 className="section-title">Partner Resources & Support</h2>
-            <p className="section-desc">Accelerate your team's development curves with our dedicated technology libraries and developer packages.</p>
-          </div>
-          <div className="partners-resources-grid">
-            {resources.map((r, idx) => (
-              <div className="partner-resource-card" key={idx}>
-                <div className="resource-emoji">{r.icon}</div>
-                <h3>{r.title}</h3>
-                <p>{r.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 6. Why Partner with Tanvox */}
-      <section className="partners-why-section">
-        <div className="section-container">
-          <div className="partners-section-header">
-            <span className="section-subtitle">WHY CHOOSE US</span>
-            <h2 className="section-title">Why Partner with Tanvox?</h2>
-            <p className="section-desc">Align with a world-class technology firm offering premium product support and engineering capacities.</p>
-          </div>
-          <div className="partners-why-grid">
-            {whyUs.map((w, idx) => (
-              <div className="partner-why-card" key={idx}>
-                <div className="why-decor-line"></div>
-                <h3>{w.title}</h3>
-                <p>{w.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 7. Become a Partner Form */}
-      <section className="partners-form-section" id="partner-form">
-        <div className="section-container">
-          <div className="partners-section-header">
-            <span className="section-subtitle">GET IN TOUCH</span>
-            <h2 className="section-title">Become a Technology Partner</h2>
-            <p className="section-desc">Submit your inquiry, and our partnership management team will contact you within 2 business days.</p>
+
+
+      {/* 8. Become a Partner Form */}
+      <section className="collab-section" id="become-partner-form">
+        <div className="collab-container">
+          <div className="collab-section-header">
+            <span className="section-subtitle">Get Started</span>
+            <h2>Partner Inquiry Form</h2>
+            <p>Complete the form below to submit your partnership inquiry. Our alliances team will review your application and respond shortly.</p>
           </div>
 
-          <div className="partner-form-wrapper">
-            <div className="form-glass-container">
+          <div className="form-glass-card">
+            <AnimatePresence mode="wait">
               {formSubmitted ? (
-                <div className="form-success-alert">
-                  <div className="success-icon-box">✓</div>
+                <motion.div 
+                  className="success-alert-box"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <div className="success-icon">✓</div>
                   <h3>Submission Successful!</h3>
-                  <p>Thank you for your interest in partnering with Tanvox Technologies. Our alliance managers will review your submission and contact you shortly.</p>
-                </div>
+                  <p>Our alliances manager will review your submission and contact you within 2 business days.</p>
+                </motion.div>
               ) : (
-                <form onSubmit={handleFormSubmit} className="partner-inquiry-form">
+                <form onSubmit={handleFormSubmit}>
                   <div className="form-grid-row">
                     <div className="form-input-group">
-                      <label htmlFor="companyName">Company Name *</label>
-                      <input
-                        type="text"
-                        id="companyName"
-                        name="companyName"
-                        value={formData.companyName}
+                      <label 
+                        htmlFor="fullName"
+                        className={focusedField === 'fullName' || formData.fullName ? 'label-float' : ''}
+                      >
+                        Full Name *
+                      </label>
+                      <input 
+                        type="text" 
+                        id="fullName" 
+                        name="fullName" 
+                        value={formData.fullName}
                         onChange={handleInputChange}
-                        className={errors.companyName ? 'error-border' : ''}
-                        placeholder="e.g. Acme Tech Solutions"
+                        onFocus={() => setFocusedField('fullName')}
+                        onBlur={() => setFocusedField(null)}
+                        className={errors.fullName ? 'error-border' : ''}
+                        placeholder={focusedField === 'fullName' ? "e.g. Jane Smith" : ""} 
                       />
-                      {errors.companyName && <span className="field-error-msg">{errors.companyName}</span>}
+                      {errors.fullName && <span className="field-error-msg">{errors.fullName}</span>}
                     </div>
 
                     <div className="form-input-group">
-                      <label htmlFor="contactPerson">Contact Person *</label>
-                      <input
-                        type="text"
-                        id="contactPerson"
-                        name="contactPerson"
-                        value={formData.contactPerson}
+                      <label 
+                        htmlFor="companyName"
+                        className={focusedField === 'companyName' || formData.companyName ? 'label-float' : ''}
+                      >
+                        Company Name *
+                      </label>
+                      <input 
+                        type="text" 
+                        id="companyName" 
+                        name="companyName" 
+                        value={formData.companyName}
                         onChange={handleInputChange}
-                        className={errors.contactPerson ? 'error-border' : ''}
-                        placeholder="e.g. John Doe"
+                        onFocus={() => setFocusedField('companyName')}
+                        onBlur={() => setFocusedField(null)}
+                        className={errors.companyName ? 'error-border' : ''}
+                        placeholder={focusedField === 'companyName' ? "e.g. Acme Corp" : ""} 
                       />
-                      {errors.contactPerson && <span className="field-error-msg">{errors.contactPerson}</span>}
+                      {errors.companyName && <span className="field-error-msg">{errors.companyName}</span>}
                     </div>
                   </div>
 
                   <div className="form-grid-row">
                     <div className="form-input-group">
-                      <label htmlFor="email">Work Email *</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
+                      <label 
+                        htmlFor="email"
+                        className={focusedField === 'email' || formData.email ? 'label-float' : ''}
+                      >
+                        Business Email *
+                      </label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
                         value={formData.email}
                         onChange={handleInputChange}
+                        onFocus={() => setFocusedField('email')}
+                        onBlur={() => setFocusedField(null)}
                         className={errors.email ? 'error-border' : ''}
-                        placeholder="e.g. john@company.com"
+                        placeholder={focusedField === 'email' ? "e.g. partner@acme.com" : ""} 
                       />
                       {errors.email && <span className="field-error-msg">{errors.email}</span>}
                     </div>
 
                     <div className="form-input-group">
-                      <label htmlFor="phone">Phone Number *</label>
-                      <input
-                        type="text"
-                        id="phone"
-                        name="phone"
+                      <label 
+                        htmlFor="phone"
+                        className={focusedField === 'phone' || formData.phone ? 'label-float' : ''}
+                      >
+                        Phone Number *
+                      </label>
+                      <input 
+                        type="text" 
+                        id="phone" 
+                        name="phone" 
                         value={formData.phone}
                         onChange={handleInputChange}
+                        onFocus={() => setFocusedField('phone')}
+                        onBlur={() => setFocusedField(null)}
                         className={errors.phone ? 'error-border' : ''}
-                        placeholder="e.g. +1 555-0199"
+                        placeholder={focusedField === 'phone' ? "e.g. +1 (555) 019-2834" : ""} 
                       />
                       {errors.phone && <span className="field-error-msg">{errors.phone}</span>}
                     </div>
                   </div>
 
-                  <div className="form-input-group">
-                    <label htmlFor="partnershipType">Partnership Type *</label>
-                    <select
-                      id="partnershipType"
-                      name="partnershipType"
-                      value={formData.partnershipType}
-                      onChange={handleInputChange}
-                    >
-                      <option value="Technology Partners">Technology Partners</option>
-                      <option value="Cloud Partners">Cloud Partners</option>
-                      <option value="AI & Data Partners">AI & Data Partners</option>
-                      <option value="Cybersecurity Partners">Cybersecurity Partners</option>
-                      <option value="DevOps Partners">DevOps Partners</option>
-                      <option value="System Integration Partners">System Integration Partners</option>
-                    </select>
+                  <div className="form-grid-row">
+                    <div className="form-input-group">
+                      <label 
+                        htmlFor="country"
+                        className={focusedField === 'country' || formData.country ? 'label-float' : ''}
+                      >
+                        Country *
+                      </label>
+                      <input 
+                        type="text" 
+                        id="country" 
+                        name="country" 
+                        value={formData.country}
+                        onChange={handleInputChange}
+                        onFocus={() => setFocusedField('country')}
+                        onBlur={() => setFocusedField(null)}
+                        className={errors.country ? 'error-border' : ''}
+                        placeholder={focusedField === 'country' ? "e.g. United States" : ""} 
+                      />
+                      {errors.country && <span className="field-error-msg">{errors.country}</span>}
+                    </div>
+
+                    <div className="form-input-group">
+                      <label 
+                        htmlFor="companyWebsite"
+                        className={focusedField === 'companyWebsite' || formData.companyWebsite ? 'label-float' : ''}
+                      >
+                        Company Website
+                      </label>
+                      <input 
+                        type="url" 
+                        id="companyWebsite" 
+                        name="companyWebsite" 
+                        value={formData.companyWebsite}
+                        onChange={handleInputChange}
+                        onFocus={() => setFocusedField('companyWebsite')}
+                        onBlur={() => setFocusedField(null)}
+                        placeholder={focusedField === 'companyWebsite' ? "https://acme.com" : ""} 
+                      />
+                    </div>
                   </div>
 
-                  <div className="form-input-group">
-                    <label htmlFor="message">Message *</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="5"
+                  <div className="form-grid-row">
+                    <div className="form-input-group" ref={partnershipTypeRef} style={{ position: 'relative' }}>
+                      <label className="label-float">Partnership Type *</label>
+                      <div 
+                        className={`custom-select-trigger ${partnershipTypeOpen ? 'active' : ''}`}
+                        onClick={() => setPartnershipTypeOpen(!partnershipTypeOpen)}
+                      >
+                        <span>{formData.partnershipType}</span>
+                        <svg className={`select-arrow ${partnershipTypeOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                      
+                      <AnimatePresence>
+                        {partnershipTypeOpen && (
+                          <motion.div 
+                            className="custom-select-dropdown"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.15 }}
+                          >
+                            {[
+                              "Technology Partner", "Software Vendor", "Cloud Provider", 
+                              "Consulting Partner", "System Integration Partner", 
+                              "Managed Service Provider (MSP)", "Startup Alliance", 
+                              "Educational Partner", "Government Partner", 
+                              "Enterprise Solution Partner", "Cybersecurity Partner", 
+                              "AI / Analytics Partner"
+                            ].map((option) => (
+                              <div 
+                                key={option}
+                                className={`custom-select-option ${formData.partnershipType === option ? 'selected' : ''}`}
+                                onClick={() => {
+                                  setFormData(prev => ({ ...prev, partnershipType: option }));
+                                  setPartnershipTypeOpen(false);
+                                }}
+                              >
+                                {option}
+                              </div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
+                    <div className="form-input-group" ref={companySizeRef} style={{ position: 'relative' }}>
+                      <label className="label-float">Company Size *</label>
+                      <div 
+                        className={`custom-select-trigger ${companySizeOpen ? 'active' : ''}`}
+                        onClick={() => setCompanySizeOpen(!companySizeOpen)}
+                      >
+                        <span>{formData.companySize}</span>
+                        <svg className={`select-arrow ${companySizeOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                      
+                      <AnimatePresence>
+                        {companySizeOpen && (
+                          <motion.div 
+                            className="custom-select-dropdown"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.15 }}
+                          >
+                            {[
+                              "1-10 Employees", "11-50 Employees", "51-200 Employees", 
+                              "201-500 Employees", "500+ Employees"
+                            ].map((option) => (
+                              <div 
+                                key={option}
+                                className={`custom-select-option ${formData.companySize === option ? 'selected' : ''}`}
+                                onClick={() => {
+                                  setFormData(prev => ({ ...prev, companySize: option }));
+                                  setCompanySizeOpen(false);
+                                }}
+                              >
+                                {option}
+                              </div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+
+                  <div className="form-input-group" style={{ marginTop: '12px' }}>
+                    <label 
+                      htmlFor="areasExpertise"
+                      className={focusedField === 'areasExpertise' || formData.areasExpertise ? 'label-float' : ''}
+                    >
+                      Areas of Expertise
+                    </label>
+                    <textarea 
+                      id="areasExpertise" 
+                      name="areasExpertise" 
+                      rows="2"
+                      value={formData.areasExpertise}
+                      onChange={handleInputChange}
+                      onFocus={() => setFocusedField('areasExpertise')}
+                      onBlur={() => setFocusedField(null)}
+                      placeholder={focusedField === 'areasExpertise' ? "Describe your domains (e.g. Cloud, AI, Cybersecurity)..." : ""}
+                    ></textarea>
+                  </div>
+
+                  <div className="form-input-group" style={{ marginTop: '12px' }}>
+                    <label 
+                      htmlFor="partnershipGoals"
+                      className={focusedField === 'partnershipGoals' || formData.partnershipGoals ? 'label-float' : ''}
+                    >
+                      Partnership Goals
+                    </label>
+                    <textarea 
+                      id="partnershipGoals" 
+                      name="partnershipGoals" 
+                      rows="2"
+                      value={formData.partnershipGoals}
+                      onChange={handleInputChange}
+                      onFocus={() => setFocusedField('partnershipGoals')}
+                      onBlur={() => setFocusedField(null)}
+                      placeholder={focusedField === 'partnershipGoals' ? "State what you would like to achieve..." : ""}
+                    ></textarea>
+                  </div>
+
+                  <div className="form-input-group" style={{ marginTop: '12px' }}>
+                    <label 
+                      htmlFor="message"
+                      className={focusedField === 'message' || formData.message ? 'label-float' : ''}
+                    >
+                      Message *
+                    </label>
+                    <textarea 
+                      id="message" 
+                      name="message" 
+                      rows="3"
                       value={formData.message}
                       onChange={handleInputChange}
+                      onFocus={() => setFocusedField('message')}
+                      onBlur={() => setFocusedField(null)}
                       className={errors.message ? 'error-border' : ''}
-                      placeholder="Briefly describe your technological capabilities and partnership objectives..."
+                      placeholder={focusedField === 'message' ? "Describe your integration goals..." : ""}
                     ></textarea>
                     {errors.message && <span className="field-error-msg">{errors.message}</span>}
                   </div>
 
-                  <button type="submit" className="cta-button submit-btn">Submit Inquiry</button>
+                  <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: '20px' }}>
+                    <button className="btn-primary-purple" style={{ minWidth: '220px' }}>
+                      Submit Application
+                    </button>
+                  </div>
                 </form>
               )}
-            </div>
+            </AnimatePresence>
           </div>
         </div>
       </section>
+
+
     </div>
   );
 }

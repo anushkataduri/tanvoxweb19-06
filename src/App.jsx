@@ -583,8 +583,8 @@ function App() {
                   
                   <h1 className="hero-title">
                     Empowering Businesses<br />
-                    Through <span className="text-red">Digital Innovation,</span><br />
-                    <span className="text-blue">AI & Enterprise Technology</span>
+                    Through <span className="text-gradient-purple-pink">Digital Innovation,<br />
+                    AI & Enterprise Technology</span>
                   </h1>
                   
                   <p className="hero-desc">
@@ -602,26 +602,6 @@ function App() {
                         <line x1="3" y1="10" x2="21" y2="10"/>
                       </svg>
                       Schedule a Consultation
-                    </a>
-                    
-                    {/* Request Proposal Button */}
-                    <a href="#proposal" className="hero-btn-outline" style={{ gap: '0.75rem' }}>
-                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                      </svg>
-                      Request a Proposal
-                    </a>
-
-                    {/* Get Started Button */}
-                    <a href="#get-started" className="hero-btn-outline" style={{ gap: '0.75rem' }}>
-                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"/>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                      </svg>
-                      Get Started
                     </a>
                   </div>
 

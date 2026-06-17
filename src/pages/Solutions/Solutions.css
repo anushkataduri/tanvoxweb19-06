@@ -6,21 +6,21 @@
 
 .solutions-page {
   /* Brand Color Variables */
-  --sol-primary: #0B1F5F;         /* Deep Enterprise Navy */
-  --sol-secondary: #2563EB;       /* Vibrant Digital Blue */
-  --sol-accent: #EC008C;          /* Modern Tech Pink/Magenta */
-  --sol-purple: #7B2CBF;          /* Deep Tech Purple */
-  --sol-dark-bg: #020B2D;         /* Dark Navy base */
+  --sol-primary: #0b1f5f; /* Deep Enterprise Navy */
+  --sol-secondary: #2563eb; /* Vibrant Digital Blue */
+  --sol-accent: #ec008c; /* Modern Tech Pink/Magenta */
+  --sol-purple: #7b2cbf; /* Deep Tech Purple */
+  --sol-dark-bg: #020b2d; /* Dark Navy base */
   --sol-card-bg: rgba(255, 255, 255, 0.03);
   --sol-card-border: rgba(255, 255, 255, 0.08);
   --sol-glass-bg: rgba(2, 11, 45, 0.7);
-  --sol-light-bg: #F8FAFC;        /* Light clean background */
-  --sol-text-dark: #0F172A;       /* Slate 900 */
-  --sol-text-gray: #475569;       /* Slate 600 */
-  --sol-text-light: #F1F5F9;      /* Slate 100 */
-  --sol-white: #FFFFFF;
+  --sol-light-bg: #f8fafc; /* Light clean background */
+  --sol-text-dark: #0f172a; /* Slate 900 */
+  --sol-text-gray: #475569; /* Slate 600 */
+  --sol-text-light: #f1f5f9; /* Slate 100 */
+  --sol-white: #ffffff;
 
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
   color: var(--sol-text-dark);
   background-color: var(--sol-light-bg);
   overflow-x: hidden;
@@ -115,7 +115,7 @@
 }
 
 .sol-btn-primary {
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: var(--sol-white);
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
 }
@@ -178,15 +178,23 @@
   transform: translateX(3px);
 }
 
-
 /* ==========================================================================
    1. HERO SECTION - Compact layout and fonts
    ========================================================================== */
 .solutions-hero {
   position: relative;
-  background: radial-gradient(circle at 75% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(236, 0, 140, 0.1) 0%, transparent 60%),
-              linear-gradient(135deg, var(--sol-primary) 0%, var(--sol-dark-bg) 100%);
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(37, 99, 235, 0.15) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(236, 0, 140, 0.1) 0%,
+      transparent 60%
+    ),
+    linear-gradient(135deg, var(--sol-primary) 0%, var(--sol-dark-bg) 100%);
   min-height: 75vh; /* Reduced height */
   padding-top: 130px; /* Increased from 80px to prevent navbar overlap */
   padding-bottom: 3rem;
@@ -210,7 +218,7 @@
 .solutions-hero-badge {
   background: rgba(37, 99, 235, 0.1);
   border: 1px solid rgba(37, 99, 235, 0.25);
-  color: #60A5FA;
+  color: #60a5fa;
   padding: 0.3rem 0.8rem;
   border-radius: 50px;
   font-size: 0.72rem;
@@ -227,15 +235,21 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   margin-bottom: 0.75rem;
-  background: linear-gradient(120deg, var(--sol-white) 40%, #93C5FD 75%, #F472B6 100%);
+  background: linear-gradient(
+    120deg,
+    var(--sol-white) 40%,
+    #93c5fd 75%,
+    #f472b6 100%
+  );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .solutions-hero-subtitle {
   font-size: 1.15rem; /* Reduced from 1.5rem */
   font-weight: 500;
-  color: #93C5FD;
+  color: #93c5fd;
   margin-bottom: 1rem;
   line-height: 1.35;
 }
@@ -300,26 +314,170 @@
 }
 
 /* Custom Positions for Floating Nodes - Adjusted for smaller box */
-.node-ai { top: 8%; left: -5%; border-color: rgba(236, 0, 140, 0.35); color: #F472B6; }
-.node-cloud { top: 18%; right: -8%; border-color: rgba(37, 99, 235, 0.35); color: #60A5FA; }
-.node-security { bottom: 22%; left: -10%; border-color: rgba(123, 44, 191, 0.35); color: #C084FC; }
-.node-data { bottom: 10%; right: -2%; border-color: rgba(34, 197, 94, 0.35); color: #4ADE80; }
-.node-dx { top: 48%; left: -15%; border-color: rgba(245, 158, 11, 0.35); color: #FBBF24; }
-.node-industry { bottom: 44%; right: -12%; border-color: rgba(6, 182, 212, 0.35); color: #22D3EE; }
-
+.node-ai {
+  top: 8%;
+  left: -5%;
+  border-color: rgba(236, 0, 140, 0.35);
+  color: #f472b6;
+}
+.node-cloud {
+  top: 18%;
+  right: -8%;
+  border-color: rgba(37, 99, 235, 0.35);
+  color: #60a5fa;
+}
+.node-security {
+  bottom: 22%;
+  left: -10%;
+  border-color: rgba(123, 44, 191, 0.35);
+  color: #c084fc;
+}
+.node-data {
+  bottom: 10%;
+  right: -2%;
+  border-color: rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+}
+.node-dx {
+  top: 48%;
+  left: -15%;
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+.node-industry {
+  bottom: 44%;
+  right: -12%;
+  border-color: rgba(6, 182, 212, 0.35);
+  color: #22d3ee;
+}
 
 /* ==========================================================================
    2. SOLUTIONS OVERVIEW - Compact size
    ========================================================================== */
 .solutions-overview-grid {
   display: grid;
-  grid-template-columns: 0.75fr 1.25fr;
+  grid-template-columns: 1fr auto 1.2fr;
   gap: 3rem;
   align-items: center;
 }
 
+@media (max-width: 1024px) {
+  .solutions-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
 .solutions-overview-left {
-  max-width: 440px;
+  max-width: 460px;
+}
+
+/* Vertical divider styling */
+.solutions-overview-divider {
+  width: 1px;
+  height: 180px;
+  background-color: rgba(15, 23, 42, 0.1);
+  align-self: center;
+}
+
+@media (max-width: 1024px) {
+  .solutions-overview-divider {
+    display: none;
+  }
+}
+
+/* Solutions Overview Names List Layout (Image 2 style) */
+.solutions-overview-right-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.solutions-overview-title-right {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--sol-secondary);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.solutions-overview-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem 2rem;
+}
+
+@media (max-width: 640px) {
+  .solutions-overview-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.solutions-overview-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.4rem 0;
+  transition: transform 0.25s ease;
+  text-decoration: none;
+}
+
+.solutions-overview-item:hover {
+  transform: translateX(4px);
+}
+
+.solutions-overview-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.solutions-overview-item:hover .solutions-overview-icon-wrapper {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+}
+
+.solutions-overview-item.enterprise-item .solutions-overview-icon-wrapper {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--sol-secondary);
+}
+.solutions-overview-item.industry-item .solutions-overview-icon-wrapper {
+  background: rgba(123, 44, 191, 0.08);
+  color: var(--sol-purple);
+}
+.solutions-overview-item.dx-item .solutions-overview-icon-wrapper {
+  background: rgba(236, 0, 140, 0.08);
+  color: var(--sol-accent);
+}
+.solutions-overview-item.ai-item .solutions-overview-icon-wrapper {
+  background: rgba(6, 182, 212, 0.08);
+  color: #0891b2;
+}
+.solutions-overview-item.cloud-item .solutions-overview-icon-wrapper {
+  background: rgba(34, 197, 94, 0.08);
+  color: #16a34a;
+}
+.solutions-overview-item.data-item .solutions-overview-icon-wrapper {
+  background: rgba(245, 158, 11, 0.08);
+  color: #d97706;
+}
+
+.solutions-overview-icon-wrapper svg {
+  width: 18px;
+  height: 18px;
+}
+
+.solutions-overview-item-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--sol-text-dark);
 }
 
 .solutions-overview-left h2 {
@@ -328,8 +486,13 @@
   line-height: 1.25;
   margin-top: 0.4rem;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--sol-primary) 0%, var(--sol-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--sol-primary) 0%,
+    var(--sol-secondary) 100%
+  );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -381,12 +544,30 @@
 }
 
 /* Card custom theme colors */
-.solution-area-card.enterprise-sol-theme .solution-area-card-icon { background: rgba(37, 99, 235, 0.08); color: var(--sol-secondary); }
-.solution-area-card.industry-sol-theme .solution-area-card-icon { background: rgba(123, 44, 191, 0.08); color: var(--sol-purple); }
-.solution-area-card.dx-sol-theme .solution-area-card-icon { background: rgba(236, 0, 140, 0.08); color: var(--sol-accent); }
-.solution-area-card.ai-sol-theme .solution-area-card-icon { background: rgba(6, 182, 212, 0.08); color: #0891B2; }
-.solution-area-card.cloud-sol-theme .solution-area-card-icon { background: rgba(34, 197, 94, 0.08); color: #16A34A; }
-.solution-area-card.data-sol-theme .solution-area-card-icon { background: rgba(245, 158, 11, 0.08); color: #D97706; }
+.solution-area-card.enterprise-sol-theme .solution-area-card-icon {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--sol-secondary);
+}
+.solution-area-card.industry-sol-theme .solution-area-card-icon {
+  background: rgba(123, 44, 191, 0.08);
+  color: var(--sol-purple);
+}
+.solution-area-card.dx-sol-theme .solution-area-card-icon {
+  background: rgba(236, 0, 140, 0.08);
+  color: var(--sol-accent);
+}
+.solution-area-card.ai-sol-theme .solution-area-card-icon {
+  background: rgba(6, 182, 212, 0.08);
+  color: #0891b2;
+}
+.solution-area-card.cloud-sol-theme .solution-area-card-icon {
+  background: rgba(34, 197, 94, 0.08);
+  color: #16a34a;
+}
+.solution-area-card.data-sol-theme .solution-area-card-icon {
+  background: rgba(245, 158, 11, 0.08);
+  color: #d97706;
+}
 
 .solution-area-card h3 {
   font-size: 1.05rem; /* Reduced from 1.25rem */
@@ -401,7 +582,6 @@
   color: var(--sol-text-gray);
   margin-bottom: 1rem;
 }
-
 
 /* ==========================================================================
    3. ENTERPRISE SOLUTIONS - Compact card size
@@ -428,7 +608,7 @@
 }
 
 .enterprise-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -437,10 +617,18 @@
   background: transparent;
 }
 
-.enterprise-card.erp-theme::before { background: linear-gradient(90deg, var(--sol-secondary), #3B82F6); }
-.enterprise-card.crm-theme::before { background: linear-gradient(90deg, var(--sol-accent), #F472B6); }
-.enterprise-card.hrms-theme::before { background: linear-gradient(90deg, var(--sol-purple), #A78BFA); }
-.enterprise-card.platforms-theme::before { background: linear-gradient(90deg, #06B6D4, #22D3EE); }
+.enterprise-card.erp-theme::before {
+  background: linear-gradient(90deg, var(--sol-secondary), #3b82f6);
+}
+.enterprise-card.crm-theme::before {
+  background: linear-gradient(90deg, var(--sol-accent), #f472b6);
+}
+.enterprise-card.hrms-theme::before {
+  background: linear-gradient(90deg, var(--sol-purple), #a78bfa);
+}
+.enterprise-card.platforms-theme::before {
+  background: linear-gradient(90deg, #06b6d4, #22d3ee);
+}
 
 .enterprise-card:hover {
   transform: translateY(-5px);
@@ -463,10 +651,22 @@
   height: 20px;
 }
 
-.enterprise-card.erp-theme .enterprise-card-icon { background: rgba(37, 99, 235, 0.12); color: #60A5FA; }
-.enterprise-card.crm-theme .enterprise-card-icon { background: rgba(236, 0, 140, 0.12); color: #F472B6; }
-.enterprise-card.hrms-theme .enterprise-card-icon { background: rgba(123, 44, 191, 0.12); color: #C084FC; }
-.enterprise-card.platforms-theme .enterprise-card-icon { background: rgba(6, 182, 212, 0.12); color: #22D3EE; }
+.enterprise-card.erp-theme .enterprise-card-icon {
+  background: rgba(37, 99, 235, 0.12);
+  color: #60a5fa;
+}
+.enterprise-card.crm-theme .enterprise-card-icon {
+  background: rgba(236, 0, 140, 0.12);
+  color: #f472b6;
+}
+.enterprise-card.hrms-theme .enterprise-card-icon {
+  background: rgba(123, 44, 191, 0.12);
+  color: #c084fc;
+}
+.enterprise-card.platforms-theme .enterprise-card-icon {
+  background: rgba(6, 182, 212, 0.12);
+  color: #22d3ee;
+}
 
 .enterprise-card h3 {
   font-size: 1.2rem; /* Reduced from 1.5rem */
@@ -512,10 +712,18 @@
   height: 12px;
 }
 
-.enterprise-card.erp-theme .enterprise-list-item svg { color: #60A5FA; }
-.enterprise-card.crm-theme .enterprise-list-item svg { color: #F472B6; }
-.enterprise-card.hrms-theme .enterprise-list-item svg { color: #C084FC; }
-.enterprise-card.platforms-theme .enterprise-list-item svg { color: #22D3EE; }
+.enterprise-card.erp-theme .enterprise-list-item svg {
+  color: #60a5fa;
+}
+.enterprise-card.crm-theme .enterprise-list-item svg {
+  color: #f472b6;
+}
+.enterprise-card.hrms-theme .enterprise-list-item svg {
+  color: #c084fc;
+}
+.enterprise-card.platforms-theme .enterprise-list-item svg {
+  color: #22d3ee;
+}
 
 .enterprise-card .sol-link-learn {
   color: var(--sol-white);
@@ -524,6 +732,191 @@
   width: 100%;
 }
 
+/* White background section with premium dark cards */
+.enterprise-section-white {
+  background-color: #ffffff !important;
+  color: var(--sol-text-dark) !important;
+}
+
+.enterprise-section-white .solutions-section-subtitle {
+  color: var(--sol-secondary) !important;
+}
+
+.enterprise-section-white .solutions-section-title {
+  color: var(--sol-text-dark) !important;
+}
+
+.enterprise-section-white .solutions-section-desc {
+  color: var(--sol-text-gray) !important;
+}
+
+/* White background section with premium dark flip cards */
+.enterprise-section-white {
+  background-color: #ffffff !important;
+  color: var(--sol-text-dark) !important;
+}
+
+.enterprise-section-white .solutions-section-subtitle {
+  color: var(--sol-secondary) !important;
+}
+
+.enterprise-section-white .solutions-section-title {
+  color: var(--sol-text-dark) !important;
+}
+
+.enterprise-section-white .solutions-section-desc {
+  color: var(--sol-text-gray) !important;
+}
+
+/* 3D Flip Card Container */
+.enterprise-flip-card {
+  perspective: 1000px;
+  height: 350px;
+  width: 100%;
+}
+
+.enterprise-flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.enterprise-flip-card:hover .enterprise-flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.enterprise-flip-card-front,
+.enterprise-flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 14px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1e1b4b 0%, #ec008c 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Front side design */
+.enterprise-flip-card-front {
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding: 1.5rem 1.25rem;
+}
+
+.enterprise-flip-card-front .enterprise-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.enterprise-flip-card-front .enterprise-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.enterprise-flip-card-front h3 {
+  font-size: 1.25rem !important;
+  font-weight: 800;
+  color: #ffffff !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.enterprise-flip-card-front .enterprise-card-hint {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Back side design */
+.enterprise-flip-card-back {
+  transform: rotateY(180deg);
+  padding: 1.5rem 1.25rem;
+  text-align: left;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for back lists if they overflow */
+.enterprise-flip-card-back::-webkit-scrollbar {
+  width: 4px;
+}
+.enterprise-flip-card-back::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+.enterprise-flip-card-back::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.enterprise-flip-card h3 {
+  font-size: 1.15rem !important;
+  font-weight: 800;
+  color: #ffffff !important;
+  margin: 0 0 0.6rem 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 0.25rem;
+}
+
+.enterprise-flip-card .enterprise-list-section {
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+.enterprise-flip-card .enterprise-list-title {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5) !important;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.enterprise-flip-card .enterprise-list-item {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.enterprise-flip-card .enterprise-list-item svg {
+  width: 10px;
+  height: 10px;
+  margin-top: 3px;
+  color: #60a5fa !important;
+  flex-shrink: 0;
+}
+
+.enterprise-flip-card .sol-link-learn {
+  font-size: 0.75rem;
+  color: #60a5fa !important;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding-top: 0.5rem;
+  width: 100%;
+}
+
+.enterprise-flip-card .sol-link-learn:hover {
+  color: #a78bfa !important;
+}
 
 /* ==========================================================================
    4. INDUSTRY SOLUTIONS GRID - Premium Image Cards Masonry Grid
@@ -562,11 +955,12 @@
   box-sizing: border-box;
   flex-shrink: 0;
   border: 2px solid rgba(255, 255, 255, 0.05);
-  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
-              opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
-              box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
-              border-color 0.6s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  transition:
+    width 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
 /* Collapsed card default state */
@@ -623,10 +1017,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    transparent 40%,
-    rgba(15, 23, 42, 0.85) 95%
-  );
+  background: linear-gradient(transparent 40%, rgba(15, 23, 42, 0.85) 95%);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -674,10 +1065,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    transparent 40%,
-    rgba(15, 23, 42, 0.8) 95%
-  );
+  background: linear-gradient(transparent 40%, rgba(15, 23, 42, 0.8) 95%);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -847,9 +1235,8 @@
   }
 }
 
-
 .industry-overlay .sol-link-learn {
-  color: #60A5FA;
+  color: #60a5fa;
   font-size: 0.8rem;
   font-weight: 700;
   display: inline-flex;
@@ -877,176 +1264,364 @@
 }
 
 .industry-image-card:hover h3 {
-  color: #60A5FA; /* Title color transitions smoothly */
+  color: #60a5fa; /* Title color transitions smoothly */
 }
-
 
 /* ==========================================================================
-   5. FOUR INFORMATION BLOCKS SECTION - Compact layout
+   5. INFORMATION BLOCKS SECTION - Premium Light Cards Layout (Image style)
    ========================================================================== */
-.solutions-info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem; /* Tightened */
+.solutions-info-section-light {
+  background-color: #f8fafc !important;
+  padding: 5rem 0 !important;
+  color: var(--sol-text-dark) !important;
 }
 
-.solutions-info-block {
+.solutions-info-vertical-stack {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  gap: 1.5rem;
+  width: 100%;
 }
 
-.solutions-info-block-title {
-  font-size: 1.1rem; /* Reduced from 1.35rem */
-  font-weight: 800;
-  margin-bottom: 1.25rem;
-  color: var(--sol-white);
+.solutions-info-bottom-row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .solutions-info-bottom-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.solutions-info-card,
+.solutions-info-card-full {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+  border-radius: 16px;
+  padding: 1.5rem !important;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Card Header with Icon */
+.solutions-info-card-header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
 }
 
-.solutions-info-block-title svg {
+.solutions-info-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ec008c 0%, #7b2cbf 50%, #2563eb 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.solutions-info-card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.solutions-info-card-title-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.solutions-info-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.solutions-info-card-underline {
+  width: 32px;
+  height: 3px;
+  background: linear-gradient(90deg, #ec008c, #2563eb);
+  border-radius: 2px;
+  margin-top: 0.35rem;
+}
+
+/* Block 1: Delivery Process Timeline style */
+.solutions-timeline-container {
+  position: relative;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.25rem 0;
+}
+
+.solutions-timeline-line {
+  position: absolute;
+  top: 14px;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  border-top: 2px dashed rgba(123, 44, 191, 0.25);
+  z-index: 1;
+}
+
+.solutions-timeline-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.solutions-timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.solutions-timeline-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #7b2cbf;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.solutions-timeline-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f5f3ff;
+  color: #7b2cbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 10px rgba(123, 44, 191, 0.05);
+}
+
+.solutions-timeline-step:hover .solutions-timeline-icon {
+  transform: scale(1.1) translateY(-2px);
+  background: #7b2cbf;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(123, 44, 191, 0.2);
+}
+
+.solutions-timeline-icon svg {
   width: 16px;
   height: 16px;
 }
 
-/* Block 1: Delivery Process */
-.solutions-process-list {
+.solutions-timeline-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0f172a;
+  max-width: 90px;
+  line-height: 1.3;
+}
+
+/* Block 2: Technologies Leverage Category rows */
+.solutions-tech-rows {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.solutions-process-item {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.35rem 0.5rem; /* Reduced padding */
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-.solutions-process-item:hover {
-  background: rgba(37, 99, 235, 0.05);
-  border-color: rgba(37, 99, 235, 0.12);
-  transform: translateX(3px);
-}
-
-.solutions-process-num {
-  font-size: 0.75rem;
-  font-weight: 800;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--sol-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.solutions-process-item:hover .solutions-process-num {
-  background: var(--sol-secondary);
-}
-
-.solutions-process-name {
-  font-size: 0.8rem; /* Reduced from 0.88rem */
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* Block 2: Why Choose */
-.solutions-why-cards {
+.solutions-tech-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: 1fr 1.6fr;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.04);
 }
 
-.solutions-why-card {
-  background: rgba(255, 255, 255, 0.01);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
-  padding: 0.75rem 0.5rem; /* Reduced padding */
-  text-align: center;
-  transition: all 0.3s ease;
+.solutions-tech-row:last-child {
+  border-bottom: none;
+}
+
+.solutions-tech-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.solutions-tech-label-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f5f3ff;
+  color: #7b2cbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.solutions-tech-label-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.solutions-tech-label-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.solutions-tech-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+}
+
+.solutions-tech-pill-light {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4f46e5;
+  background: #eef2ff;
+  border: 1px solid #e0e7ff;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.solutions-tech-pill-light:hover {
+  background: #4f46e5;
+  color: #ffffff;
+  border-color: #4f46e5;
+}
+
+/* Block 3: Why Choose Tanvox Horizontal grid */
+.solutions-why-horizontal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .solutions-why-horizontal {
+    grid-template-columns: 1fr;
+  }
+}
+
+.solutions-why-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+  border-right: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.solutions-why-item:nth-child(3n),
+.solutions-why-item:last-child {
+  border-right: none;
+}
+
+@media (max-width: 1024px) {
+  .solutions-why-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    padding-bottom: 1rem;
+  }
+  .solutions-why-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.solutions-why-item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f5f3ff;
+  color: #7b2cbf;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 10px rgba(123, 44, 191, 0.05);
 }
 
-.solutions-why-card:hover {
-  background: rgba(236, 0, 140, 0.04);
-  border-color: rgba(236, 0, 140, 0.12);
-  transform: translateY(-2px);
+.solutions-why-item:hover .solutions-why-item-icon {
+  transform: translateY(-3px);
+  background: #7b2cbf;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(123, 44, 191, 0.15);
 }
 
-.solutions-why-icon {
-  color: var(--sol-accent);
-  margin-bottom: 0.4rem;
-}
-
-.solutions-why-icon svg {
+.solutions-why-item-icon svg {
   width: 18px;
   height: 18px;
 }
 
-.solutions-why-title {
-  font-size: 0.72rem; /* Reduced from 0.8rem */
-  font-weight: 700;
-  color: var(--sol-white);
+.solutions-why-item h4 {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.4rem 0;
 }
 
-/* Block 4: Technologies */
-.solutions-tech-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.solutions-why-item p {
+  font-size: 0.7rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin: 0;
 }
 
-.solutions-tech-cat-title {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.35);
-  margin-bottom: 0.3rem;
+/* Solutions CTA buttons styled like Services CTA buttons */
+.solutions-cta-actions .sol-btn-primary {
+  background: var(--sol-white) !important;
+  color: #0b1f5f !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
 }
 
-.solutions-tech-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
+.solutions-cta-actions .sol-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25) !important;
 }
 
-.solutions-tech-pill {
-  font-size: 0.68rem; /* Reduced from 0.72rem */
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.75);
-  padding: 0.2rem 0.5rem;
-  border-radius: 3px;
-  transition: all 0.3s ease;
+.solutions-cta-actions .sol-btn-outline {
+  border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+  color: var(--sol-white) !important;
+  background-color: transparent !important;
 }
 
-.solutions-tech-pill:hover {
-  background: rgba(37, 99, 235, 0.12);
-  border-color: var(--sol-secondary);
-  color: var(--sol-white);
+.solutions-cta-actions .sol-btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.7) !important;
+  transform: translateY(-2px) !important;
 }
-
 
 /* ==========================================================================
    6. FINAL CTA SECTION - Compact dimensions matching Services CTA
    ========================================================================== */
 .solutions-cta {
-  background: linear-gradient(135deg, #0B194E 0%, #030825 100%);
+  background: linear-gradient(
+    135deg,
+    #ec008c 0%,
+    #7b2cbf 50%,
+    #2563eb 100%
+  ) !important;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px; /* Reduced from 20px */
   padding: 2.5rem 1.5rem; /* Reduced padding to match Services page CTA */
@@ -1087,24 +1662,40 @@
   flex-wrap: wrap;
 }
 
-
 /* ==========================================================================
    ANIMATIONS & KEYFRAMES
    ========================================================================== */
 @keyframes solFloating {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); } /* Shorter float path */
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  } /* Shorter float path */
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* Base keyframe hookups */
-.solutions-floating-icon-node.node-ai { animation: solFloating 6s ease-in-out infinite; }
-.solutions-floating-icon-node.node-cloud { animation: solFloating 7s ease-in-out infinite 0.5s; }
-.solutions-floating-icon-node.node-security { animation: solFloating 8s ease-in-out infinite 1s; }
-.solutions-floating-icon-node.node-data { animation: solFloating 6.5s ease-in-out infinite 1.5s; }
-.solutions-floating-icon-node.node-dx { animation: solFloating 7.5s ease-in-out infinite 2s; }
-.solutions-floating-icon-node.node-industry { animation: solFloating 8.5s ease-in-out infinite 2.5s; }
-
+.solutions-floating-icon-node.node-ai {
+  animation: solFloating 6s ease-in-out infinite;
+}
+.solutions-floating-icon-node.node-cloud {
+  animation: solFloating 7s ease-in-out infinite 0.5s;
+}
+.solutions-floating-icon-node.node-security {
+  animation: solFloating 8s ease-in-out infinite 1s;
+}
+.solutions-floating-icon-node.node-data {
+  animation: solFloating 6.5s ease-in-out infinite 1.5s;
+}
+.solutions-floating-icon-node.node-dx {
+  animation: solFloating 7.5s ease-in-out infinite 2s;
+}
+.solutions-floating-icon-node.node-industry {
+  animation: solFloating 8.5s ease-in-out infinite 2.5s;
+}
 
 /* ==========================================================================
    RESPONSIVE DESIGN BREAKPOINTS
@@ -1234,7 +1825,10 @@
 .active-image-card {
   transform: scale(1.04) !important;
   z-index: 3 !important;
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
+  transition:
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease !important;
 }
 
 .active-card-indicator {
@@ -1252,7 +1846,9 @@
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 24px;
-  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.08), 0 15px 30px -10px rgba(15, 23, 42, 0.05);
+  box-shadow:
+    0 25px 60px -15px rgba(15, 23, 42, 0.08),
+    0 15px 30px -10px rgba(15, 23, 42, 0.05);
   padding: 3rem 2.5rem;
   text-align: left;
   width: 100%;
@@ -1277,7 +1873,6 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-
 
 .explorer-badge-row {
   display: flex;
@@ -1424,5 +2019,3 @@
     font-size: 1.4rem !important;
   }
 }
-
-

@@ -429,42 +429,9 @@ export default function Technologies() {
           </p>
         </motion.div>
 
-        {/* Marquee Track 1 — left to right */}
-        <div className="tech-marquee-wrapper" ref={marqueeRef}>
-          <div className="tech-marquee-fade-left"></div>
-          <div className="tech-marquee-fade-right"></div>
-          <div className="tech-marquee-track marquee-ltr">
-            {marqueeItems.map((item, i) => (
-              <div
-                key={`ltr-${i}`}
-                className="tech-marquee-pill"
-                style={{ '--pill-accent': item.accent }}
-              >
-                <span className="pill-dot" style={{ background: item.accent, boxShadow: `0 0 8px ${item.accent}` }}></span>
-                <span className="pill-name">{item.name}</span>
-                <span className="pill-category">{item.category}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Marquee Track 2 — right to left (opposite direction) */}
-          <div className="tech-marquee-track marquee-rtl" style={{ marginTop: '16px' }}>
-            {[...marqueeItems].reverse().map((item, i) => (
-              <div
-                key={`rtl-${i}`}
-                className="tech-marquee-pill"
-                style={{ '--pill-accent': item.accent }}
-              >
-                <span className="pill-dot" style={{ background: item.accent, boxShadow: `0 0 8px ${item.accent}` }}></span>
-                <span className="pill-name">{item.name}</span>
-                <span className="pill-category">{item.category}</span>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Category Cards */}
-        <div className="saas-container" style={{ marginTop: '60px' }}>
+        <div className="saas-container" style={{ marginTop: '24px' }}>
           <div className="tech-categories-grid">
             {techCategories.map((cat, idx) => (
               <div
@@ -496,7 +463,7 @@ export default function Technologies() {
       </div>
 
       {/* =================== ENGINEERING APPROACH FLOW =================== */}
-      <div className="saas-container" style={{ marginTop: '80px', marginBottom: '80px' }}>
+      <div className="saas-container" style={{ marginTop: '32px', marginBottom: '32px' }}>
         <motion.div
           className="saas-section-header-centered"
           initial={{ opacity: 0, y: 20 }}
@@ -552,7 +519,7 @@ export default function Technologies() {
       </div>
 
       {/* =================== CTA =================== */}
-      <div className="saas-container" style={{ marginBottom: '60px' }}>
+      <div className="saas-container" style={{ marginBottom: '24px' }}>
         <motion.div
           className="saas-glass-card tech-cta-card"
           initial={{ opacity: 0, y: 30 }}
