@@ -20,6 +20,7 @@ import Portfolio from './pages/Portfolio/Portfolio';
 import Collaboration from './pages/Collaboration/Collaboration';
 import Menu from './pages/Menu/Menu';
 import Contact from './pages/Contact/Contact';
+import SupportPage from './pages/Menu/Support/SupportPage';
 
 // Service Card Image Imports
 import softwareDevImg from './assets/software_dev.png';
@@ -558,6 +559,9 @@ function App() {
         return <Collaboration />;
       case '#menu':
         return <Menu />;
+      case '#menu-support':
+      case '#support':
+        return <SupportPage />;
       case '#contact':
         return <Contact />;
       case '#home':

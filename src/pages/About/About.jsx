@@ -4639,30 +4639,35 @@ const About = () => {
       name: "Sare Chinna Venkata Subbaiah",
       role: "CEO",
       desc: "Driving strategic vision and technological excellence.",
+      linkedin: "https://www.linkedin.com/in/saresubbaiah/",
     },
     {
       initials: "VB",
       name: "Veera Bangaru",
       role: "FINANCIAL OFFICER",
       desc: "Financial expert ensuring sustainable growth",
+      linkedin: "https://www.linkedin.com/in/veera-bangaru-95a183253?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
     },
     {
       initials: "DN",
       name: "Dattimola Naveen",
       role: "TECHNICAL OFFICER",
       desc: "Technical architect of cutting-edge solutions",
+      linkedin: "https://www.linkedin.com/in/dattimola-naveen-a50ab9268/",
     },
     {
       initials: "KA",
       name: "Kalvacherla Akhil",
       role: "PROJECT MANAGER",
       desc: "Operations expert driving efficiency and growth",
+      linkedin: "https://www.linkedin.com/in/akhil-kalvacherla-35684a300",
     },
     {
       initials: "HL",
       name: "Harshavardhan Lalam",
       role: "MARKETING HEAD",
       desc: "Marketing strategist building brand excellence",
+      linkedin: "https://www.linkedin.com/in/harshavardhan-lalam-411b64288",
     },
   ];
 
@@ -6728,6 +6733,15 @@ const About = () => {
           <div className="vl-grid">
             {leadership.map((member, index) => (
               <div key={index} className="vl-card leader-card-gsap">
+                {member.linkedin && (
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="vl-linkedin-link" aria-label="LinkedIn Profile">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                      <rect x="2" y="9" width="4" height="12"/>
+                      <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                  </a>
+                )}
                 <div className="vl-initials-circle">
                   <span>{member.initials}</span>
                 </div>
