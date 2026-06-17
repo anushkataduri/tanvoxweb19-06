@@ -472,14 +472,14 @@ export default function Projects() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.55 }}
                 >
-                  <button className="saas-btn-primary hero-btn-gradient" onClick={scrollToProducts}>
+                  <button className="btn-consultation" onClick={scrollToProducts}>
                     Explore Products
                     <svg className="btn-icon-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <line x1="5" y1="12" x2="19" y2="12" />
                       <polyline points="12 5 19 12 12 19" />
                     </svg>
                   </button>
-                  <button className="saas-btn-secondary hero-btn-outline" onClick={() => { window.location.hash = '#contact'; }}>
+                  <button className="btn-contact-us" onClick={() => { window.location.hash = '#contact'; }}>
                     Contact Us
                   </button>
                 </motion.div>

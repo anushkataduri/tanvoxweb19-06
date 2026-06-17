@@ -10,8 +10,28 @@ import devopsAutomationImg from '../../assets/devops_automation.png';
 import aiAutomationImg from '../../assets/ai_automation.png';
 import cybersecurityImg from '../../assets/cybersecurity.png';
 import itInfrastructureImg from '../../assets/it_infrastructure.png';
+import digitalTransformationItImg from '../../assets/digitalTransformation.png';
 import managedItImg from '../../assets/managed_it.jpg';
-import supportMaintenanceImg from '../../assets/support_maintenance.jpg';
+import dataAnalyticsImg from '../../assets/data_analytics.png';
+import supportMaintenanceImg from '../../assets/support_maintenance1.jpg';
+
+import bpoImg from '../../assets/bpo.png';
+import kpoImg from '../../assets/kpo.png';
+import marketingImg from '../../assets/marketing_services.png';
+import salesImg from '../../assets/sales_support.png';
+import trainingImg from '../../assets/training_devlp.png';
+import hrImg from '../../assets/human_resources.png';
+import creativemediaImg from '../../assets/creative_media.png';
+import financeImg from '../../assets/financial_services.png';
+import legalImg from '../../assets/legal_compliance.png';
+import procurementImg from '../../assets/procurement_supplychain.png';
+import facilitiesImg from '../../assets/facility_management.png';
+import educationImg from '../../assets/education_services.png';  
+import administrationImg from '../../assets/administrative_services.png';
+import rpoImg from '../../assets/rpo.png';
+import businessConsultingImg from '../../assets/business_services.png';
+import projectmanagementImg from '../../assets/project_services.png';
+
 
 // Redesign Illustration Imports
 import servicesIntroImg from '../../assets/services_intro.png';
@@ -29,16 +49,35 @@ const serviceImages = {
   'devops-automation': devopsAutomationImg,
   'ai-ml': aiAutomationImg,
   'cybersecurity': cybersecurityImg,
-  'data-analytics': itInfrastructureImg,
+  'data-analytics': dataAnalyticsImg,
   'it-infrastructure': itInfrastructureImg,
-  'digital-transformation': managedItImg,
+  'digital-transformation': digitalTransformationItImg,
   'qa-testing': supportMaintenanceImg,
   'managed-it': managedItImg,
   'ui-ux': supportMaintenanceImg,
   'enterprise-solutions': managedItImg,
   'emerging-tech': supportMaintenanceImg,
   'it-consulting': managedItImg,
-  'support-maintenance': supportMaintenanceImg
+  'support-maintenance': supportMaintenanceImg,
+
+  'education-services': educationImg,
+  'bpo-services': bpoImg,
+  'kpo-services': kpoImg,
+  'marketing-services': marketingImg,
+  'sales-support': salesImg,
+  'training-development': trainingImg,
+  'human-resources': hrImg,
+  'creative-media': creativemediaImg,
+  'financial-services': financeImg,
+  'legal-compliance': legalImg,
+  'procurement-supplychain': procurementImg,
+  'facility-management': facilitiesImg,
+  'administration-services': administrationImg,
+  'rpo-services': rpoImg,
+  'business-consulting': businessConsultingImg,
+  'project-management': projectmanagementImg
+
+
 };
 
 // Animated Interactive SVG Visuals for the 8 primary services
@@ -391,7 +430,7 @@ const primaryServices = [
     desc: 'Transform data into actionable business insights.',
     hoverTags: ['ETL Pipelines', 'Data Warehouses', 'Dashboard Analytics'],
     sizeClass: 'bento-card-data-analytics',
-    image: itInfrastructureImg,
+    image: dataAnalyticsImg,
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="18" y1="20" x2="18" y2="10" stroke="#60A5FA" />
@@ -442,7 +481,7 @@ const primaryServices = [
     desc: 'Modernize operations and unlock innovation.',
     hoverTags: ['Workflow Automation', 'RPA', 'Legacy Code Modernization'],
     sizeClass: 'bento-card-digital-transformation',
-    image: managedItImg,
+    image: digitalTransformationItImg,
     icon: (
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke="#60A5FA" />
@@ -570,22 +609,25 @@ export default function Services() {
   const carouselServices = businessServicesData.map(item => {
     // Assign related images
     let baseImage = supportMaintenanceImg;
-    if (item.id === 'consulting') baseImage = managedItImg;
+    if (item.id === 'consulting') baseImage = businessConsultingImg;
     else if (item.id === 'project') baseImage = softwareDevImg;
-    else if (item.id === 'hr') baseImage = supportMaintenanceImg;
-    else if (item.id === 'training') baseImage = managedItImg;
-    else if (item.id === 'bpo') baseImage = itInfrastructureImg;
-    else if (item.id === 'kpo') baseImage = cloudServicesImg;
-    else if (item.id === 'marketing') baseImage = devopsAutomationImg;
-    else if (item.id === 'sales') baseImage = aiAutomationImg;
-    else if (item.id === 'creative') baseImage = cybersecurityImg;
-    else if (item.id === 'financial') baseImage = itInfrastructureImg;
-    else if (item.id === 'legal') baseImage = managedItImg;
-    else if (item.id === 'procurement') baseImage = supportMaintenanceImg;
-    else if (item.id === 'facility') baseImage = managedItImg;
-    else if (item.id === 'education') baseImage = softwareDevImg;
-    else if (item.id === 'admin') baseImage = supportMaintenanceImg;
-    else if (item.id === 'rpo') baseImage = managedItImg;
+    else if (item.id === 'hr') baseImage = hrImg;
+    else if (item.id === 'training') baseImage = trainingImg;
+    else if (item.id === 'bpo') baseImage = bpoImg;
+    else if (item.id === 'kpo') baseImage = kpoImg;
+    else if (item.id === 'marketing') baseImage = marketingImg;
+    else if (item.id === 'sales') baseImage = salesImg;
+    else if (item.id === 'creative') baseImage = creativemediaImg;
+    else if (item.id === 'financial') baseImage = financeImg;
+    else if (item.id === 'legal') baseImage = legalImg;
+    else if (item.id === 'procurement') baseImage = procurementImg;
+    else if (item.id === 'facility') baseImage = facilitiesImg;
+    else if (item.id === 'education') baseImage = educationImg;
+    else if (item.id === 'admin') baseImage = administrationImg;
+    else if (item.id === 'rpo') baseImage = rpoImg;
+    else if (item.id === 'business-consulting') baseImage = businessConsultingImg;
+    else if (item.id === 'project-management') baseImage = projectmanagementImg;
+
 
     let capabilities = item.capabilities || [];
     let benefits = ['Strategic Alignment', 'Process Optimization', 'Operational Agility'];
@@ -754,14 +796,14 @@ export default function Services() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.45 }}
               >
-                <a href="#contact" className="services-btn-primary">
+                <a href="#contact" className="btn-consultation">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="22" y1="2" x2="11" y2="13" />
                     <polygon points="22 2 15 22 11 13 2 9 22 2" />
                   </svg>
                   Get Started Today
                 </a>
-                <a href="#it-services" className="services-btn-outline">
+                <a href="#it-services" className="btn-contact-us">
                   Explore Tech Stack &darr;
                 </a>
               </motion.div>

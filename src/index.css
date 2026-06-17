@@ -9273,36 +9273,6 @@ section.products-platforms-section {
   object-position: right center !important; /* Align Cloud image to show the cloud nicely */
 }
 
-.services-grid .service-card:nth-child(3) .service-card-image-wrapper {
-  background-image: url("./assets/circuit_bg.jpg") !important;
-  background-size: cover !important;
-  background-position: center !important;
-}
-
-.services-grid .service-card:nth-child(3) .service-card-img {
-  object-fit: contain !important; /* Fit the diagram text fully now that empty bottom space is cropped */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.6
-  ) !important; /* Semi-transparent overlay to let the circuit background glow through */
-  backdrop-filter: blur(4px) !important;
-  padding: 0px !important; /* Remove borders */
-}
-
-.services-grid .service-card:nth-child(4) .service-card-image-wrapper {
-  background-image: url("./assets/circuit_bg_2.jpg") !important;
-  background-size: cover !important;
-  background-position: center !important;
-}
-
-.services-grid .service-card:nth-child(4) .service-card-img {
-  object-fit: contain !important;
-  background-color: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(4px) !important;
-  padding: 0px !important;
-}
 
 /* Stylish, Curved Overlays for Key Service Images */
 .service-card-image-wrapper {
@@ -10629,32 +10599,7 @@ section.products-platforms-section {
   animation: pageFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Custom backgrounds for white-diagram service cards (DevOps & AI) */
-.services-carousel-track .service-card:nth-child(3) .service-card-image-wrapper,
-.services-carousel-track .service-card:nth-child(11) .service-card-image-wrapper {
-  background-image: url("./assets/circuit_bg.jpg") !important;
-  background-size: cover !important;
-  background-position: center !important;
-}
-.services-carousel-track .service-card:nth-child(3) .service-card-img,
-.services-carousel-track .service-card:nth-child(11) .service-card-img {
-  object-fit: contain !important;
-  background-color: rgba(0, 0, 0, 0.55) !important;
-  backdrop-filter: blur(2px) !important;
-}
 
-.services-carousel-track .service-card:nth-child(4) .service-card-image-wrapper,
-.services-carousel-track .service-card:nth-child(12) .service-card-image-wrapper {
-  background-image: url("./assets/circuit_bg_2.jpg") !important;
-  background-size: cover !important;
-  background-position: center !important;
-}
-.services-carousel-track .service-card:nth-child(4) .service-card-img,
-.services-carousel-track .service-card:nth-child(12) .service-card-img {
-  object-fit: contain !important;
-  background-color: rgba(0, 0, 0, 0.55) !important;
-  backdrop-filter: blur(2px) !important;
-}
 
 @keyframes pageFadeUp {
   0% {
@@ -11823,5 +11768,169 @@ section.products-platforms-section {
   .directory-column-card {
     padding: 2.25rem 1.75rem;
   }
+}
+
+/* Home hero actions left alignment */
+.hero-actions.hero-actions-left {
+  justify-content: flex-start !important;
+}
+
+/* Global Button Styles for Hero Sections */
+.btn-consultation {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 13px 26px !important;
+  border-radius: 100px !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  box-sizing: border-box !important;
+  text-decoration: none !important;
+  background: linear-gradient(135deg, #ff0066 0%, #001a72 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 25px rgba(255, 0, 102, 0.28) !important;
+  border: none !important;
+}
+
+.btn-consultation:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px rgba(255, 0, 102, 0.4) !important;
+  opacity: 0.95 !important;
+}
+
+.btn-contact-us {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 13px 26px !important;
+  border-radius: 100px !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  box-sizing: border-box !important;
+  text-decoration: none !important;
+  background: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+.btn-contact-us:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(203, 213, 225, 0.8) !important;
+}
+
+/* Unified CTA Card Background and Text Colors */
+.projects-demo-cta-card,
+.detail-cta-card-wrapper,
+.testi-cta-card,
+.services-cta-banner,
+.solutions-cta,
+.ind-cta-container,
+.case-study-detail-cta-card,
+.final-cta-card {
+  background: var(--grad-primary) !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 24px !important;
+}
+
+/* Ensure all heading, paragraph, list, and subtitle text inside these cards is white */
+.projects-demo-cta-card *,
+.detail-cta-card-wrapper *,
+.testi-cta-card *,
+.services-cta-banner *,
+.solutions-cta *,
+.ind-cta-container *,
+.case-study-detail-cta-card *,
+.final-cta-card * {
+  color: #ffffff !important;
+}
+
+/* Style the buttons in these CTA cards to be solid white with dark navy/blue text */
+.projects-demo-cta-card button,
+.projects-demo-cta-card a,
+.detail-cta-card-wrapper button,
+.detail-cta-card-wrapper a,
+.testi-cta-card button,
+.testi-cta-card a,
+.services-cta-banner button,
+.services-cta-banner a,
+.solutions-cta button,
+.solutions-cta a,
+.ind-cta-container button,
+.ind-cta-container a,
+.case-study-detail-cta-card button,
+.case-study-detail-cta-card a,
+.final-cta-card button,
+.final-cta-card a {
+  background: #ffffff !important;
+  color: #001a72 !important;
+  border: none !important;
+  border-radius: 99px !important;
+  padding: 14px 30px !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  text-decoration: none !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+.projects-demo-cta-card button:hover,
+.projects-demo-cta-card a:hover,
+.detail-cta-card-wrapper button:hover,
+.detail-cta-card-wrapper a:hover,
+.testi-cta-card button:hover,
+.testi-cta-card a:hover,
+.services-cta-banner button:hover,
+.services-cta-banner a:hover,
+.solutions-cta button:hover,
+.solutions-cta a:hover,
+.ind-cta-container button:hover,
+.ind-cta-container a:hover,
+.case-study-detail-cta-card button:hover,
+.case-study-detail-cta-card a:hover,
+.final-cta-card button:hover,
+.final-cta-card a:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Premium borders and hover transitions for Industry Page why choose us & tech expertise cards */
+.ind-why-card,
+.ind-cross-card {
+  background-color: var(--color-white) !important;
+  border: 1px solid rgba(226, 232, 240, 0.9) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+
+.ind-why-card:hover,
+.ind-cross-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+  border-color: #3b82f6 !important;
+}
+
+/* Darker shadow for horizontal scroll cards on Industry Page */
+.ind-card {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
+}
+
+.ind-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22) !important;
 }
 

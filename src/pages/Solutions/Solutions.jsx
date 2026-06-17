@@ -829,7 +829,7 @@
 //                   className={`industry-image-card ${isSelected ? 'expanded' : 'collapsed'}`}
 //                   onClick={(e) => onCardClick(e, card.id)}
 //                   style={{
-//                     borderColor: isSelected ? card.themeColor : 'transparent',
+//                     border: isSelected ? `2px solid ${card.themeColor}` : 'none',
 //                     boxShadow: isSelected
 //                       ? `0 20px 40px ${card.themeColor}22, 0 8px 16px ${card.themeColor}15`
 //                       : '0 6px 20px rgba(0, 0, 0, 0.08)',
@@ -1128,9 +1128,9 @@ import "./Solutions.css";
 
 // Industry Images Imports
 import healthcareImg from "./assets/healthcare.jpg";
-import bankingFinancialImg from "./assets/banking_financial.jpg";
-import educationImg from "./assets/education.jpg";
-import retailEcommerceImg from "./assets/retail_ecommerce.jpg";
+import bankingFinancialImg from "./assets/banking_financial.png";
+import educationImg from "./assets/education.png";
+import retailEcommerceImg from "./assets/retail_ecommerce.png";
 import manufacturingImg from "./assets/manufacturing.jpg";
 import logisticsTransportationImg from "./assets/logistics_transportation.jpg";
 import realEstateImg from "./assets/real_estate.jpg";
@@ -1755,60 +1755,6 @@ export default function Solutions() {
       ctaText: "Discuss Your Public Sector Project",
     },
     {
-      id: 8,
-      title: "Telecom & 5G",
-      subtitle: "NETWORK RELIABILITY & BILLING ENGINES",
-      img: telecommunicationsImg,
-      details:
-        "Building network performance monitors, high-frequency signal mapping systems, billing engines, and carrier administration panels.",
-      features: [
-        "Network Performance Monitors",
-        "Signal Mapping Engines",
-        "Automated Billing APIs",
-        "Carrier Administration Panels",
-        "Bandwidth Allocators",
-        "IoT Device Gateways",
-      ],
-      benefits: [
-        "Optimized Signal Reliability",
-        "Zero-Failure Billing Runs",
-        "Simplified Carrier Control",
-        "Smart Bandwidth Utilization",
-        "Scalable IoT Management",
-      ],
-      themeColor: "#06b6d4",
-      themeColorSecondary: "#0891b2",
-      glowColor: "rgba(6, 182, 212, 0.04)",
-      ctaText: "Discuss Your Telecom Project",
-    },
-    {
-      id: 9,
-      title: "Energy & Utilities",
-      subtitle: "SMART GRID LOGS & LOAD MANAGEMENT",
-      img: energyUtilitiesImg,
-      details:
-        "Engineering smart grid monitors, billing automation APIs, environment analytics dashboards, and consumption logs.",
-      features: [
-        "Smart Grid Monitors",
-        "Automated Customer Billing",
-        "Environmental Impact Analytics",
-        "Energy Consumption Logs",
-        "Grid Load Balancers",
-        "Utility Outage Trackers",
-      ],
-      benefits: [
-        "Stable Grid Infrastructure",
-        "Accurate Utility Invoicing",
-        "Real-Time Outage Alerts",
-        "Eco-Friendly Load Management",
-        "Detailed Consumption Audits",
-      ],
-      themeColor: "#84cc16",
-      themeColorSecondary: "#65a30d",
-      glowColor: "rgba(132, 204, 22, 0.04)",
-      ctaText: "Discuss Your Utilities Project",
-    },
-    {
       id: 10,
       title: "Startups & SMEs",
       subtitle: "AGILE SaaS MVP & SOFTWARE DEVELOPMENT",
@@ -2015,13 +1961,13 @@ export default function Solutions() {
               </motion.p>
 
               <motion.div className="solutions-hero-actions" variants={fadeUp}>
-                <a href="#contact" className="sol-btn sol-btn-primary">
+                <a href="#contact" className="btn-consultation">
                   Request a Consultation
                   <ArrowRightIcon />
                 </a>
                 <a
                   href="#solutions-overview"
-                  className="sol-btn sol-btn-outline"
+                  className="btn-contact-us"
                 >
                   Explore Solutions
                 </a>
@@ -2461,7 +2407,7 @@ export default function Solutions() {
                   className={`industry-image-card ${isSelected ? "expanded" : "collapsed"}`}
                   onClick={(e) => onCardClick(e, card.id)}
                   style={{
-                    borderColor: isSelected ? card.themeColor : "transparent",
+                    border: isSelected ? `2px solid ${card.themeColor}` : "none",
                     boxShadow: isSelected
                       ? `0 20px 40px ${card.themeColor}22, 0 8px 16px ${card.themeColor}15`
                       : "0 6px 20px rgba(0, 0, 0, 0.08)",

@@ -341,7 +341,7 @@ export default function CaseStudyDetail({ studyId }) {
 
           {/* ================= SECTION 4: REQUEST DEMO ================= */}
           <motion.div 
-            className="saas-glass-card" 
+            className="saas-glass-card case-study-detail-cta-card" 
             variants={itemVariants}
             style={{ 
               textAlign: 'center', 

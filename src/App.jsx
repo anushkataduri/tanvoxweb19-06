@@ -29,7 +29,7 @@ import aiAutomationImg from './assets/ai_automation.png';
 import cybersecurityImg from './assets/cybersecurity.png';
 import itInfrastructureImg from './assets/it_infrastructure.png';
 import managedItImg from './assets/managed_it.jpg';
-import supportMaintenanceImg from './assets/support_maintenance.jpg';
+import supportMaintenanceImg from './assets/support_maintenance1.jpg';
 
 // Rennto Product Image Imports
 import renntoLogo from './assets/rennto.png';
@@ -592,9 +592,9 @@ function App() {
                     through AI, Cloud, DevOps, Cybersecurity, and Emerging Technologies.
                   </p>
                   
-                  <div className="hero-actions">
+                  <div className="hero-actions hero-actions-left">
                     {/* Schedule Consultation Button */}
-                    <a href="#consultation" className="cta-button" style={{ gap: '0.75rem' }}>
+                    <a href="#consultation" className="btn-consultation" style={{ gap: '0.75rem' }}>
                       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                         <line x1="16" y1="2" x2="16" y2="6"/>

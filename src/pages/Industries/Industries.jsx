@@ -85,10 +85,10 @@ export default function Industries() {
               measurable business outcomes.
             </p>
             <div className="ind-hero-buttons" style={{ marginTop: "2rem" }}>
-              <a href="#solutions" className="ind-btn-primary">
+              <a href="#solutions" className="btn-consultation">
                 Explore Industry Solutions
               </a>
-              <a href="#contact" className="ind-btn-outline">
+              <a href="#contact" className="btn-contact-us">
                 Schedule a Consultation
               </a>
             </div>

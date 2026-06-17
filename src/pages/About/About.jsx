@@ -6846,10 +6846,12 @@ const About = () => {
               e.currentTarget.style.boxShadow = "";
             }}
           >
-            <h2>
+            {/* <h2>
               Let's Build the{" "}
-              <span className="highlight-red">Future Together</span>
-            </h2>
+              <span> Let's Build the Future Together</span>
+            </h2> */}
+            <h2>Let's Build the Future Together</h2> 
+
             <p>
               Partner with Tanvox Technologies to accelerate your digital
               transformation, optimize operational efficiency, and build
