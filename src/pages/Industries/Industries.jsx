@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import "./industries.css";
 import FallingText from "../../components/common/FallingText/FallingText";
-import industriesHeroBg from "../../assets/circuit_bg.jpg";
+import IndustryHeroInteractive from "./IndustryHeroInteractive";
 
 import {
   overviewIcons,
@@ -37,74 +37,68 @@ export default function Industries() {
   return (
     <div className="industries-page-wrapper">
       {/* 1. HERO SECTION */}
-      <section
-        className="ind-hero"
-        id="ind-hero"
-        style={{
-          backgroundImage: `url(${industriesHeroBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "right top",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="ind-container ind-hero-grid">
-          <div className="ind-hero-content">
-            <span className="ind-section-tag">INDUSTRIES WE SERVE</span>
-            <h1 className="ind-section-title ind-drop-in-heading">
-              <span style={{ animationDelay: "0.1s" }}>Industry-Specific</span>{" "}
-              <span style={{ animationDelay: "0.2s" }}>Solutions</span>
-              <br />
-              <span style={{ animationDelay: "0.3s" }}>That</span>{" "}
-              <span style={{ animationDelay: "0.4s" }}>Drive</span>{" "}
-              <span
-                style={{ animationDelay: "0.5s" }}
-                className="highlighted-gradient"
-              >
-                Business
-              </span>{" "}
-              <span
-                style={{ animationDelay: "0.6s" }}
-                className="highlighted-gradient"
-              >
-                Success
-              </span>
-            </h1>
-            <p className="ind-section-desc">
-              At Tanvox Technologies, we understand that every industry faces
-              unique challenges, regulatory requirements, operational
-              complexities, and customer expectations. Our industry-focused
-              technology solutions combine deep domain expertise, innovative
-              technologies, and proven methodologies to help organizations
-              accelerate growth, improve efficiency, and achieve digital
-              transformation.
-            </p>
-            <p className="ind-section-desc" style={{ marginTop: "1rem" }}>
-              Whether you're modernizing legacy systems, adopting cloud
-              technologies, implementing AI-driven automation, or optimizing
-              business operations, we deliver tailored solutions that generate
-              measurable business outcomes.
-            </p>
-            <div className="ind-hero-buttons" style={{ marginTop: "2rem" }}>
-              <a href="#solutions" className="btn-consultation">
-                Explore Industry Solutions
-              </a>
-              <a href="#contact" className="btn-contact-us">
-                Schedule a Consultation
-              </a>
-            </div>
-          </div>
-          <div className="ind-hero-empty-right"></div>
-        </div>
-      </section>
+<section className="ind-hero" id="ind-hero">
+  <div className="ind-container ind-hero-grid">
+
+    <div className="ind-hero-content">
+
+      <span className="ind-section-tag">
+        INDUSTRIES WE SERVE
+      </span>
+
+      <h1 className="ind-section-title">
+        Industry-Specific Solutions
+        <br />
+        That <span className="highlighted-gradient">
+          Drive Business Success
+        </span>
+      </h1>
+
+      <div className="hero-line"></div>
+
+      <p className="ind-section-desc">
+        Empowering organizations across diverse industries with innovative
+        technology solutions, digital transformation strategies, and
+        intelligent automation that drive measurable growth and
+        operational excellence.
+      </p>
+
+      <p className="ind-section-desc">
+        At Tanvox Technologies, we understand that every industry has
+        unique challenges, compliance requirements, operational
+        complexities, and customer expectations. Our tailored solutions
+        combine industry expertise, cloud technologies, AI-driven
+        innovation, cybersecurity, and business process optimization to
+        help organizations modernize operations, enhance efficiency, and
+        achieve sustainable success.
+      </p>
+
+      <div className="ind-hero-buttons">
+        <a href="#solutions" className="btn-gradient">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '8px', verticalAlign: 'middle'}}><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="16"></line><line x1="15" y1="22" x2="15" y2="16"></line><line x1="9" y1="16" x2="15" y2="16"></line><path d="M9 6h6M9 10h6"></path></svg>
+          Explore Industries
+        </a>
+
+        <a href="#contact" className="btn-white">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '8px', verticalAlign: 'middle', stroke: '#ec008c'}}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Schedule a Consultation
+        </a>
+      </div>
+
+    </div>
+
+    <div className="ind-hero-image">
+      <IndustryHeroInteractive />
+    </div>
+
+  </div>
+</section>
 
       {/* 2. OVERVIEW SECTION */}
       <section className="ind-section ind-overview">
         <div className="ind-container ind-overview-grid">
           <div className="ind-overview-text">
-            <span
-              className="ind-section-tag"
-              style={{ color: "var(--color-primary-navy)" }}
-            >
+            <span className="ind-section-tag">
               INDUSTRIES OVERVIEW
             </span>
             <h2
@@ -163,10 +157,7 @@ export default function Industries() {
       {/* 4. CROSS-INDUSTRY CAPABILITIES */}
       <section className="ind-cross-capabilities">
         <div className="ind-container">
-          <span
-            className="ind-section-tag"
-            style={{ color: "var(--color-primary-navy)" }}
-          >
+          <span className="ind-section-tag">
             CROSS-INDUSTRY CAPABILITIES
           </span>
           <h2
@@ -179,7 +170,9 @@ export default function Industries() {
             {crossIndustryCapabilities.map((cap, index) => (
               <div key={index} className="ind-cross-card">
                 <div className="ind-cross-header">
-                  {cap.icon}
+                  <div className="ind-card-icon-wrapper">
+                    {cap.icon}
+                  </div>
                   <h3>{cap.title}</h3>
                 </div>
                 <ul className="ind-card-bullets">
@@ -196,16 +189,15 @@ export default function Industries() {
       {/* 5. WHY CHOOSE US */}
       <section className="ind-why-choose">
         <div className="ind-container">
-          <span
-            className="ind-section-tag"
-            style={{ color: "var(--color-primary-navy)" }}
-          >
+          <span className="ind-section-tag">
             WHY INDUSTRY LEADERS CHOOSE TANVOX TECHNOLOGIES
           </span>
           <div className="ind-why-grid">
             {whyChooseUsData.map((item, index) => (
               <div key={index} className="ind-why-card">
-                {item.icon}
+                <div className="ind-card-icon-wrapper">
+                  {item.icon}
+                </div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
               </div>
@@ -217,10 +209,7 @@ export default function Industries() {
       {/* 6. ENGAGEMENT PROCESS */}
       <section className="ind-process">
         <div className="ind-container">
-          <span
-            className="ind-section-tag"
-            style={{ color: "var(--color-primary-navy)" }}
-          >
+          <span className="ind-section-tag">
             OUR INDUSTRY ENGAGEMENT PROCESS
           </span>
           <div className="ind-process-flow">
@@ -256,10 +245,7 @@ export default function Industries() {
       {/* 7. SUCCESS METRICS */}
       <section className="ind-metrics">
         <div className="ind-container">
-          <span
-            className="ind-section-tag"
-            style={{ color: "var(--color-primary-navy)" }}
-          >
+          <span className="ind-section-tag">
             SUCCESS METRICS
           </span>
           <h2

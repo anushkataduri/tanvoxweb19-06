@@ -11790,15 +11790,15 @@ section.products-platforms-section {
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
   box-sizing: border-box !important;
   text-decoration: none !important;
-  background: linear-gradient(135deg, #0b2e8a 0%, #001a72 100%) !important;
+  background: var(--grad-primary) !important;
   color: #ffffff !important;
-  box-shadow: 0 8px 25px rgba(11, 46, 138, 0.28) !important;
+  box-shadow: 0 8px 25px rgba(255, 30, 60, 0.25) !important;
   border: none !important;
 }
 
 .btn-consultation:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 12px 30px rgba(11, 46, 138, 0.4) !important;
+  box-shadow: 0 12px 30px rgba(255, 30, 60, 0.4) !important;
   opacity: 0.95 !important;
 }
 

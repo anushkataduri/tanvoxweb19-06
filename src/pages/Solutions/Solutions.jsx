@@ -1125,6 +1125,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Solutions.css";
+import SolutionsHeroInteractive from "./SolutionsHeroInteractive";
 
 // Industry Images Imports
 import healthcareImg from "./assets/healthcare.jpg";
@@ -1614,9 +1615,9 @@ export default function Solutions() {
         "Personalized Learning Paths",
         "Secure Examination Delivery",
       ],
-      themeColor: "#f43f5e",
-      themeColorSecondary: "#be123c",
-      glowColor: "rgba(244, 63, 94, 0.04)",
+      themeColor: "#ec008c",
+      themeColorSecondary: "#7b2cbf",
+      glowColor: "rgba(236, 0, 140, 0.04)",
       ctaText: "Discuss Your Education Project",
     },
     {
@@ -1942,7 +1943,7 @@ export default function Solutions() {
               variants={staggerContainer}
             >
               <motion.h1 className="solutions-hero-title" variants={fadeUp}>
-                Business-Focused Solutions for Digital Transformation
+                Business-Focused Solutions for <span className="highlighted-gradient">Digital Transformation</span>
               </motion.h1>
               <motion.h2 className="solutions-hero-subtitle" variants={fadeUp}>
                 Innovative Solutions Designed to Solve Real Business Challenges
@@ -1976,51 +1977,7 @@ export default function Solutions() {
 
             {/* Right Column Illustration */}
             <div className="solutions-hero-graphic">
-              <IsometricCityGraphic />
-
-              {/* Floating Solution Icons */}
-              <div
-                className="solutions-floating-icon-node node-ai"
-                style={{ transform: "translateY(0px)" }}
-              >
-                {iconMap.ai}
-                <span>AI & Automation</span>
-              </div>
-              <div
-                className="solutions-floating-icon-node node-cloud"
-                style={{ transform: "translateY(0px)" }}
-              >
-                {iconMap.cloud}
-                <span>Cloud Solutions</span>
-              </div>
-              <div
-                className="solutions-floating-icon-node node-security"
-                style={{ transform: "translateY(0px)" }}
-              >
-                {iconMap.security}
-                <span>Zero-Trust Security</span>
-              </div>
-              <div
-                className="solutions-floating-icon-node node-data"
-                style={{ transform: "translateY(0px)" }}
-              >
-                {iconMap.data}
-                <span>Data & Analytics</span>
-              </div>
-              <div
-                className="solutions-floating-icon-node node-dx"
-                style={{ transform: "translateY(0px)" }}
-              >
-                {iconMap.dx}
-                <span>Digital Transformation</span>
-              </div>
-              <div
-                className="solutions-floating-icon-node node-industry"
-                style={{ transform: "translateY(0px)" }}
-              >
-                {iconMap.industry}
-                <span>Industry Solutions</span>
-              </div>
+              <SolutionsHeroInteractive />
             </div>
           </div>
         </div>
@@ -2407,9 +2364,8 @@ export default function Solutions() {
                   className={`industry-image-card ${isSelected ? "expanded" : "collapsed"}`}
                   onClick={(e) => onCardClick(e, card.id)}
                   style={{
-                    border: isSelected ? `2px solid ${card.themeColor}` : "none",
                     boxShadow: isSelected
-                      ? `0 20px 40px ${card.themeColor}22, 0 8px 16px ${card.themeColor}15`
+                      ? "0 20px 40px rgba(123, 44, 191, 0.18), 0 8px 16px rgba(37, 99, 235, 0.12)"
                       : "0 6px 20px rgba(0, 0, 0, 0.08)",
                   }}
                   transition={{
@@ -2448,11 +2404,6 @@ export default function Solutions() {
                           >
                             <span
                               className="expanded-card-badge"
-                              style={{
-                                color: card.themeColor,
-                                borderColor: `${card.themeColor}33`,
-                                background: `${card.themeColor}11`,
-                              }}
                             >
                               {card.subtitle}
                             </span>
@@ -2510,7 +2461,6 @@ export default function Solutions() {
                               <div key={bIdx} className="expanded-benefit-item">
                                 <span
                                   className="benefit-check-icon"
-                                  style={{ color: card.themeColor }}
                                 >
                                   ✓
                                 </span>
@@ -2527,9 +2477,6 @@ export default function Solutions() {
                             <a
                               href="#contact"
                               className="expanded-card-cta-btn"
-                              style={{
-                                background: `linear-gradient(135deg, ${card.themeColor}, ${card.themeColorSecondary})`,
-                              }}
                             >
                               {card.ctaText} &rarr;
                             </a>
@@ -2844,9 +2791,6 @@ export default function Solutions() {
                         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
                       </svg>
                     </div>
-                    <span className="solutions-why-item-title-fallback">
-                      Innovation Driven
-                    </span>
                     <h4>Innovation Driven</h4>
                     <p>
                       Leverage the latest technologies to stay ahead of the
