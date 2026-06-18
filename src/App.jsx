@@ -21,6 +21,8 @@ import Collaboration from './pages/Collaboration/Collaboration';
 import Menu from './pages/Menu/Menu';
 import Contact from './pages/Contact/Contact';
 import SupportPage from './pages/Menu/Support/SupportPage';
+import Careers from './pages/Menu/Career/careers';
+import JobDetails from './pages/Menu/Career/JobDetails';
 
 // Service Card Image Imports
 import softwareDevImg from './assets/software_dev.png';
@@ -29,8 +31,8 @@ import devopsAutomationImg from './assets/devops_automation.png';
 import aiAutomationImg from './assets/ai_automation.png';
 import cybersecurityImg from './assets/cybersecurity.png';
 import itInfrastructureImg from './assets/it_infrastructure.png';
-import managedItImg from './assets/managed_it.jpg';
-import supportMaintenanceImg from './assets/support_maintenance1.jpg';
+import managedItImg from './assets/managedITHome.png';
+import supportMaintenanceImg from './assets/supportmaintainhome.png';
 
 // Rennto Product Image Imports
 import renntoLogo from './assets/rennto.png';
@@ -559,6 +561,9 @@ function App() {
         return <Collaboration />;
       case '#menu':
         return <Menu />;
+      case '#menu-careers':
+      case '#careers':
+        return <Careers />;
       case '#menu-support':
       case '#support':
         return <SupportPage />;
@@ -566,6 +571,9 @@ function App() {
         return <Contact />;
       case '#home':
       default:
+        if (currentHash.startsWith('#careers/') || currentHash.startsWith('#menu-careers/')) {
+          return <JobDetails currentHash={currentHash} />;
+        }
         return (
           <>
             {/* Futuristic Technology Theme Hero Section */}

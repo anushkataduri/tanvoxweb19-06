@@ -472,13 +472,6 @@ export default function Projects() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.55 }}
                 >
-                  <button className="btn-consultation" onClick={scrollToProducts}>
-                    Explore Products
-                    <svg className="btn-icon-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </button>
                   <button className="btn-contact-us" onClick={() => { window.location.hash = '#contact'; }}>
                     Contact Us
                   </button>
@@ -541,13 +534,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Animated Mouse Scroll Indicator */}
-        <div className="hero-scroll-indicator" onClick={scrollToProducts}>
-          <div className="mouse-scroll-wheel">
-            <div className="mouse-wheel-dot"></div>
-          </div>
-          <span className="scroll-indicator-text">Explore Products ↓</span>
-        </div>
+
       </section>
 
       {/* Main Container for the sections below Hero */}
@@ -596,23 +583,18 @@ export default function Projects() {
 
                 <div className="showcase-features-bullets">
                   <div className="bullet-item">
-                    <span className="bullet-check rennto-theme-color">✔</span>
                     <span className="bullet-label">Verified Property Listings</span>
                   </div>
                   <div className="bullet-item">
-                    <span className="bullet-check rennto-theme-color">✔</span>
                     <span className="bullet-label">Smart Property Search</span>
                   </div>
                   <div className="bullet-item">
-                    <span className="bullet-check rennto-theme-color">✔</span>
                     <span className="bullet-label">Tenant Management</span>
                   </div>
                   <div className="bullet-item">
-                    <span className="bullet-check rennto-theme-color">✔</span>
                     <span className="bullet-label">Rental Tracking</span>
                   </div>
                   <div className="bullet-item">
-                    <span className="bullet-check rennto-theme-color">✔</span>
                     <span className="bullet-label">Secure User Experience</span>
                   </div>
                 </div>
@@ -655,23 +637,18 @@ export default function Projects() {
 
                 <div className="showcase-features-bullets">
                   <div className="bullet-item">
-                    <span className="bullet-check txhub-theme-color">✔</span>
                     <span className="bullet-label">Workflow Automation</span>
                   </div>
                   <div className="bullet-item">
-                    <span className="bullet-check txhub-theme-color">✔</span>
                     <span className="bullet-label">Team Collaboration</span>
                   </div>
                   <div className="bullet-item">
-                    <span className="bullet-check txhub-theme-color">✔</span>
                     <span className="bullet-label">Business Analytics</span>
                   </div>
                   <div className="bullet-item">
-                    <span className="bullet-check txhub-theme-color">✔</span>
                     <span className="bullet-label">Task Management</span>
                   </div>
                   <div className="bullet-item">
-                    <span className="bullet-check txhub-theme-color">✔</span>
                     <span className="bullet-label">Enterprise Security</span>
                   </div>
                 </div>

@@ -262,7 +262,7 @@ export default function Collaboration() {
       title: "Increased Revenue Opportunities",
       desc: "Access new markets, customers, and business opportunities through joint sales and collaborative engagements.",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="26" height="26">
           <line x1="18" y1="20" x2="18" y2="10" />
           <line x1="12" y1="20" x2="12" y2="4" />
           <line x1="6" y1="20" x2="6" y2="14" />
@@ -274,7 +274,7 @@ export default function Collaboration() {
       title: "Expanded Service Portfolio",
       desc: "Enhance your offerings with our expertise in software development, cloud solutions, DevOps, AI, cybersecurity, and digital transformation.",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="26" height="26">
           <rect x="3" y="3" width="7" height="9" />
           <rect x="14" y="3" width="7" height="5" />
           <rect x="14" y="12" width="7" height="9" />
@@ -286,7 +286,7 @@ export default function Collaboration() {
       title: "Faster Time-to-Market",
       desc: "Leverage proven frameworks, methodologies, and technology solutions to accelerate project delivery.",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="26" height="26">
           <circle cx="12" cy="12" r="10" />
           <polyline points="12 6 12 12 16 14" />
         </svg>
@@ -296,7 +296,7 @@ export default function Collaboration() {
       title: "Joint Go-to-Market Initiatives",
       desc: "Participate in co-marketing campaigns, events, webinars, and business development programs.",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="26" height="26">
           <path d="M11 5L6 9H2v6h4l5 4V5z" />
           <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
         </svg>
@@ -306,7 +306,7 @@ export default function Collaboration() {
       title: "Technical Expertise",
       desc: "Gain access to experienced professionals, solution architects, and technology specialists.",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="26" height="26">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
           <circle cx="9" cy="7" r="4" />
           <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -318,7 +318,7 @@ export default function Collaboration() {
       title: "Innovation & Growth",
       desc: "Collaborate on emerging technologies and next-generation digital solutions.",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="26" height="26">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="26" height="26">
           <path d="M15 14c.2-.2.4-.4.6-.7C16.8 11.7 17 10 15.8 8.3c-1.3-1.8-4.3-1.8-5.6 0-1.2 1.7-1 3.4.2 5 .2.3.4.5.6.7v3h4v-3zM9 18h6" />
         </svg>
       )
@@ -446,7 +446,7 @@ export default function Collaboration() {
       sizeClass: "bento-normal",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="22" height="22">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
           <polyline points="14 2 14 8 20 8" />
           <line x1="16" y1="13" x2="8" y2="13" />
@@ -460,7 +460,7 @@ export default function Collaboration() {
       sizeClass: "bento-w2",
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="22" height="22">
           <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
           <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
         </svg>
@@ -472,7 +472,7 @@ export default function Collaboration() {
       sizeClass: "bento-normal",
       image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="22" height="22">
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
           <line x1="8" y1="21" x2="16" y2="21" />
           <line x1="12" y1="17" x2="12" y2="21" />
@@ -485,7 +485,7 @@ export default function Collaboration() {
       sizeClass: "bento-h2",
       image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="22" height="22">
           <polygon points="12 2 2 7 12 12 22 7 12 2" />
           <polyline points="2 17 12 22 22 17" />
           <polyline points="2 12 12 17 22 12" />
@@ -498,7 +498,7 @@ export default function Collaboration() {
       sizeClass: "bento-normal",
       image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=400&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="22" height="22">
           <path d="M11 5L6 9H2v6h4l5 4V5z" />
         </svg>
       )
@@ -509,7 +509,7 @@ export default function Collaboration() {
       sizeClass: "bento-normal",
       image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=400&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="22" height="22">
           <path d="M23 7a2 2 0 0 0-2.45-1.45L16 7V5a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2l4.55 1.45A2 2 0 0 0 23 17V7z" />
         </svg>
       )
@@ -520,7 +520,7 @@ export default function Collaboration() {
       sizeClass: "bento-w2",
       image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="22" height="22">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         </svg>
       )
@@ -531,7 +531,7 @@ export default function Collaboration() {
       sizeClass: "bento-normal",
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="22" height="22">
           <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" />
           <line x1="12" y1="22" x2="12" y2="12" />
           <line x1="12" y1="12" x2="22" y2="8.5" />
@@ -545,7 +545,7 @@ export default function Collaboration() {
       sizeClass: "bento-normal",
       image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="#ff0066" strokeWidth="2" width="22" height="22">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b2e8a" strokeWidth="2" width="22" height="22">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
         </svg>
       )

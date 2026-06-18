@@ -79,12 +79,71 @@ const industries = [
 ];
 
 const valueProps = [
-  { title: "Technical Excellence", icon: "⚡", color: "#3b82f6", desc: "Our engineering leads maintain rigorous code quality auditing, continuous refactoring, and high-performance design standards across every project." },
-  { title: "On-Time Delivery", icon: "🎯", color: "#10b981", desc: "Through lean GitOps build gates and sprint planning cycles, we ensure roadmap commitments are released on schedule, every time." },
-  { title: "Scalable Solutions", icon: "🚀", color: "#8b5cf6", desc: "Platforms modeled using stateless containers, decoupled data layers, and microservices — ready to scale vertically or horizontally on demand." },
-  { title: "Enterprise Security", icon: "🔒", color: "#ef4444", desc: "AES-256 encryption, OAuth/JWT identity gateways, compliance frameworks, and pen-tested deployments baked in from day one." },
-  { title: "Dedicated Support", icon: "🛡️", color: "#f59e0b", desc: "Around-the-clock cluster telemetry monitoring, SLA-backed response systems, and dedicated accounts engineers for every client." },
-  { title: "Innovation Driven", icon: "🧠", color: "#ec4899", desc: "Continuous research into LLMs, RAG systems, AI agent automation, and emerging cloud-native paradigms keeps you ahead of the curve." }
+  {
+    title: "Technical Excellence",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+    color: "#3b82f6",
+    desc: "Our engineering leads maintain rigorous code quality auditing, continuous refactoring, and high-performance design standards across every project."
+  },
+  {
+    title: "On-Time Delivery",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+    ),
+    color: "#10b981",
+    desc: "Through lean GitOps build gates and sprint planning cycles, we ensure roadmap commitments are released on schedule, every time."
+  },
+  {
+    title: "Scalable Solutions",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
+      </svg>
+    ),
+    color: "#8b5cf6",
+    desc: "Platforms modeled using stateless containers, decoupled data layers, and microservices — ready to scale vertically or horizontally on demand."
+  },
+  {
+    title: "Enterprise Security",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </svg>
+    ),
+    color: "#ef4444",
+    desc: "AES-256 encryption, OAuth/JWT identity gateways, compliance frameworks, and pen-tested deployments baked in from day one."
+  },
+  {
+    title: "Dedicated Support",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    color: "#f59e0b",
+    desc: "Around-the-clock cluster telemetry monitoring, SLA-backed response systems, and dedicated accounts engineers for every client."
+  },
+  {
+    title: "Innovation Driven",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.7.8 1.3 1.5 1.5 2.5" />
+        <path d="M9 18h6" />
+        <path d="M10 22h4" />
+      </svg>
+    ),
+    color: "#ec4899",
+    desc: "Continuous research into LLMs, RAG systems, AI agent automation, and emerging cloud-native paradigms keeps you ahead of the curve."
+  }
 ];
 
 // ─── Animated Counter Hook ────────────────────────────────────────────────────
@@ -298,12 +357,6 @@ export default function Testimonials() {
 
                 <motion.div className="hero-cta-buttons-group"
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.55 }}>
-                  <button className="btn-consultation" onClick={scrollToCTA}>
-                    Read Stories
-                    <svg className="btn-icon-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </button>
                   <button className="btn-contact-us" onClick={() => { window.location.hash = '#contact'; }}>
                     Contact Us
                   </button>
@@ -350,11 +403,6 @@ export default function Testimonials() {
             </div>
 
           </div>
-        </div>
-
-        <div className="hero-scroll-indicator" onClick={scrollToCTA}>
-          <div className="mouse-scroll-wheel"><div className="mouse-wheel-dot"></div></div>
-          <span className="scroll-indicator-text">Read Reviews ↓</span>
         </div>
       </section>
 
@@ -506,7 +554,7 @@ export default function Testimonials() {
               className="value-prop-card saas-glass-card"
               style={{ '--prop-color': prop.color }}
             >
-              <div className="prop-emoji-icon">{prop.icon}</div>
+              <div className="prop-icon-wrapper-border">{prop.icon}</div>
               <div className="prop-color-dot" style={{ background: prop.color }}></div>
               <h3 className="prop-title">{prop.title}</h3>
               <p className="prop-desc">{prop.desc}</p>
