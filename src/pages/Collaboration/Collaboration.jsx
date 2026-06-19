@@ -220,46 +220,78 @@ export default function Collaboration() {
     }
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {};
+const handleFormSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
-    if (!formData.companyName.trim()) newErrors.companyName = 'Company name is required';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Business email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Invalid email address';
-    }
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-    if (!formData.country.trim()) newErrors.country = 'Country is required';
-    if (!formData.partnershipType) newErrors.partnershipType = 'Partnership type is required';
-    if (!formData.companySize) newErrors.companySize = 'Company size is required';
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
+  const newErrors = {};
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
+  if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
+  if (!formData.companyName.trim()) newErrors.companyName = "Company name is required";
+
+  if (!formData.email.trim()) {
+    newErrors.email = "Business email is required";
+  } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    newErrors.email = "Invalid email address";
+  }
+
+  if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+  if (!formData.country.trim()) newErrors.country = "Country is required";
+  if (!formData.partnershipType) newErrors.partnershipType = "Partnership type is required";
+  if (!formData.companySize) newErrors.companySize = "Company size is required";
+  if (!formData.message.trim()) newErrors.message = "Message is required";
+
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors);
+    return;
+  }
+
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbxOMFGMyBkj10Ag1G3OxZnIE4obvQTyslzwMg6E2bhqaG64YX4bGXtfFYMWc6gOqWg/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          companyName: formData.companyName,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          companyWebsite: formData.companyWebsite,
+          partnershipType: formData.partnershipType,
+          companySize: formData.companySize,
+          areasExpertise: formData.areasExpertise,
+          partnershipGoals: formData.partnershipGoals,
+          message: formData.message
+        })
+      }
+    );
 
     setFormSubmitted(true);
+
+    setFormData({
+      fullName: "",
+      companyName: "",
+      email: "",
+      phone: "",
+      country: "",
+      companyWebsite: "",
+      partnershipType: "",
+      companySize: "",
+      areasExpertise: "",
+      partnershipGoals: "",
+      message: ""
+    });
+
     setTimeout(() => {
-      setFormData({
-        fullName: '',
-        companyName: '',
-        email: '',
-        phone: '',
-        country: '',
-        companyWebsite: '',
-        partnershipType: '',
-        companySize: '',
-        areasExpertise: '',
-        partnershipGoals: '',
-        message: ''
-      });
       setFormSubmitted(false);
     }, 5000);
-  };
+
+  } catch (error) {
+    console.error(error);
+    alert("Submission Failed");
+  }
+};
 
   const scrollToForm = () => {
     const el = document.getElementById('become-partner-form');
