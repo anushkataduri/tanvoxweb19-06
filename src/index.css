@@ -12001,3 +12001,36 @@ html, body {
   }
 }
 
+/* Force Home Hero Consultation button to always be gradient and animate on hover */
+.hero-actions a.btn-consultation:nth-child(1),
+.hero-actions a.btn-consultation:nth-child(2),
+.hero-actions .btn-consultation {
+  background: var(--grad-primary) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 8px 25px rgba(255, 30, 60, 0.25) !important;
+}
+
+.hero-actions a.btn-consultation:nth-child(1):hover,
+.hero-actions a.btn-consultation:nth-child(2):hover,
+.hero-actions .btn-consultation:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px rgba(255, 30, 60, 0.4) !important;
+  opacity: 0.95 !important;
+  border-color: transparent !important;
+}
+
+/* Force Portfolio Hero Contact buttons to always be gradient and animate on hover */
+.hero-cta-buttons-group .btn-contact-us {
+  background: var(--grad-primary) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 8px 25px rgba(255, 30, 60, 0.25) !important;
+}
+
+.hero-cta-buttons-group .btn-contact-us:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px rgba(255, 30, 60, 0.4) !important;
+  opacity: 0.95 !important;
+}
+
