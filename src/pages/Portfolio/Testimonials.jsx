@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './ProductsRedesign.css';
-import projectsHeroBg from '../../assets/circuit_bg_2.jpg';
+import projectsHeroBg from '../../assets/portfolio_hero.png';
 
 gsap.registerPlugin(ScrollTrigger);
 

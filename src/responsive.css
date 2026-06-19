@@ -1,0 +1,508 @@
+/* =========================================================
+   TABLET & MOBILE BREAKPOINTS (max-width: 1023px)
+   ========================================================= */
+@media (max-width: 1023px) {
+  /* Global resets inside media query only */
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+  .app-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+  }
+
+  /* Responsive typography scaling */
+  h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 3.5rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 4vw + 0.8rem, 2.5rem) !important;
+    line-height: 1.3 !important;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw + 0.6rem, 1.8rem) !important;
+  }
+
+  p {
+    font-size: clamp(0.9rem, 1vw + 0.75rem, 1.05rem) !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Header & Navigation */
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .header-container .cta-section {
+    display: flex !important;
+  }
+
+  .mobile-toggle-btn {
+    display: flex !important;
+  }
+
+  .cta-section .cta-button:not(.mobile-cta-btn) {
+    display: none !important;
+  }
+
+  .premium-header-inner {
+    padding: 0.75rem 1.5rem !important;
+    width: 100% !important;
+  }
+
+  /* Two-column hero becomes one column */
+  .hero-container {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 2.5rem !important;
+    padding-top: 6rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .hero-left-col {
+    align-items: center !important;
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-title {
+    text-align: center !important;
+  }
+
+  .hero-right-col {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .hero-globe-wrapper {
+    width: min(320px, 75vw) !important;
+    height: min(320px, 75vw) !important;
+    margin-top: 0 !important;
+  }
+
+  /* Products/Platforms showcase layouts */
+  .saas-showcase-row {
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+
+  .saas-showcase-row:nth-child(even) {
+    flex-direction: column !important;
+  }
+
+  .saas-showcase-col-info, 
+  .saas-showcase-col-visual {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Directory grids (Solutions, Industries, etc.) */
+  .directory-showcase-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Accelerate CTA Banner */
+  .accelerate-banner-container {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 2rem !important;
+    padding: 3rem 2rem !important;
+  }
+
+  .accelerate-left {
+    align-items: center !important;
+  }
+
+  .accelerate-right {
+    justify-content: center !important;
+  }
+
+  /* Newsletter section */
+  .stay-ahead-newsletter-container {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Footer responsiveness */
+  .footer-columns-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+
+  /* General elements & sections */
+  .container, 
+  .solutions-container, 
+  .contact-container, 
+  .portfolio-container, 
+  .about-container, 
+  .collaboration-container {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  /* About page Hero adjustments for mobile/tablet */
+  .about-hero-new {
+    min-height: auto !important;
+    padding: 6rem 1.5rem 3rem 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .hero-container-new {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .hero-left-col-new {
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .hero-title-new {
+    text-align: center !important;
+  }
+
+  .hero-desc-new {
+    text-align: center !important;
+  }
+
+  .hero-actions-new {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 1rem !important;
+  }
+
+  .hero-actions-new a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .hero-right-col-new {
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .hero-illustration-wrapper {
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Industry Solutions Card Grid Override (Fix solutions page) */
+  .industry-solutions-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+    overflow-x: visible !important;
+  }
+
+  .industry-image-card {
+    width: 100% !important;
+    height: 260px !important;
+  }
+
+  .industry-image-card.expanded {
+    grid-column: span 2 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 380px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE BREAKPOINT ONLY (max-width: 767px)
+   ========================================================= */
+@media (max-width: 767px) {
+  /* Industry Solutions Card Grid Mobile Override */
+  .industry-solutions-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .industry-image-card.expanded {
+    grid-column: span 1 !important;
+  }
+
+  /* Navigation mobile drawer sizing */
+  .mobile-drawer {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 6rem 1.5rem 2.5rem 1.5rem !important;
+  }
+
+  /* Hero Section */
+  .hero-container {
+    padding-top: 5.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .hero-title {
+    font-size: 2.1rem !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 1rem !important;
+  }
+
+  .hero-actions .cta-button, 
+  .hero-actions .secondary-button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Directory Showcase (Solutions/Industries) - 1 Column on Mobile */
+  .directory-showcase-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Footer - 1 Column on Mobile */
+  .footer-columns-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    text-align: center !important;
+  }
+
+  .footer-brand-col {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-bottom-bar-inner {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    text-align: center !important;
+  }
+
+  /* Forms & Buttons full width */
+  .newsletter-form-modern {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .stay-ahead-newsletter-section input[type="email"],
+  .stay-ahead-newsletter-section button {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .subscribe-btn-modern {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Forms and fields on general contact page */
+  .contact-form-grid, 
+  .form-row {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+
+  .contact-form input, 
+  .contact-form textarea, 
+  .contact-form select,
+  .form-group input, 
+  .form-group textarea, 
+  .form-group select {
+    width: 100% !important;
+  }
+
+  .submit-btn, 
+  .contact-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Touch Targets (Buttons, Links) */
+  a, button, input, select, textarea {
+    min-height: 48px;
+  }
+
+  /* Layout grids & columns across specific pages */
+  .products-grid, 
+  .solutions-grid, 
+  .about-grid, 
+  .about-values-grid, 
+  .services-grid, 
+  .industries-grid, 
+  .collaboration-grid, 
+  .careers-grid, 
+  .job-details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .two-col-layout, 
+  .three-col-layout {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Inner card adjustments for small screens */
+  .directory-card, 
+  .service-card, 
+  .solution-card, 
+  .industry-card, 
+  .partner-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Careers Job Details Page Layout Override (Fix screenshot 1) */
+  .jd-new-content-column {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  .jd-new-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.5rem !important;
+  }
+
+  .why-join-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Services Bento grid stack height override (Fix screenshot 2) */
+  .premium-bento-grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
+    gap: 1.25rem !important;
+  }
+
+  .premium-bento-card, .services-bento-card {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    height: auto !important;
+    min-height: 240px !important;
+    padding: 1.5rem !important;
+  }
+
+  /* Services Modal Overlay Detail scrollable wrap (Fix screenshot 3) */
+  .services-modal-content-wrap {
+    max-height: 92vh !important;
+    overflow-y: auto !important;
+    border-radius: 20px !important;
+  }
+
+  .services-modal-layout-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .services-modal-visual-pane {
+    height: 180px !important;
+  }
+
+  .services-modal-details-pane {
+    padding: 1.5rem !important;
+  }
+
+  .services-modal-close-btn {
+    top: 12px !important;
+    right: 12px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  /* Solutions page vertical timeline (Fix Delivery Process card on mobile) */
+  .solutions-timeline-steps {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+    padding-left: 2rem !important;
+  }
+  
+  .solutions-timeline-step {
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    gap: 1rem !important;
+  }
+  
+  .solutions-timeline-number,
+  .solutions-timeline-icon {
+    margin-bottom: 0 !important;
+  }
+  
+  .solutions-timeline-line {
+    top: 10px !important;
+    bottom: 10px !important;
+    left: 48px !important; /* aligned with center of number */
+    right: auto !important;
+    width: 2px !important;
+    height: calc(100% - 20px) !important;
+    border-top: none !important;
+    border-left: 2px dashed rgba(255, 30, 60, 0.25) !important;
+  }
+}
+
+/* ==========================================================================
+   GLOBAL HERO ANIMATIONS & PORTFOLIO LAYOUT CORRECTIONS
+   ========================================================================== */
+
+/* Prevent projects text from overlapping right side image */
+.projects-hero-text-side {
+  max-width: 550px !important;
+}
+
+/* Hide top badge text ("Our Products & Platforms", "Case Studies", etc.) */
+.projects-hero-badge-glow {
+  display: none !important;
+}
+
+/* Keyframe definition for clean fade-in-up entrance animation */
+@keyframes globalHeroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in animation to all hero containers across the entire site */
+.verification-hero .hero-container,
+.about-hero-new .hero-container-new,
+.services-hero .services-hero-grid,
+.solutions-hero .solutions-hero-grid,
+.ind-hero .ind-hero-grid,
+.collaboration-hero-container,
+.careers-hero-container,
+.jd-new-hero-grid,
+.support-hero-container,
+.contact-hero-container,
+.projects-hero-container .projects-hero-grid {
+  opacity: 0;
+  animation: globalHeroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+

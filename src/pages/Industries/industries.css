@@ -1395,3 +1395,66 @@
     margin-top: 30px;
   }
 }
+
+@media (max-width: 768px) {
+  /* 2. Overview Section */
+  .ind-overview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    text-align: center;
+  }
+  .ind-simple-icons-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .ind-simple-icon {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 1.25rem !important;
+    padding: 0.75rem 1rem !important;
+    background: #f8fafc !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+    text-align: left !important;
+  }
+
+  /* 4. Cross Capabilities Section */
+  .ind-cross-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* 5. Why Choose Us Section */
+  .ind-why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .ind-why-card {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  /* 6. Engagement Process Section */
+  .ind-process-flow {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  .ind-process-step {
+    width: 100% !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1.25rem !important;
+    text-align: left !important;
+  }
+  .ind-process-arrow {
+    transform: rotate(90deg) !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  /* 7. Success Metrics Section */
+  .ind-metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}

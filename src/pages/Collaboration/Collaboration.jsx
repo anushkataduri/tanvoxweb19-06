@@ -145,8 +145,8 @@ export default function Collaboration() {
     phone: '',
     country: '',
     companyWebsite: '',
-    partnershipType: 'Technology Partner',
-    companySize: '1-10 Employees',
+    partnershipType: '',
+    companySize: '',
     areasExpertise: '',
     partnershipGoals: '',
     message: ''
@@ -157,11 +157,16 @@ export default function Collaboration() {
   // Form focus states for floating labels
   const [focusedField, setFocusedField] = useState(null);
 
+  // Collapsible form toggle
+  const [formOpen, setFormOpen] = useState(false);
+
   // Custom select dropdown state & refs
   const [partnershipTypeOpen, setPartnershipTypeOpen] = useState(false);
   const [companySizeOpen, setCompanySizeOpen] = useState(false);
+  const [countryOpen, setCountryOpen] = useState(false);
   const partnershipTypeRef = useRef(null);
   const companySizeRef = useRef(null);
+  const countryRef = useRef(null);
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
@@ -170,6 +175,9 @@ export default function Collaboration() {
       }
       if (companySizeRef.current && !companySizeRef.current.contains(e.target)) {
         setCompanySizeOpen(false);
+      }
+      if (countryRef.current && !countryRef.current.contains(e.target)) {
+        setCountryOpen(false);
       }
     };
     document.addEventListener('mousedown', handleOutsideClick);
@@ -225,6 +233,8 @@ export default function Collaboration() {
     }
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
     if (!formData.country.trim()) newErrors.country = 'Country is required';
+    if (!formData.partnershipType) newErrors.partnershipType = 'Partnership type is required';
+    if (!formData.companySize) newErrors.companySize = 'Company size is required';
     if (!formData.message.trim()) newErrors.message = 'Message is required';
 
     if (Object.keys(newErrors).length > 0) {
@@ -241,8 +251,8 @@ export default function Collaboration() {
         phone: '',
         country: '',
         companyWebsite: '',
-        partnershipType: 'Technology Partner',
-        companySize: '1-10 Employees',
+        partnershipType: '',
+        companySize: '',
         areasExpertise: '',
         partnershipGoals: '',
         message: ''
@@ -860,15 +870,24 @@ export default function Collaboration() {
 
 
       {/* 8. Become a Partner Form */}
-      <section className="collab-section" id="become-partner-form">
+      <section className="collab-section bg-dark-accent" id="become-partner-form">
         <div className="collab-container">
-          <div className="collab-section-header">
-            <span className="section-subtitle">Get Started</span>
-            <h2>Partner Inquiry Form</h2>
-            <p>Complete the form below to submit your partnership inquiry. Our alliances team will review your application and respond shortly.</p>
+          
+          {/* Static Centered Section Header */}
+          <div className="collab-section-header" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <span className="section-subtitle" style={{ fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--color-red)' }}>Get Started</span>
+            <h2 style={{ fontSize: '2.2rem', fontWeight: 800, margin: '8px 0', color: '#0f172a' }}>Partner Inquiry Form</h2>
+            <p style={{ fontSize: '0.95rem', color: '#475569', margin: '0 auto', maxWidth: '680px' }}>Complete the form below to submit your partnership inquiry. Our alliances team will review your application and respond shortly.</p>
           </div>
 
           <div className="form-glass-card">
+            
+            {/* Form Title & Description Inside the Card */}
+            <div className="form-card-title-group" style={{ textAlign: 'left', marginBottom: '24px' }}>
+              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', margin: '0 0 4px 0' }}>Let's Collaborate</h3>
+              <p style={{ fontSize: '0.9rem', color: '#64748b', margin: 0 }}>Fill in the details below and let's build something amazing together.</p>
+            </div>
+
             <AnimatePresence mode="wait">
               {formSubmitted ? (
                 <motion.div 
@@ -884,12 +903,10 @@ export default function Collaboration() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleFormSubmit}>
+                  {/* First row: Always visible, contains 2 fields */}
                   <div className="form-grid-row">
                     <div className="form-input-group">
-                      <label 
-                        htmlFor="fullName"
-                        className={focusedField === 'fullName' || formData.fullName ? 'label-float' : ''}
-                      >
+                      <label htmlFor="fullName" className="static-label">
                         Full Name *
                       </label>
                       <input 
@@ -898,42 +915,15 @@ export default function Collaboration() {
                         name="fullName" 
                         value={formData.fullName}
                         onChange={handleInputChange}
-                        onFocus={() => setFocusedField('fullName')}
-                        onBlur={() => setFocusedField(null)}
+                        onFocus={() => setFormOpen(true)}
                         className={errors.fullName ? 'error-border' : ''}
-                        placeholder={focusedField === 'fullName' ? "e.g. Jane Smith" : ""} 
+                        placeholder="Enter your full name" 
                       />
                       {errors.fullName && <span className="field-error-msg">{errors.fullName}</span>}
                     </div>
 
                     <div className="form-input-group">
-                      <label 
-                        htmlFor="companyName"
-                        className={focusedField === 'companyName' || formData.companyName ? 'label-float' : ''}
-                      >
-                        Company Name *
-                      </label>
-                      <input 
-                        type="text" 
-                        id="companyName" 
-                        name="companyName" 
-                        value={formData.companyName}
-                        onChange={handleInputChange}
-                        onFocus={() => setFocusedField('companyName')}
-                        onBlur={() => setFocusedField(null)}
-                        className={errors.companyName ? 'error-border' : ''}
-                        placeholder={focusedField === 'companyName' ? "e.g. Acme Corp" : ""} 
-                      />
-                      {errors.companyName && <span className="field-error-msg">{errors.companyName}</span>}
-                    </div>
-                  </div>
-
-                  <div className="form-grid-row">
-                    <div className="form-input-group">
-                      <label 
-                        htmlFor="email"
-                        className={focusedField === 'email' || formData.email ? 'label-float' : ''}
-                      >
+                      <label htmlFor="email" className="static-label">
                         Business Email *
                       </label>
                       <input 
@@ -942,230 +932,307 @@ export default function Collaboration() {
                         name="email" 
                         value={formData.email}
                         onChange={handleInputChange}
-                        onFocus={() => setFocusedField('email')}
-                        onBlur={() => setFocusedField(null)}
+                        onFocus={() => setFormOpen(true)}
                         className={errors.email ? 'error-border' : ''}
-                        placeholder={focusedField === 'email' ? "e.g. partner@acme.com" : ""} 
+                        placeholder="Enter your business email" 
                       />
                       {errors.email && <span className="field-error-msg">{errors.email}</span>}
                     </div>
-
-                    <div className="form-input-group">
-                      <label 
-                        htmlFor="phone"
-                        className={focusedField === 'phone' || formData.phone ? 'label-float' : ''}
-                      >
-                        Phone Number *
-                      </label>
-                      <input 
-                        type="text" 
-                        id="phone" 
-                        name="phone" 
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        onFocus={() => setFocusedField('phone')}
-                        onBlur={() => setFocusedField(null)}
-                        className={errors.phone ? 'error-border' : ''}
-                        placeholder={focusedField === 'phone' ? "e.g. +1 (555) 019-2834" : ""} 
-                      />
-                      {errors.phone && <span className="field-error-msg">{errors.phone}</span>}
-                    </div>
                   </div>
 
-                  <div className="form-grid-row">
-                    <div className="form-input-group">
-                      <label 
-                        htmlFor="country"
-                        className={focusedField === 'country' || formData.country ? 'label-float' : ''}
-                      >
-                        Country *
-                      </label>
-                      <input 
-                        type="text" 
-                        id="country" 
-                        name="country" 
-                        value={formData.country}
-                        onChange={handleInputChange}
-                        onFocus={() => setFocusedField('country')}
-                        onBlur={() => setFocusedField(null)}
-                        className={errors.country ? 'error-border' : ''}
-                        placeholder={focusedField === 'country' ? "e.g. United States" : ""} 
-                      />
-                      {errors.country && <span className="field-error-msg">{errors.country}</span>}
-                    </div>
-
-                    <div className="form-input-group">
-                      <label 
-                        htmlFor="companyWebsite"
-                        className={focusedField === 'companyWebsite' || formData.companyWebsite ? 'label-float' : ''}
-                      >
-                        Company Website
-                      </label>
-                      <input 
-                        type="url" 
-                        id="companyWebsite" 
-                        name="companyWebsite" 
-                        value={formData.companyWebsite}
-                        onChange={handleInputChange}
-                        onFocus={() => setFocusedField('companyWebsite')}
-                        onBlur={() => setFocusedField(null)}
-                        placeholder={focusedField === 'companyWebsite' ? "https://acme.com" : ""} 
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-grid-row">
-                    <div className="form-input-group" ref={partnershipTypeRef} style={{ position: 'relative' }}>
-                      <label className="label-float">Partnership Type *</label>
-                      <div 
-                        className={`custom-select-trigger ${partnershipTypeOpen ? 'active' : ''}`}
-                        onClick={() => setPartnershipTypeOpen(!partnershipTypeOpen)}
-                      >
-                        <span>{formData.partnershipType}</span>
-                        <svg className={`select-arrow ${partnershipTypeOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
+                  {/* Rest of the form, animated dropdown */}
+                  <motion.div
+                    initial={false}
+                    animate={{ height: formOpen ? 'auto' : 0, opacity: formOpen ? 1 : 0 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ overflow: formOpen ? 'visible' : 'hidden' }}
+                  >
+                    <div className="form-grid-row" style={{ marginTop: '12px' }}>
+                      <div className="form-input-group">
+                        <label htmlFor="companyName" className="static-label">
+                          Company Name *
+                        </label>
+                        <input 
+                          type="text" 
+                          id="companyName" 
+                          name="companyName" 
+                          value={formData.companyName}
+                          onChange={handleInputChange}
+                          className={errors.companyName ? 'error-border' : ''}
+                          placeholder="Enter your company name" 
+                        />
+                        {errors.companyName && <span className="field-error-msg">{errors.companyName}</span>}
                       </div>
-                      
-                      <AnimatePresence>
-                        {partnershipTypeOpen && (
-                          <motion.div 
-                            className="custom-select-dropdown"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.15 }}
-                          >
-                            {[
-                              "Technology Partner", "Software Vendor", "Cloud Provider", 
-                              "Consulting Partner", "System Integration Partner", 
-                              "Managed Service Provider (MSP)", "Startup Alliance", 
-                              "Educational Partner", "Government Partner", 
-                              "Enterprise Solution Partner", "Cybersecurity Partner", 
-                              "AI / Analytics Partner"
-                            ].map((option) => (
-                              <div 
-                                key={option}
-                                className={`custom-select-option ${formData.partnershipType === option ? 'selected' : ''}`}
-                                onClick={() => {
-                                  setFormData(prev => ({ ...prev, partnershipType: option }));
-                                  setPartnershipTypeOpen(false);
-                                }}
-                              >
-                                {option}
-                              </div>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
 
-                    <div className="form-input-group" ref={companySizeRef} style={{ position: 'relative' }}>
-                      <label className="label-float">Company Size *</label>
-                      <div 
-                        className={`custom-select-trigger ${companySizeOpen ? 'active' : ''}`}
-                        onClick={() => setCompanySizeOpen(!companySizeOpen)}
-                      >
-                        <span>{formData.companySize}</span>
-                        <svg className={`select-arrow ${companySizeOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
+                      <div className="form-input-group">
+                        <label htmlFor="phone" className="static-label">
+                          Phone Number *
+                        </label>
+                        <input 
+                          type="text" 
+                          id="phone" 
+                          name="phone" 
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className={errors.phone ? 'error-border' : ''}
+                          placeholder="Enter your phone number" 
+                        />
+                        {errors.phone && <span className="field-error-msg">{errors.phone}</span>}
                       </div>
-                      
-                      <AnimatePresence>
-                        {companySizeOpen && (
-                          <motion.div 
-                            className="custom-select-dropdown"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.15 }}
-                          >
-                            {[
-                              "1-10 Employees", "11-50 Employees", "51-200 Employees", 
-                              "201-500 Employees", "500+ Employees"
-                            ].map((option) => (
-                              <div 
-                                key={option}
-                                className={`custom-select-option ${formData.companySize === option ? 'selected' : ''}`}
-                                onClick={() => {
-                                  setFormData(prev => ({ ...prev, companySize: option }));
-                                  setCompanySizeOpen(false);
-                                }}
-                              >
-                                {option}
-                              </div>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
                     </div>
-                  </div>
 
-                  <div className="form-input-group" style={{ marginTop: '12px' }}>
-                    <label 
-                      htmlFor="areasExpertise"
-                      className={focusedField === 'areasExpertise' || formData.areasExpertise ? 'label-float' : ''}
+                    <div className="form-grid-row">
+                      {/* Country Dropdown Select */}
+                      <div className="form-input-group" ref={countryRef} style={{ position: 'relative' }}>
+                        <label className="static-label">Country *</label>
+                        <div 
+                          className={`custom-select-trigger ${countryOpen ? 'active' : ''}`}
+                          onClick={() => setCountryOpen(!countryOpen)}
+                        >
+                          <span style={{ color: formData.country ? '#0f172a' : '#94a3b8' }}>
+                            {formData.country || "Select your country"}
+                          </span>
+                          <svg className={`select-arrow ${countryOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                        </div>
+                        
+                        <AnimatePresence>
+                          {countryOpen && (
+                            <motion.div 
+                              className="custom-select-dropdown"
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ duration: 0.15 }}
+                            >
+                              {[
+                                "United States", "United Kingdom", "Canada", "India", "Germany", 
+                                "Australia", "Singapore", "France", "United Arab Emirates", 
+                                "Saudi Arabia", "South Africa", "Netherlands", "Japan"
+                              ].map((option) => (
+                                <div 
+                                  key={option}
+                                  className={`custom-select-option ${formData.country === option ? 'selected' : ''}`}
+                                  onClick={() => {
+                                    setFormData(prev => ({ ...prev, country: option }));
+                                    setCountryOpen(false);
+                                    if (errors.country) setErrors(prev => ({ ...prev, country: '' }));
+                                  }}
+                                >
+                                  {option}
+                                </div>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                        {errors.country && <span className="field-error-msg">{errors.country}</span>}
+                      </div>
+
+                      <div className="form-input-group">
+                        <label htmlFor="companyWebsite" className="static-label">
+                          Company Website
+                        </label>
+                        <input 
+                          type="url" 
+                          id="companyWebsite" 
+                          name="companyWebsite" 
+                          value={formData.companyWebsite}
+                          onChange={handleInputChange}
+                          placeholder="Enter your website URL" 
+                        />
+                      </div>
+                    </div>
+
+                    <div className="form-grid-row">
+                      {/* Partnership Type Dropdown Select */}
+                      <div className="form-input-group" ref={partnershipTypeRef} style={{ position: 'relative' }}>
+                        <label className="static-label">Partnership Type *</label>
+                        <div 
+                          className={`custom-select-trigger ${partnershipTypeOpen ? 'active' : ''}`}
+                          onClick={() => setPartnershipTypeOpen(!partnershipTypeOpen)}
+                        >
+                          <span style={{ color: formData.partnershipType ? '#0f172a' : '#94a3b8' }}>
+                            {formData.partnershipType || "Select partnership type"}
+                          </span>
+                          <svg className={`select-arrow ${partnershipTypeOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                        </div>
+                        
+                        <AnimatePresence>
+                          {partnershipTypeOpen && (
+                            <motion.div 
+                              className="custom-select-dropdown"
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ duration: 0.15 }}
+                            >
+                              {[
+                                "Technology Partner", "Software Vendor", "Cloud Provider", 
+                                "Consulting Partner", "System Integration Partner", 
+                                "Managed Service Provider (MSP)", "Startup Alliance", 
+                                "Educational Partner", "Government Partner", 
+                                "Enterprise Solution Partner", "Cybersecurity Partner", 
+                                "AI / Analytics Partner"
+                              ].map((option) => (
+                                <div 
+                                  key={option}
+                                  className={`custom-select-option ${formData.partnershipType === option ? 'selected' : ''}`}
+                                  onClick={() => {
+                                    setFormData(prev => ({ ...prev, partnershipType: option }));
+                                    setPartnershipTypeOpen(false);
+                                    if (errors.partnershipType) setErrors(prev => ({ ...prev, partnershipType: '' }));
+                                  }}
+                                >
+                                  {option}
+                                </div>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                        {errors.partnershipType && <span className="field-error-msg">{errors.partnershipType}</span>}
+                      </div>
+
+                      {/* Company Size Dropdown Select */}
+                      <div className="form-input-group" ref={companySizeRef} style={{ position: 'relative' }}>
+                        <label className="static-label">Company Size *</label>
+                        <div 
+                          className={`custom-select-trigger ${companySizeOpen ? 'active' : ''}`}
+                          onClick={() => setCompanySizeOpen(!companySizeOpen)}
+                        >
+                          <span style={{ color: formData.companySize ? '#0f172a' : '#94a3b8' }}>
+                            {formData.companySize || "Select company size"}
+                          </span>
+                          <svg className={`select-arrow ${companySizeOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                        </div>
+                        
+                        <AnimatePresence>
+                          {companySizeOpen && (
+                            <motion.div 
+                              className="custom-select-dropdown"
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ duration: 0.15 }}
+                            >
+                              {[
+                                "1-10 Employees", "11-50 Employees", "51-200 Employees", 
+                                "201-500 Employees", "500+ Employees"
+                              ].map((option) => (
+                                <div 
+                                  key={option}
+                                  className={`custom-select-option ${formData.companySize === option ? 'selected' : ''}`}
+                                  onClick={() => {
+                                    setFormData(prev => ({ ...prev, companySize: option }));
+                                    setCompanySizeOpen(false);
+                                    if (errors.companySize) setErrors(prev => ({ ...prev, companySize: '' }));
+                                  }}
+                                >
+                                  {option}
+                                </div>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                        {errors.companySize && <span className="field-error-msg">{errors.companySize}</span>}
+                      </div>
+                    </div>
+
+                    <div className="form-input-group" style={{ marginTop: '12px' }}>
+                      <label htmlFor="areasExpertise" className="static-label">
+                        Areas of Expertise
+                      </label>
+                      <textarea 
+                        id="areasExpertise" 
+                        name="areasExpertise" 
+                        rows="2"
+                        value={formData.areasExpertise}
+                        onChange={handleInputChange}
+                        placeholder="Tell us about your areas of expertise"
+                      ></textarea>
+                    </div>
+
+                    <div className="form-input-group" style={{ marginTop: '12px' }}>
+                      <label htmlFor="partnershipGoals" className="static-label">
+                        Partnership Goals
+                      </label>
+                      <textarea 
+                        id="partnershipGoals" 
+                        name="partnershipGoals" 
+                        rows="2"
+                        value={formData.partnershipGoals}
+                        onChange={handleInputChange}
+                        placeholder="What are your partnership goals?"
+                      ></textarea>
+                    </div>
+
+                    <div className="form-input-group" style={{ marginTop: '12px' }}>
+                      <label htmlFor="message" className="static-label">
+                        Message *
+                      </label>
+                      <textarea 
+                        id="message" 
+                        name="message" 
+                        rows="3"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        className={errors.message ? 'error-border' : ''}
+                        placeholder="Write your message here..."
+                      ></textarea>
+                      {errors.message && <span className="field-error-msg">{errors.message}</span>}
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: '24px' }}>
+                      <button 
+                        className="btn-collab-submit" 
+                        style={{ 
+                          width: '100%', 
+                          padding: '16px', 
+                          borderRadius: '100px', 
+                          background: 'linear-gradient(90deg, #d81b60 0%, #1e2285 100%)', 
+                          color: '#ffffff', 
+                          border: 'none', 
+                          fontWeight: 750, 
+                          fontSize: '0.98rem',
+                          cursor: 'pointer',
+                          boxShadow: '0 8px 25px rgba(30, 34, 133, 0.25)',
+                          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                        }}
+                      >
+                        Submit Application
+                      </button>
+                    </div>
+                  </motion.div>
+
+                  {/* Click trigger at bottom when collapsed */}
+                  {!formOpen && (
+                    <div 
+                      onClick={() => setFormOpen(true)}
+                      style={{ 
+                        textAlign: 'center', 
+                        paddingTop: '20px', 
+                        color: '#1e2285', 
+                        fontWeight: 750, 
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '6px',
+                        fontSize: '0.92rem',
+                        borderTop: '1px solid rgba(15, 23, 42, 0.05)',
+                        marginTop: '15px'
+                      }}
                     >
-                      Areas of Expertise
-                    </label>
-                    <textarea 
-                      id="areasExpertise" 
-                      name="areasExpertise" 
-                      rows="2"
-                      value={formData.areasExpertise}
-                      onChange={handleInputChange}
-                      onFocus={() => setFocusedField('areasExpertise')}
-                      onBlur={() => setFocusedField(null)}
-                      placeholder={focusedField === 'areasExpertise' ? "Describe your domains (e.g. Cloud, AI, Cybersecurity)..." : ""}
-                    ></textarea>
-                  </div>
-
-                  <div className="form-input-group" style={{ marginTop: '12px' }}>
-                    <label 
-                      htmlFor="partnershipGoals"
-                      className={focusedField === 'partnershipGoals' || formData.partnershipGoals ? 'label-float' : ''}
-                    >
-                      Partnership Goals
-                    </label>
-                    <textarea 
-                      id="partnershipGoals" 
-                      name="partnershipGoals" 
-                      rows="2"
-                      value={formData.partnershipGoals}
-                      onChange={handleInputChange}
-                      onFocus={() => setFocusedField('partnershipGoals')}
-                      onBlur={() => setFocusedField(null)}
-                      placeholder={focusedField === 'partnershipGoals' ? "State what you would like to achieve..." : ""}
-                    ></textarea>
-                  </div>
-
-                  <div className="form-input-group" style={{ marginTop: '12px' }}>
-                    <label 
-                      htmlFor="message"
-                      className={focusedField === 'message' || formData.message ? 'label-float' : ''}
-                    >
-                      Message *
-                    </label>
-                    <textarea 
-                      id="message" 
-                      name="message" 
-                      rows="3"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      onFocus={() => setFocusedField('message')}
-                      onBlur={() => setFocusedField(null)}
-                      className={errors.message ? 'error-border' : ''}
-                      placeholder={focusedField === 'message' ? "Describe your integration goals..." : ""}
-                    ></textarea>
-                    {errors.message && <span className="field-error-msg">{errors.message}</span>}
-                  </div>
-
-                  <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: '20px' }}>
-                    <button className="btn-primary-purple" style={{ minWidth: '220px' }}>
-                      Submit Application
-                    </button>
-                  </div>
+                      <span>Show additional fields</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </div>
+                  )}
                 </form>
               )}
             </AnimatePresence>

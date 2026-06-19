@@ -55,32 +55,32 @@
 // // //   const coreValues = [
 // // //     {
 // // //       name: 'Innovation',
-// // //       icon: '💡',
+// // //       icon: 'ðŸ’¡',
 // // //       desc: 'We embrace creativity, encourage experimentation, and continuously explore emerging technologies to deliver innovative solutions.'
 // // //     },
 // // //     {
 // // //       name: 'Integrity',
-// // //       icon: '🤝',
+// // //       icon: 'ðŸ¤',
 // // //       desc: 'We conduct business with honesty, transparency, accountability, and professionalism in every interaction.'
 // // //     },
 // // //     {
 // // //       name: 'Excellence',
-// // //       icon: '🏆',
+// // //       icon: 'ðŸ†',
 // // //       desc: 'We strive for excellence in every project, ensuring the highest standards of quality, performance, and customer satisfaction.'
 // // //     },
 // // //     {
 // // //       name: 'Collaboration',
-// // //       icon: '👥',
+// // //       icon: 'ðŸ‘¥',
 // // //       desc: 'We believe great solutions are built through teamwork, partnership, and shared success.'
 // // //     },
 // // //     {
 // // //       name: 'Customer Success',
-// // //       icon: '🎯',
+// // //       icon: 'ðŸŽ¯',
 // // //       desc: 'Our clients\' success is our success. We focus on understanding their goals and delivering solutions that create measurable impact.'
 // // //     },
 // // //     {
 // // //       name: 'Continuous Learning',
-// // //       icon: '📚',
+// // //       icon: 'ðŸ“š',
 // // //       desc: 'Technology evolves rapidly, and so do we. We continuously invest in learning, skill development, and innovation.'
 // // //     },
 // // //   ];
@@ -88,53 +88,53 @@
 // // //   const services = [
 // // //     {
 // // //       name: 'Software Development',
-// // //       icon: '💻',
+// // //       icon: 'ðŸ’»',
 // // //       desc: 'We design and develop custom software applications, enterprise systems, SaaS platforms, web applications, and mobile solutions tailored to business needs.'
 // // //     },
 // // //     {
 // // //       name: 'Cloud Solutions',
-// // //       icon: '☁️',
+// // //       icon: 'â˜ï¸',
 // // //       desc: 'Our cloud experts help organizations modernize infrastructure, migrate workloads, optimize cloud environments, and build cloud-native applications.'
 // // //     },
 // // //     {
 // // //       name: 'DevOps & Automation',
-// // //       icon: '⚙️',
+// // //       icon: 'âš™ï¸',
 // // //       desc: 'We accelerate software delivery through CI/CD implementation, infrastructure automation, containerization, orchestration, and platform engineering.'
 // // //     },
 // // //     {
 // // //       name: 'Artificial Intelligence',
-// // //       icon: '🤖',
+// // //       icon: 'ðŸ¤–',
 // // //       desc: 'We develop AI-powered solutions, machine learning models, intelligent automation systems, predictive analytics, and generative AI applications.'
 // // //     },
 // // //     {
 // // //       name: 'Cybersecurity',
-// // //       icon: '🛡️',
+// // //       icon: 'ðŸ›¡ï¸',
 // // //       desc: 'We help organizations strengthen security posture through assessments, compliance services, security monitoring, governance, and risk management.'
 // // //     },
 // // //     {
 // // //       name: 'Quality Assurance',
-// // //       icon: '✅',
+// // //       icon: 'âœ…',
 // // //       desc: 'Our QA specialists ensure reliability and performance through manual testing, automation testing, performance testing, and quality engineering.'
 // // //     },
 // // //     {
 // // //       name: 'Digital Transformation',
-// // //       icon: '🚀',
+// // //       icon: 'ðŸš€',
 // // //       desc: 'We guide organizations through modernization initiatives, process optimization, technology adoption, and innovation strategies.'
 // // //     },
 // // //   ];
 
 // // //   const industries = [
-// // //     { name: 'Banking, Financial Services & Insurance (BFSI)', icon: '🏦' },
-// // //     { name: 'Healthcare & Life Sciences', icon: '🏥' },
-// // //     { name: 'Retail & E-commerce', icon: '🛒' },
-// // //     { name: 'Manufacturing & Industry 4.0', icon: '🏭' },
-// // //     { name: 'Logistics & Supply Chain', icon: '🚚' },
-// // //     { name: 'Education & EdTech', icon: '🎓' },
-// // //     { name: 'Real Estate & Construction', icon: '🏗️' },
-// // //     { name: 'Telecommunications', icon: '📱' },
-// // //     { name: 'Energy & Utilities', icon: '⚡' },
-// // //     { name: 'Government & Public Sector', icon: '🏛️' },
-// // //     { name: 'Startups & Emerging Businesses', icon: '🚀' },
+// // //     { name: 'Banking, Financial Services & Insurance (BFSI)', icon: 'ðŸ¦' },
+// // //     { name: 'Healthcare & Life Sciences', icon: 'ðŸ¥' },
+// // //     { name: 'Retail & E-commerce', icon: 'ðŸ›’' },
+// // //     { name: 'Manufacturing & Industry 4.0', icon: 'ðŸ­' },
+// // //     { name: 'Logistics & Supply Chain', icon: 'ðŸšš' },
+// // //     { name: 'Education & EdTech', icon: 'ðŸŽ“' },
+// // //     { name: 'Real Estate & Construction', icon: 'ðŸ—ï¸' },
+// // //     { name: 'Telecommunications', icon: 'ðŸ“±' },
+// // //     { name: 'Energy & Utilities', icon: 'âš¡' },
+// // //     { name: 'Government & Public Sector', icon: 'ðŸ›ï¸' },
+// // //     { name: 'Startups & Emerging Businesses', icon: 'ðŸš€' },
 // // //   ];
 
 // // //   const leadership = [
@@ -234,9 +234,9 @@
 // // //                 </p>
 // // //                 <div className="who-we-are-highlights">
 // // //                   {[
-// // //                     { icon: '🌟', title: 'Innovation First', desc: 'Always exploring new technologies' },
-// // //                     { icon: '🎯', title: 'Results Driven', desc: 'Focused on measurable outcomes' },
-// // //                     { icon: '🌍', title: 'Global Reach', desc: 'Serving clients worldwide' }
+// // //                     { icon: 'ðŸŒŸ', title: 'Innovation First', desc: 'Always exploring new technologies' },
+// // //                     { icon: 'ðŸŽ¯', title: 'Results Driven', desc: 'Focused on measurable outcomes' },
+// // //                     { icon: 'ðŸŒ', title: 'Global Reach', desc: 'Serving clients worldwide' }
 // // //                   ].map((item, idx) => (
 // // //                     <motion.div
 // // //                       key={idx}
@@ -345,10 +345,10 @@
 // // //               whileHover={{ y: -15, scale: 1.02 }}
 // // //             >
 // // //               <div className="card-illustration">
-// // //                 🚀
+// // //                 ðŸš€
 // // //               </div>
 // // //               <div className="card-icon-container mission-icon">
-// // //                 🎯
+// // //                 ðŸŽ¯
 // // //               </div>
 // // //               <h3 className="card-heading">Our Mission</h3>
 // // //               <p className="card-description">
@@ -356,23 +356,23 @@
 // // //               </p>
 // // //               <div className="key-points">
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Innovation
 // // //                 </div>
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Digital Transformation
 // // //                 </div>
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Operational Excellence
 // // //                 </div>
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Customer Success
 // // //                 </div>
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Business Growth
 // // //                 </div>
 // // //               </div>
@@ -388,10 +388,10 @@
 // // //               whileHover={{ y: -15, scale: 1.02 }}
 // // //             >
 // // //               <div className="card-illustration">
-// // //                 🌍
+// // //                 ðŸŒ
 // // //               </div>
 // // //               <div className="card-icon-container vision-icon">
-// // //                 🔮
+// // //                 ðŸ”®
 // // //               </div>
 // // //               <h3 className="card-heading">Our Vision</h3>
 // // //               <p className="card-description">
@@ -399,23 +399,23 @@
 // // //               </p>
 // // //               <div className="key-points">
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Global Innovation
 // // //                 </div>
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Future-Ready Solutions
 // // //                 </div>
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Digital Leadership
 // // //                 </div>
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Sustainable Growth
 // // //                 </div>
 // // //                 <div className="key-point">
-// // //                   <span className="key-point-icon">•</span>
+// // //                   <span className="key-point-icon">â€¢</span>
 // // //                   Technology Excellence
 // // //                 </div>
 // // //               </div>
@@ -554,12 +554,12 @@
 // // //           </motion.p>
 // // //           <div className="why-choose-grid">
 // // //             {[
-// // //               { icon: '👥', title: 'Experienced Professionals', desc: 'A highly skilled team of consultants, engineers, developers, architects, and technology specialists.' },
-// // //               { icon: '🎯', title: 'Customer-Centric Approach', desc: 'Every solution is designed around your business objectives, challenges, and growth strategy.' },
-// // //               { icon: '⚡', title: 'Agile Delivery', desc: 'Agile methodologies enable faster delivery, continuous improvement, and greater flexibility.' },
-// // //               { icon: '🛡️', title: 'Quality & Security', desc: 'We follow industry best practices, secure development standards, and rigorous quality controls.' },
-// // //               { icon: '🚀', title: 'Innovation-Driven Culture', desc: 'We leverage emerging technologies to create competitive advantages and business value.' },
-// // //               { icon: '🤝', title: 'Long-Term Partnership', desc: 'Our commitment extends beyond project delivery through ongoing support, optimization, and strategic guidance.' },
+// // //               { icon: 'ðŸ‘¥', title: 'Experienced Professionals', desc: 'A highly skilled team of consultants, engineers, developers, architects, and technology specialists.' },
+// // //               { icon: 'ðŸŽ¯', title: 'Customer-Centric Approach', desc: 'Every solution is designed around your business objectives, challenges, and growth strategy.' },
+// // //               { icon: 'âš¡', title: 'Agile Delivery', desc: 'Agile methodologies enable faster delivery, continuous improvement, and greater flexibility.' },
+// // //               { icon: 'ðŸ›¡ï¸', title: 'Quality & Security', desc: 'We follow industry best practices, secure development standards, and rigorous quality controls.' },
+// // //               { icon: 'ðŸš€', title: 'Innovation-Driven Culture', desc: 'We leverage emerging technologies to create competitive advantages and business value.' },
+// // //               { icon: 'ðŸ¤', title: 'Long-Term Partnership', desc: 'Our commitment extends beyond project delivery through ongoing support, optimization, and strategic guidance.' },
 // // //             ].map((item, index) => (
 // // //               <motion.div
 // // //                 key={index}
@@ -693,11 +693,11 @@
 // // //               <p>At Tanvox Technologies, we believe technology should create positive social impact. Our commitment extends beyond business success to community development, education, sustainability, and ethical innovation.</p>
 // // //               <div className="csr-initiatives">
 // // //                 {[
-// // //                   { icon: '💻', title: 'Digital Literacy & Tech Education', desc: 'Digital literacy and technology education programs' },
-// // //                   { icon: '📚', title: 'Educational Support', desc: 'Educational support initiatives' },
-// // //                   { icon: '🌱', title: 'Sustainable Practices', desc: 'Sustainable technology practices' },
-// // //                   { icon: '🌍', title: 'Environmental Responsibility', desc: 'Environmental responsibility programs' },
-// // //                   { icon: '🤲', title: 'Community Outreach', desc: 'Community development and outreach initiatives' },
+// // //                   { icon: 'ðŸ’»', title: 'Digital Literacy & Tech Education', desc: 'Digital literacy and technology education programs' },
+// // //                   { icon: 'ðŸ“š', title: 'Educational Support', desc: 'Educational support initiatives' },
+// // //                   { icon: 'ðŸŒ±', title: 'Sustainable Practices', desc: 'Sustainable technology practices' },
+// // //                   { icon: 'ðŸŒ', title: 'Environmental Responsibility', desc: 'Environmental responsibility programs' },
+// // //                   { icon: 'ðŸ¤²', title: 'Community Outreach', desc: 'Community development and outreach initiatives' },
 // // //                 ].map((item, index) => (
 // // //                   <motion.div key={index} className="csr-item"
 // // //                     initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
@@ -781,49 +781,7 @@
 // // //         </div>
 // // //       </section>
 
-// // //       {/* Careers */}
-// // //       <section className="section section-gradient">
-// // //         <div className="container">
-// // //           <motion.div
-// // //             className="careers-card"
-// // //             initial={{ opacity: 0, y: 80, scale: 0.9 }}
-// // //             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-// // //             viewport={{ once: true }}
-// // //             transition={{ duration: 0.9, ease: [0.175, 0.885, 0.32, 1.275] }}
-// // //           >
-// // //             <div className="careers-content">
-// // //               <h2>Join Our Team</h2>
-// // //               <p>We are always looking for talented, passionate, and innovative professionals who want to make an impact through technology.</p>
-// // //               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', marginBottom: '2rem' }}>
-// // //                 {[
-// // //                   'Software Development', 'Cloud Engineering', 'DevOps Engineering',
-// // //                   'Quality Assurance & Testing', 'Cybersecurity', 'Business Analysis',
-// // //                   'Project Management', 'Sales & Marketing', 'Customer Success'
-// // //                 ].map((role, i) => (
-// // //                   <motion.span
-// // //                     key={i}
-// // //                     className="tech-badge"
-// // //                     initial={{ opacity: 0, y: 30, scale: 0.8 }}
-// // //                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
-// // //                     viewport={{ once: true }}
-// // //                     transition={{ delay: 0.2 + i * 0.08, duration: 0.6, ease: [0.175, 0.885, 0.32, 1.275] }}
-// // //                     whileHover={{ scale: 1.15, rotate: 3 }}
-// // //                   >
-// // //                     {role}
-// // //                   </motion.span>
-// // //                 ))}
-// // //               </div>
-// // //               <a href="#" className="btn-primary">
-// // //                 View Open Positions
-// // //                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5">
-// // //                   <line x1="5" y1="12" x2="19" y2="12" />
-// // //                   <polyline points="12 5 19 12 12 19" />
-// // //                 </svg>
-// // //               </a>
-// // //             </div>
-// // //           </motion.div>
-// // //         </div>
-// // //       </section>
+// // //       {/* Careers Section Removed */}
 
 // // //       {/* Final CTA */}
 // // //       <section className="section final-cta">
@@ -1031,37 +989,37 @@
 // //   const services = [
 // //     {
 // //       name: "Software Development",
-// //       icon: "💻",
+// //       icon: "ðŸ’»",
 // //       desc: "We design and develop custom software applications, enterprise systems, SaaS platforms, web applications, and mobile solutions tailored to business needs.",
 // //     },
 // //     {
 // //       name: "Cloud Solutions",
-// //       icon: "☁️",
+// //       icon: "â˜ï¸",
 // //       desc: "Our cloud experts help organizations modernize infrastructure, migrate workloads, optimize cloud environments, and build cloud-native applications.",
 // //     },
 // //     {
 // //       name: "DevOps & Automation",
-// //       icon: "⚙️",
+// //       icon: "âš™ï¸",
 // //       desc: "We accelerate software delivery through CI/CD implementation, infrastructure automation, containerization, orchestration, and platform engineering.",
 // //     },
 // //     {
 // //       name: "Artificial Intelligence",
-// //       icon: "🤖",
+// //       icon: "ðŸ¤–",
 // //       desc: "We develop AI-powered solutions, machine learning models, intelligent automation systems, predictive analytics, and generative AI applications.",
 // //     },
 // //     {
 // //       name: "Cybersecurity",
-// //       icon: "🛡️",
+// //       icon: "ðŸ›¡ï¸",
 // //       desc: "We help organizations strengthen security posture through assessments, compliance services, security monitoring, governance, and risk management.",
 // //     },
 // //     {
 // //       name: "Quality Assurance",
-// //       icon: "✅",
+// //       icon: "âœ…",
 // //       desc: "Our QA specialists ensure reliability and performance through manual testing, automation testing, performance testing, and quality engineering.",
 // //     },
 // //     {
 // //       name: "Digital Transformation",
-// //       icon: "🚀",
+// //       icon: "ðŸš€",
 // //       desc: "We guide organizations through modernization initiatives, process optimization, technology adoption, and innovation strategies.",
 // //     },
 // //   ];
@@ -1308,17 +1266,17 @@
 // //                 <div className="who-we-are-highlights">
 // //                   {[
 // //                     {
-// //                       icon: "🌟",
+// //                       icon: "ðŸŒŸ",
 // //                       title: "Innovation First",
 // //                       desc: "Always exploring new technologies",
 // //                     },
 // //                     {
-// //                       icon: "🎯",
+// //                       icon: "ðŸŽ¯",
 // //                       title: "Results Driven",
 // //                       desc: "Focused on measurable outcomes",
 // //                     },
 // //                     {
-// //                       icon: "🌍",
+// //                       icon: "ðŸŒ",
 // //                       title: "Global Reach",
 // //                       desc: "Serving clients worldwide",
 // //                     },
@@ -1507,7 +1465,7 @@
 // //                       fontWeight: 900,
 // //                     }}
 // //                   >
-// //                     →
+// //                     â†’
 // //                   </span>{" "}
 // //                   {item.link}
 // //                 </a>
@@ -1610,7 +1568,7 @@
 // //                           fontWeight: 800,
 // //                         }}
 // //                       >
-// //                         ✓
+// //                         âœ“
 // //                       </span>{" "}
 // //                       {item}
 // //                     </div>
@@ -1690,7 +1648,7 @@
 // //                           fontWeight: 800,
 // //                         }}
 // //                       >
-// //                         ✓
+// //                         âœ“
 // //                       </span>{" "}
 // //                       {item}
 // //                     </div>
@@ -1756,7 +1714,7 @@
 // //                           )
 // //                         }
 // //                       >
-// //                         ←
+// //                         â†
 // //                       </button>
 // //                       <button
 // //                         className="showcase-btn"
@@ -1766,7 +1724,7 @@
 // //                           )
 // //                         }
 // //                       >
-// //                         →
+// //                         â†’
 // //                       </button>
 // //                     </div>
 
@@ -2277,27 +2235,27 @@
 // //               <div className="csr-initiatives">
 // //                 {[
 // //                   {
-// //                     icon: "💻",
+// //                     icon: "ðŸ’»",
 // //                     title: "Digital Literacy & Tech Education",
 // //                     desc: "Digital literacy and technology education programs",
 // //                   },
 // //                   {
-// //                     icon: "📚",
+// //                     icon: "ðŸ“š",
 // //                     title: "Educational Support",
 // //                     desc: "Educational support initiatives",
 // //                   },
 // //                   {
-// //                     icon: "🌱",
+// //                     icon: "ðŸŒ±",
 // //                     title: "Sustainable Practices",
 // //                     desc: "Sustainable technology practices",
 // //                   },
 // //                   {
-// //                     icon: "🌍",
+// //                     icon: "ðŸŒ",
 // //                     title: "Environmental Responsibility",
 // //                     desc: "Environmental responsibility programs",
 // //                   },
 // //                   {
-// //                     icon: "🤲",
+// //                     icon: "ðŸ¤²",
 // //                     title: "Community Outreach",
 // //                     desc: "Community development and outreach initiatives",
 // //                   },
@@ -3003,7 +2961,7 @@
 //       }
 //     );
 
-//     // 14. Section Titles — elegant, slightly slow reveal
+//     // 14. Section Titles â€” elegant, slightly slow reveal
 //     gsap.utils.toArray(".section-title.gsap-reveal:not(.journey-desc-card-gsap)").forEach((title) => {
 //       gsap.fromTo(title,
 //         { opacity: 0, y: 32 },
@@ -3021,7 +2979,7 @@
 //       );
 //     });
 
-//     // Section Descriptions — slightly delayed after title
+//     // Section Descriptions â€” slightly delayed after title
 //     gsap.utils.toArray(".section-desc.gsap-reveal").forEach((desc) => {
 //       gsap.fromTo(desc,
 //         { opacity: 0, y: 22 },
@@ -3112,32 +3070,32 @@
 //   const coreValues = [
 //     {
 //       name: 'Innovation',
-//       icon: '💡',
+//       icon: 'ðŸ’¡',
 //       desc: 'We embrace creativity, encourage experimentation, and continuously explore emerging technologies to deliver innovative solutions.'
 //     },
 //     {
 //       name: 'Integrity',
-//       icon: '🤝',
+//       icon: 'ðŸ¤',
 //       desc: 'We conduct business with honesty, transparency, accountability, and professionalism in every interaction.'
 //     },
 //     {
 //       name: 'Excellence',
-//       icon: '🏆',
+//       icon: 'ðŸ†',
 //       desc: 'We strive for excellence in every project, ensuring the highest standards of quality, performance, and customer satisfaction.'
 //     },
 //     {
 //       name: 'Collaboration',
-//       icon: '👥',
+//       icon: 'ðŸ‘¥',
 //       desc: 'We believe great solutions are built through teamwork, partnership, and shared success.'
 //     },
 //     {
 //       name: 'Customer Success',
-//       icon: '🎯',
+//       icon: 'ðŸŽ¯',
 //       desc: 'Our clients\' success is our success. We focus on understanding their goals and delivering solutions that create measurable impact.'
 //     },
 //     {
 //       name: 'Continuous Learning',
-//       icon: '📚',
+//       icon: 'ðŸ“š',
 //       desc: 'Technology evolves rapidly, and so do we. We continuously invest in learning, skill development, and innovation.'
 //     },
 //   ];
@@ -3145,53 +3103,53 @@
 //   const services = [
 //     {
 //       name: 'Software Development',
-//       icon: '💻',
+//       icon: 'ðŸ’»',
 //       desc: 'We design and develop custom software applications, enterprise systems, SaaS platforms, web applications, and mobile solutions tailored to business needs.'
 //     },
 //     {
 //       name: 'Cloud Solutions',
-//       icon: '☁️',
+//       icon: 'â˜ï¸',
 //       desc: 'Our cloud experts help organizations modernize infrastructure, migrate workloads, optimize cloud environments, and build cloud-native applications.'
 //     },
 //     {
 //       name: 'DevOps & Automation',
-//       icon: '⚙️',
+//       icon: 'âš™ï¸',
 //       desc: 'We accelerate software delivery through CI/CD implementation, infrastructure automation, containerization, orchestration, and platform engineering.'
 //     },
 //     {
 //       name: 'Artificial Intelligence',
-//       icon: '🤖',
+//       icon: 'ðŸ¤–',
 //       desc: 'We develop AI-powered solutions, machine learning models, intelligent automation systems, predictive analytics, and generative AI applications.'
 //     },
 //     {
 //       name: 'Cybersecurity',
-//       icon: '🛡️',
+//       icon: 'ðŸ›¡ï¸',
 //       desc: 'We help organizations strengthen security posture through assessments, compliance services, security monitoring, governance, and risk management.'
 //     },
 //     {
 //       name: 'Quality Assurance',
-//       icon: '✅',
+//       icon: 'âœ…',
 //       desc: 'Our QA specialists ensure reliability and performance through manual testing, automation testing, performance testing, and quality engineering.'
 //     },
 //     {
 //       name: 'Digital Transformation',
-//       icon: '🚀',
+//       icon: 'ðŸš€',
 //       desc: 'We guide organizations through modernization initiatives, process optimization, technology adoption, and innovation strategies.'
 //     },
 //   ];
 
 //   const industries = [
-//     { name: 'Banking, Financial Services & Insurance (BFSI)', icon: '🏦', image: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=400&h=250&fit=crop' },
-//     { name: 'Healthcare & Life Sciences', icon: '🏥', image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400&h=250&fit=crop' },
-//     { name: 'Retail & E-commerce', icon: '🛒', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop' },
-//     { name: 'Manufacturing & Industry 4.0', icon: '🏭', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop' },
-//     { name: 'Logistics & Supply Chain', icon: '🚚', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop' },
-//     { name: 'Education & EdTech', icon: '🎓', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop' },
-//     { name: 'Real Estate & Construction', icon: '🏗️', image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=250&fit=crop' },
-//     { name: 'Telecommunications', icon: '📱', image: 'https://images.unsplash.com/photo-1562408590-e32931084e23?w=400&h=250&fit=crop' },
-//     { name: 'Energy & Utilities', icon: '⚡', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=250&fit=crop' },
-//     { name: 'Government & Public Sector', icon: '🏛️', image: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400&h=250&fit=crop' },
-//     { name: 'Startups & Emerging Businesses', icon: '🚀', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop' },
+//     { name: 'Banking, Financial Services & Insurance (BFSI)', icon: 'ðŸ¦', image: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=400&h=250&fit=crop' },
+//     { name: 'Healthcare & Life Sciences', icon: 'ðŸ¥', image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400&h=250&fit=crop' },
+//     { name: 'Retail & E-commerce', icon: 'ðŸ›’', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop' },
+//     { name: 'Manufacturing & Industry 4.0', icon: 'ðŸ­', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop' },
+//     { name: 'Logistics & Supply Chain', icon: 'ðŸšš', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop' },
+//     { name: 'Education & EdTech', icon: 'ðŸŽ“', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop' },
+//     { name: 'Real Estate & Construction', icon: 'ðŸ—ï¸', image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=250&fit=crop' },
+//     { name: 'Telecommunications', icon: 'ðŸ“±', image: 'https://images.unsplash.com/photo-1562408590-e32931084e23?w=400&h=250&fit=crop' },
+//     { name: 'Energy & Utilities', icon: 'âš¡', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=250&fit=crop' },
+//     { name: 'Government & Public Sector', icon: 'ðŸ›ï¸', image: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400&h=250&fit=crop' },
+//     { name: 'Startups & Emerging Businesses', icon: 'ðŸš€', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop' },
 //   ];
 
 //   const leadership = [
@@ -3301,9 +3259,9 @@
 //                 </p>
 //                 <div className="who-we-are-highlights who-we-are-highlights-gsap">
 //                   {[
-//                     { icon: '🌟', title: 'Innovation First', desc: 'Always exploring new technologies' },
-//                     { icon: '🎯', title: 'Results Driven', desc: 'Focused on measurable outcomes' },
-//                     { icon: '🌍', title: 'Global Reach', desc: 'Serving clients worldwide' }
+//                     { icon: 'ðŸŒŸ', title: 'Innovation First', desc: 'Always exploring new technologies' },
+//                     { icon: 'ðŸŽ¯', title: 'Results Driven', desc: 'Focused on measurable outcomes' },
+//                     { icon: 'ðŸŒ', title: 'Global Reach', desc: 'Serving clients worldwide' }
 //                   ].map((item, idx) => (
 //                     <div
 //                       key={idx}
@@ -3322,7 +3280,7 @@
 //                 <div className="who-we-are-image-wrapper who-we-are-image-wrapper-gsap gsap-reveal">
 //                   <img src={aboutTeamImage} alt="Tanvox Team - Group of Professionals" className="who-we-are-image" />
 //                   <div className="image-overlay-badge">
-//                     <span>🚀</span>
+//                     <span>ðŸš€</span>
 //                     <p>Innovative Team</p>
 //                   </div>
 //                 </div>
@@ -3441,31 +3399,31 @@
 //           <div className="mission-vision-three-col">
 //             {/* LEFT: Mission Card */}
 //             <div className="enterprise-card mission-card mission-card-gsap gsap-reveal">
-//               <div className="card-illustration">🚀</div>
-//               <div className="card-icon-container mission-icon">🎯</div>
+//               <div className="card-illustration">ðŸš€</div>
+//               <div className="card-icon-container mission-icon">ðŸŽ¯</div>
 //               <h3 className="card-heading">Our Mission</h3>
 //               <p className="card-description">
 //                 Empowering organizations through innovative technology solutions that enable growth, efficiency, and digital excellence.
 //               </p>
 //               <div className="key-points">
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Innovation
 //                 </div>
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Digital Transformation
 //                 </div>
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Operational Excellence
 //                 </div>
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Customer Success
 //                 </div>
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Business Growth
 //                 </div>
 //               </div>
@@ -3473,31 +3431,31 @@
 
 //             {/* RIGHT: Vision Card */}
 //             <div className="enterprise-card vision-card vision-card-gsap gsap-reveal">
-//               <div className="card-illustration">🌍</div>
-//               <div className="card-icon-container vision-icon">🔮</div>
+//               <div className="card-illustration">ðŸŒ</div>
+//               <div className="card-icon-container vision-icon">ðŸ”®</div>
 //               <h3 className="card-heading">Our Vision</h3>
 //               <p className="card-description">
 //                 To become a globally recognized technology partner that drives innovation, accelerates digital transformation, and creates sustainable value through advanced technology solutions.
 //               </p>
 //               <div className="key-points">
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Global Innovation
 //                 </div>
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Future-Ready Solutions
 //                 </div>
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Digital Leadership
 //                 </div>
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Sustainable Growth
 //                 </div>
 //                 <div className="key-point">
-//                   <span className="key-point-icon">•</span>
+//                   <span className="key-point-icon">â€¢</span>
 //                   Technology Excellence
 //                 </div>
 //               </div>
@@ -3594,12 +3552,12 @@
 //           </p>
 //           <div className="why-choose-grid">
 //             {[
-//               { icon: '👥', title: 'Experienced Professionals', desc: 'A highly skilled team of consultants, engineers, developers, architects, and technology specialists.' },
-//               { icon: '🎯', title: 'Customer-Centric Approach', desc: 'Every solution is designed around your business objectives, challenges, and growth strategy.' },
-//               { icon: '⚡', title: 'Agile Delivery', desc: 'Agile methodologies enable faster delivery, continuous improvement, and greater flexibility.' },
-//               { icon: '🛡️', title: 'Quality & Security', desc: 'We follow industry best practices, secure development standards, and rigorous quality controls.' },
-//               { icon: '🚀', title: 'Innovation-Driven Culture', desc: 'We leverage emerging technologies to create competitive advantages and business value.' },
-//               { icon: '🤝', title: 'Long-Term Partnership', desc: 'Our commitment extends beyond project delivery through ongoing support, optimization, and strategic guidance.' },
+//               { icon: 'ðŸ‘¥', title: 'Experienced Professionals', desc: 'A highly skilled team of consultants, engineers, developers, architects, and technology specialists.' },
+//               { icon: 'ðŸŽ¯', title: 'Customer-Centric Approach', desc: 'Every solution is designed around your business objectives, challenges, and growth strategy.' },
+//               { icon: 'âš¡', title: 'Agile Delivery', desc: 'Agile methodologies enable faster delivery, continuous improvement, and greater flexibility.' },
+//               { icon: 'ðŸ›¡ï¸', title: 'Quality & Security', desc: 'We follow industry best practices, secure development standards, and rigorous quality controls.' },
+//               { icon: 'ðŸš€', title: 'Innovation-Driven Culture', desc: 'We leverage emerging technologies to create competitive advantages and business value.' },
+//               { icon: 'ðŸ¤', title: 'Long-Term Partnership', desc: 'Our commitment extends beyond project delivery through ongoing support, optimization, and strategic guidance.' },
 //             ].map((item, index) => (
 //               <div
 //                 key={index}
@@ -3693,17 +3651,17 @@
 //               <p>
 //                 At Tanvox Technologies, we believe technology should create positive social impact. Our commitment extends beyond business success to community development, education, sustainability, and ethical innovation.
 //               </p>
-//               <div className="csr-commitment-icon">🌱</div>
+//               <div className="csr-commitment-icon">ðŸŒ±</div>
 //             </div>
 
 //             {/* Right side: Grid of Initiatives */}
 //             <div className="csr-initiatives-grid">
 //               {[
-//                 { icon: '💻', title: 'Digital Literacy & Tech Education', desc: 'Digital literacy and technology education programs' },
-//                 { icon: '📚', title: 'Educational Support', desc: 'Educational support initiatives and school infrastructure' },
-//                 { icon: '🌱', title: 'Sustainable Practices', desc: 'Sustainable technology practices and green computing' },
-//                 { icon: '🌍', title: 'Environmental Responsibility', desc: 'Environmental responsibility and carbon offset programs' },
-//                 { icon: '🤲', title: 'Community Outreach', desc: 'Community development and outreach volunteer programs' },
+//                 { icon: 'ðŸ’»', title: 'Digital Literacy & Tech Education', desc: 'Digital literacy and technology education programs' },
+//                 { icon: 'ðŸ“š', title: 'Educational Support', desc: 'Educational support initiatives and school infrastructure' },
+//                 { icon: 'ðŸŒ±', title: 'Sustainable Practices', desc: 'Sustainable technology practices and green computing' },
+//                 { icon: 'ðŸŒ', title: 'Environmental Responsibility', desc: 'Environmental responsibility and carbon offset programs' },
+//                 { icon: 'ðŸ¤²', title: 'Community Outreach', desc: 'Community development and outreach volunteer programs' },
 //               ].map((item, index) => (
 //                 <div key={index} className="csr-grid-item csr-item-gsap gsap-reveal">
 //                   <div className="csr-grid-icon">{item.icon}</div>
@@ -3751,7 +3709,7 @@
 //                     key={i}
 //                     className="opportunity-item careers-tag-gsap gsap-reveal"
 //                   >
-//                     <span className="opportunity-icon">⚡</span>
+//                     <span className="opportunity-icon">âš¡</span>
 //                     <span className="opportunity-label">{role}</span>
 //                   </div>
 //                 ))}
@@ -3825,11 +3783,10 @@
 
 // export default About;
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import aboutHeroBg from "../../assets/about_hero_bg.png";
 import logo from "../../assets/logo.png";
-import aboutHero from "../../assets/aboutHero.png";
 import aboutTeamSilhoutte from "../../assets/about_team_silhoutte.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -3840,6 +3797,8 @@ const aboutTeamImage = aboutTeamSilhoutte;
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const [activeCvId, setActiveCvId] = useState("innovation");
+
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -3909,6 +3868,23 @@ const About = () => {
     }
   };
 
+  const handleCardMouseMove = (e, strength = 4) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rx = -((y - rect.height / 2) / (rect.height / 2)) * strength;
+    const ry = ((x - rect.width / 2) / (rect.width / 2)) * strength;
+    e.currentTarget.style.transition = "transform 0.08s linear, box-shadow 0.08s linear, border-color 0.08s linear";
+    e.currentTarget.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(8px) scale(1.025)`;
+    e.currentTarget.style.boxShadow = `0 15px 35px rgba(0,26,114,0.06), 0 5px 15px rgba(0,26,114,0.03)`;
+  };
+
+  const handleCardMouseLeave = (e) => {
+    e.currentTarget.style.transition = "transform 0.5s cubic-bezier(0.23,1,0.32,1), box-shadow 0.5s ease, border-color 0.5s ease";
+    e.currentTarget.style.transform = "";
+    e.currentTarget.style.boxShadow = "";
+  };
+
   useEffect(() => {
     // 0. New Hero Section Entrance Animations (on load)
     gsap.fromTo(
@@ -3934,19 +3910,7 @@ const About = () => {
       { opacity: 1, y: 0, duration: 1.0, ease: "power3.out", delay: 0.8 },
     );
 
-    // Hero Illustration float animation
-    gsap.fromTo(
-      ".hero-illustration-img",
-      { y: 0 },
-      {
-        y: -15,
-        repeat: -1,
-        yoyo: true,
-        duration: 3.5,
-        ease: "sine.inOut",
-        delay: 1.35,
-      },
-    );
+
 
     // 1. Who We Are Animations
     gsap.fromTo(
@@ -4175,7 +4139,7 @@ const About = () => {
       },
     );
 
-    // 7. Why Choose Tanvox — orbit section
+    // 7. Why Choose Tanvox â€” orbit section
     gsap.to(".wc-gsap-header", {
       opacity: 1,
       y: 0,
@@ -4209,24 +4173,24 @@ const About = () => {
       duration: 1.5,
     });
 
-    // 8. Visionary Leaders Animations - unique slide up + staggered skew animation
-    gsap.fromTo(
-      ".leader-card-gsap",
-      { opacity: 0, y: 80, skewY: 3 },
-      {
-        opacity: 1,
-        y: 0,
-        skewY: 0,
-        stagger: 0.12,
-        duration: 1.0,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: ".vl-grid",
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      },
-    );
+    // 8. Visionary Leaders Animations - commented out
+    // gsap.fromTo(
+    //   ".leader-card-gsap",
+    //   { opacity: 0, y: 80, skewY: 3 },
+    //   {
+    //     opacity: 1,
+    //     y: 0,
+    //     skewY: 0,
+    //     stagger: 0.12,
+    //     duration: 1.0,
+    //     ease: "power4.out",
+    //     scrollTrigger: {
+    //       trigger: ".vl-grid",
+    //       start: "top 85%",
+    //       toggleActions: "play none none none",
+    //     },
+    //   },
+    // );
 
     // Mission & Vision Header Animation
     gsap.fromTo(
@@ -4279,7 +4243,8 @@ const About = () => {
       },
     );
 
-    // Visionary Leaders Header Animation
+    /*
+// Visionary Leaders Header Animation
     gsap.fromTo(
       ".vl-gsap-header",
       { opacity: 0, y: 40 },
@@ -4295,6 +4260,7 @@ const About = () => {
         },
       },
     );
+*/
 
     // 12. Careers Animations - unique horizontal slide
     gsap.fromTo(
@@ -4349,7 +4315,7 @@ const About = () => {
       },
     );
 
-    // 14. Section Titles — elegant, slightly slow reveal
+    // 14. Section Titles â€” elegant, slightly slow reveal
     gsap.utils
       .toArray(".section-title.gsap-reveal:not(.journey-desc-card-gsap)")
       .forEach((title) => {
@@ -4370,7 +4336,7 @@ const About = () => {
         );
       });
 
-    // Section Descriptions — slightly delayed after title
+    // Section Descriptions â€” slightly delayed after title
     gsap.utils.toArray(".section-desc.gsap-reveal").forEach((desc) => {
       gsap.fromTo(
         desc,
@@ -4496,32 +4462,32 @@ const About = () => {
   const coreValues = [
     {
       name: "Innovation",
-      icon: "💡",
+      icon: "ðŸ’¡",
       desc: "We embrace creativity, encourage experimentation, and continuously explore emerging technologies to deliver innovative solutions.",
     },
     {
       name: "Integrity",
-      icon: "🤝",
+      icon: "ðŸ¤",
       desc: "We conduct business with honesty, transparency, accountability, and professionalism in every interaction.",
     },
     {
       name: "Excellence",
-      icon: "🏆",
+      icon: "ðŸ†",
       desc: "We strive for excellence in every project, ensuring the highest standards of quality, performance, and customer satisfaction.",
     },
     {
       name: "Collaboration",
-      icon: "👥",
+      icon: "ðŸ‘¥",
       desc: "We believe great solutions are built through teamwork, partnership, and shared success.",
     },
     {
       name: "Customer Success",
-      icon: "🎯",
+      icon: "ðŸŽ¯",
       desc: "Our clients' success is our success. We focus on understanding their goals and delivering solutions that create measurable impact.",
     },
     {
       name: "Continuous Learning",
-      icon: "📚",
+      icon: "ðŸ“š",
       desc: "Technology evolves rapidly, and so do we. We continuously invest in learning, skill development, and innovation.",
     },
   ];
@@ -4529,37 +4495,37 @@ const About = () => {
   const services = [
     {
       name: "Software Development",
-      icon: "💻",
+      icon: "ðŸ’»",
       desc: "We design and develop custom software applications, enterprise systems, SaaS platforms, web applications, and mobile solutions tailored to business needs.",
     },
     {
       name: "Cloud Solutions",
-      icon: "☁️",
+      icon: "â˜ï¸",
       desc: "Our cloud experts help organizations modernize infrastructure, migrate workloads, optimize cloud environments, and build cloud-native applications.",
     },
     {
       name: "DevOps & Automation",
-      icon: "⚙️",
+      icon: "âš™ï¸",
       desc: "We accelerate software delivery through CI/CD implementation, infrastructure automation, containerization, orchestration, and platform engineering.",
     },
     {
       name: "Artificial Intelligence",
-      icon: "🤖",
+      icon: "ðŸ¤–",
       desc: "We develop AI-powered solutions, machine learning models, intelligent automation systems, predictive analytics, and generative AI applications.",
     },
     {
       name: "Cybersecurity",
-      icon: "🛡️",
+      icon: "ðŸ›¡ï¸",
       desc: "We help organizations strengthen security posture through assessments, compliance services, security monitoring, governance, and risk management.",
     },
     {
       name: "Quality Assurance",
-      icon: "✅",
+      icon: "âœ…",
       desc: "Our QA specialists ensure reliability and performance through manual testing, automation testing, performance testing, and quality engineering.",
     },
     {
       name: "Digital Transformation",
-      icon: "🚀",
+      icon: "ðŸš€",
       desc: "We guide organizations through modernization initiatives, process optimization, technology adoption, and innovation strategies.",
     },
   ];
@@ -4567,67 +4533,67 @@ const About = () => {
   const industries = [
     {
       name: "Banking, Financial Services & Insurance (BFSI)",
-      icon: "🏦",
+      icon: "ðŸ¦",
       image:
         "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=400&h=250&fit=crop",
     },
     {
       name: "Healthcare & Life Sciences",
-      icon: "🏥",
+      icon: "ðŸ¥",
       image:
         "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400&h=250&fit=crop",
     },
     {
       name: "Retail & E-commerce",
-      icon: "🛒",
+      icon: "ðŸ›’",
       image:
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
     },
     {
       name: "Manufacturing & Industry 4.0",
-      icon: "🏭",
+      icon: "ðŸ­",
       image:
         "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop",
     },
     {
       name: "Logistics & Supply Chain",
-      icon: "🚚",
+      icon: "ðŸšš",
       image:
         "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop",
     },
     {
       name: "Education & EdTech",
-      icon: "🎓",
+      icon: "ðŸŽ“",
       image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop",
     },
     {
       name: "Real Estate & Construction",
-      icon: "🏗️",
+      icon: "ðŸ—ï¸",
       image:
         "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=250&fit=crop",
     },
     {
       name: "Telecommunications",
-      icon: "📱",
+      icon: "ðŸ“±",
       image:
         "https://images.unsplash.com/photo-1562408590-e32931084e23?w=400&h=250&fit=crop",
     },
     {
       name: "Energy & Utilities",
-      icon: "⚡",
+      icon: "âš¡",
       image:
         "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=250&fit=crop",
     },
     {
       name: "Government & Public Sector",
-      icon: "🏛️",
+      icon: "ðŸ›ï¸",
       image:
         "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400&h=250&fit=crop",
     },
     {
       name: "Startups & Emerging Businesses",
-      icon: "🚀",
+      icon: "ðŸš€",
       image:
         "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop",
     },
@@ -4726,15 +4692,7 @@ const About = () => {
   return (
     <div className="about-page">
       {/* Hero Section */}
-      <section 
-        className="about-hero-new"
-        style={{
-          backgroundImage: `url(${aboutHero})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center right',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <section className="about-hero-new">
         {/* Background Decorative Glows */}
         <div className="hero-ambient-glows-light">
           <div className="hero-glow-light-left"></div>
@@ -4755,7 +4713,7 @@ const About = () => {
 
             <p className="hero-desc-new">
               We help organizations transform ideas into powerful digital
-              solutions using AI, cloud, DevOps, and cybersecurity — delivering
+              solutions using AI, cloud, DevOps, and cybersecurity â€” delivering
               measurable impact and sustainable growth.
             </p>
 
@@ -4967,821 +4925,258 @@ const About = () => {
       </section>
 
       {/* Our Journey */}
-      <section className="oj-section">
-        <div className="oj-container">
-          {/* Left Side */}
-          <div className="oj-left journey-desc-card-gsap">
-            <h2 className="oj-heading">
-              Our <span className="highlight-red">Journey</span>
-            </h2>
-            <p className="oj-desc">
-              Founded in 2025, Tanvox Technologies began with a simple idea – to
-              solve real business challenges through technology and deliver
-              meaningful impact.
-            </p>
+      
+      {/* Modern SaaS-Style Journey Section */}
+      <section className="journey-saas-section">
+        <div className="journey-saas-bg-dots"></div>
+        <div className="journey-saas-container">
+          <div className="journey-saas-top">
+            <div className="journey-saas-left">
+              <h2 className="journey-saas-heading">
+                <span className="text-navy">Our</span> <span className="text-red">Journey</span>
+              </h2>
+              <p className="journey-saas-desc">
+                Founded in 2025, Tanvox Technologies began with a simple idea â€” to solve real business challenges through technology and deliver meaningful, lasting impact.
+              </p>
+            </div>
+            
+            <div className="journey-saas-right">
+              <div className="journey-horizontal-timeline">
+                <div className="journey-timeline-line"></div>
+                
+                {/* Milestone 1 */}
+                <div className="journey-milestone" style={{ '--m-color': '#FF2B55' }}>
+                  <div className="journey-m-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V17a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1v-2.8C7.21 13.16 6 11.22 6 9a6 6 0 0 1 6-6z"/></svg>
+                  </div>
+                  <div className="journey-m-node">01</div>
+                  <h4 className="journey-m-title">Our Beginning</h4>
+                  <p className="journey-m-desc">Started with a vision to empower businesses.</p>
+                </div>
 
-            {/* Founded card */}
-            <div className="oj-founded-card">
-              <div className="oj-founded-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="3"
-                    y="4"
-                    width="18"
-                    height="18"
-                    rx="2"
-                    stroke="#e91e63"
-                    strokeWidth="2"
-                  />
-                  <path d="M3 9h18" stroke="#e91e63" strokeWidth="2" />
-                  <path
-                    d="M8 2v4M16 2v4"
-                    stroke="#e91e63"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <rect
-                    x="7"
-                    y="13"
-                    width="4"
-                    height="4"
-                    rx="1"
-                    fill="#e91e63"
-                  />
-                </svg>
-              </div>
-              <div>
-                <p className="oj-founded-label">Founded in</p>
-                <p className="oj-founded-year">2025</p>
-                <p className="oj-founded-sub">
-                  And this is just the beginning.
-                </p>
+                {/* Milestone 2 */}
+                <div className="journey-milestone" style={{ '--m-color': '#7c3aed' }}>
+                  <div className="journey-m-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <div className="journey-m-node">02</div>
+                  <h4 className="journey-m-title">Building Foundations</h4>
+                  <p className="journey-m-desc">Assembled a passionate, world-class team.</p>
+                </div>
+
+                {/* Milestone 3 */}
+                <div className="journey-milestone" style={{ '--m-color': '#3b82f6' }}>
+                  <div className="journey-m-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5a5.4 5.4 0 0 0 1-4.6M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 0l-2 6 2-2 2 2-2-6z"/></svg>
+                  </div>
+                  <div className="journey-m-node">03</div>
+                  <h4 className="journey-m-title">Driving Innovation</h4>
+                  <p className="journey-m-desc">Focused on emerging tech to solve problems.</p>
+                </div>
+
+                {/* Milestone 4 */}
+                <div className="journey-milestone" style={{ '--m-color': '#06b6d4' }}>
+                  <div className="journey-m-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                  </div>
+                  <div className="journey-m-node">04</div>
+                  <h4 className="journey-m-title">Delivering Impact</h4>
+                  <p className="journey-m-desc">Created lasting value for global partners.</p>
+                </div>
+
+                {/* Milestone 5 */}
+                <div className="journey-milestone" style={{ '--m-color': '#ec4899' }}>
+                  <div className="journey-m-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  </div>
+                  <div className="journey-m-node">05</div>
+                  <h4 className="journey-m-title">The Road Ahead</h4>
+                  <p className="journey-m-desc">Scaling operations to shape the future.</p>
+                </div>
+
               </div>
             </div>
+          </div>
 
-            {/* Road illustration */}
-            <div className="oj-road-wrapper">
-              <svg
-                className="oj-road-svg"
-                viewBox="0 0 380 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Sky / background mountains */}
-                <ellipse
-                  cx="80"
-                  cy="185"
-                  rx="100"
-                  ry="30"
-                  fill="rgba(180,185,220,0.18)"
-                />
-                <ellipse
-                  cx="290"
-                  cy="190"
-                  rx="130"
-                  ry="28"
-                  fill="rgba(180,185,220,0.12)"
-                />
-                {/* Road surface */}
-                <path
-                  d="M30 200 Q100 160 190 120 Q270 85 350 30"
-                  stroke="url(#road-grad)"
-                  strokeWidth="38"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                <defs>
-                  <linearGradient
-                    id="road-grad"
-                    x1="30"
-                    y1="200"
-                    x2="350"
-                    y2="30"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop offset="0%" stopColor="#c7c9e8" />
-                    <stop offset="100%" stopColor="#e8e9f5" />
-                  </linearGradient>
-                  <linearGradient
-                    id="arrow-grad"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stopColor="#c7caee" />
-                    <stop offset="100%" stopColor="#a5b4fc" stopOpacity="0.4" />
-                  </linearGradient>
-                </defs>
-                {/* Road centre dashes */}
-                <path
-                  className="oj-road-dashes"
-                  d="M30 200 Q100 160 190 120 Q270 85 350 30"
-                  stroke="white"
-                  strokeWidth="3"
-                  strokeDasharray="14 14"
-                  strokeLinecap="round"
-                  fill="none"
-                  opacity="0.7"
-                />
-                {/* Big arrow shape overlaying road */}
-                <path
-                  d="M120 180 Q170 140 240 95 L260 70 L275 110 L240 95 Q170 140 120 180Z"
-                  fill="url(#arrow-grad)"
-                  opacity="0.6"
-                />
-                {/* Flag pole */}
-                <line
-                  x1="82"
-                  y1="178"
-                  x2="82"
-                  y2="148"
-                  stroke="#e91e63"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-                {/* Flag */}
-                <path d="M82 148 L98 154 L82 160Z" fill="#e91e63" />
-                {/* Flag base circle */}
-                <circle
-                  cx="82"
-                  cy="180"
-                  r="6"
-                  fill="rgba(233,30,99,0.15)"
-                  stroke="#e91e63"
-                  strokeWidth="1.5"
-                />
+          <div className="journey-saas-quote-bar">
+            <div className="quote-flag-icon">
+              <svg viewBox="0 0 24 24" fill="#FF2B55" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" stroke="#FF2B55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-          </div>
-
-          {/* Right Side - Vertical Timeline */}
-          <div className="oj-right">
-            <div className="oj-timeline">
-              {/* Vertical line */}
-              <div className="oj-timeline-line"></div>
-
-              {[
-                {
-                  color: "#e91e63",
-                  bg: "rgba(233,30,99,0.08)",
-                  title: "Our Beginning",
-                  desc: "We started our journey in 2025 with a vision to empower businesses with innovative digital solutions.",
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V17a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1v-2.8C7.21 13.16 6 11.22 6 9a6 6 0 0 1 6-6z"
-                        stroke="#e91e63"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  color: "#7c3aed",
-                  bg: "rgba(124,58,237,0.08)",
-                  title: "Building Strong Foundations",
-                  desc: "Assembled a passionate team and built the foundation with trust, quality, and commitment.",
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <circle
-                        cx="9"
-                        cy="7"
-                        r="3"
-                        stroke="#7c3aed"
-                        strokeWidth="2"
-                      />
-                      <circle
-                        cx="15"
-                        cy="7"
-                        r="3"
-                        stroke="#7c3aed"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="M3 20c0-3.31 2.69-6 6-6h6c3.31 0 6 2.69 6 6"
-                        stroke="#7c3aed"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  color: "#3b82f6",
-                  bg: "rgba(59,130,246,0.08)",
-                  title: "Driving Innovation",
-                  desc: "Focused on emerging technologies and modern approaches to solve complex business problems.",
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 0l-2 6 2-2 2 2-2-6zm0 0"
-                        stroke="#3b82f6"
-                        strokeWidth="0"
-                        fill="none"
-                      />
-                      <path
-                        d="M4.93 4.93C3.12 7.14 2 9.94 2 13c0 5.52 4.48 10 10 10a9.97 9.97 0 0 0 7.07-2.93M21 12c0-2.4-.84-4.6-2.24-6.32M9 3.46A10 10 0 0 1 22 12"
-                        stroke="#3b82f6"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M13 2.05V5m0 0 3-3m-3 3-3-3"
-                        stroke="#3b82f6"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M7 7l10 10M17 7 7 17"
-                        stroke="#3b82f6"
-                        strokeWidth="0"
-                      />
-                      <ellipse
-                        cx="12"
-                        cy="12"
-                        rx="3"
-                        ry="8"
-                        transform="rotate(-45 12 12)"
-                        stroke="#3b82f6"
-                        strokeWidth="2"
-                      />
-                      <circle cx="12" cy="12" r="2" fill="#3b82f6" />
-                    </svg>
-                  ),
-                },
-                {
-                  color: "#0ea5e9",
-                  bg: "rgba(14,165,233,0.08)",
-                  title: "Delivering Impact",
-                  desc: "Partnering with clients to deliver scalable, reliable, and future-ready solutions.",
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                        stroke="#0ea5e9"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  color: "#e91e63",
-                  bg: "rgba(233,30,99,0.08)",
-                  title: "The Road Ahead",
-                  desc: "Continuing to grow, innovate, and create long-term value for our clients and communities.",
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M3 17V7l4 2.5L12 4l5 5.5 4-2.5v10"
-                        stroke="#e91e63"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M3 17h18"
-                        stroke="#e91e63"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M7 17v-4M12 17V9M17 17v-6"
-                        stroke="#e91e63"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  ),
-                },
-              ].map((item, idx) => (
-                <div key={idx} className="oj-timeline-item">
-                  {/* Dot on the line */}
-                  <div className="oj-dot" style={{ borderColor: item.color }}>
-                    <div
-                      className="oj-dot-inner"
-                      style={{ background: item.color }}
-                    ></div>
-                  </div>
-                  {/* Icon circle */}
-                  <div
-                    className="oj-icon-circle"
-                    style={{ background: item.bg }}
-                  >
-                    {item.icon}
-                  </div>
-                  {/* Text */}
-                  <div className="oj-item-text">
-                    <h4 className="oj-item-title">{item.title}</h4>
-                    <p className="oj-item-desc">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p className="quote-text">Our journey has just begun, and the best is yet to come.</p>
           </div>
         </div>
       </section>
-
-      {/* Mission & Vision — Premium Redesign */}
-      <section className="mv-section">
-        {/* Subtle background grid */}
-        <div className="mv-bg-grid" aria-hidden="true"></div>
-
-        <div className="mv-inner">
-          {/* Header */}
-          <div className="mv-header mv-gsap-header">
-            <h2 className="mv-title">
-              Our <span className="highlight-red">Mission &amp; Vision</span>
+{/* Mission & Vision â€” Premium Redesign */}
+      {/* Mission & Vision — Exact Diagram Layout */}
+      <section className="mv-exact-section">
+        <div className="mv-exact-container">
+          
+          {/* Top Header */}
+          <motion.div className="mv-exact-top" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.8 }}>
+            <div className="mv-purpose-header">
+              <span className="mv-line mv-line-red"><span className="mv-dot mv-dot-red"></span></span>
+              <span className="mv-purpose-text">OUR PURPOSE</span>
+              <span className="mv-line mv-line-blue"><span className="mv-dot mv-dot-blue"></span></span>
+            </div>
+            <h2 className="mv-exact-title">
+              Building <span className="mv-exact-digital">Digital</span> Excellence for Businesses
             </h2>
-            <p className="mv-subtitle">
-              Two guiding lights that shape every strategy, every solution, and
-              every partnership we forge.
+            <p className="mv-exact-subtitle">
+              Guided by innovation and driven by impact, we empower businesses today<br/>while shaping a smarter, sustainable tomorrow.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Two cards */}
-          <div className="mv-cards">
-            {/* ── Mission Card ── */}
-            <div
-              className="mv-card mv-card-mission mission-card-gsap"
-              onMouseMove={(e) => {
-                const r = e.currentTarget.getBoundingClientRect();
-                const x = e.clientX - r.left;
-                const y = e.clientY - r.top;
-                const rx = -((y - r.height / 2) / (r.height / 2)) * 9;
-                const ry = ((x - r.width / 2) / (r.width / 2)) * 12;
-                e.currentTarget.style.transition =
-                  "transform 0.08s linear, box-shadow 0.08s linear";
-                e.currentTarget.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px) scale(1.015)`;
-                e.currentTarget.style.boxShadow = `${-ry * 1.5}px ${rx * 1.5}px 40px rgba(236,72,153,0.18), 0 20px 60px rgba(0,0,0,0.1)`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transition =
-                  "transform 0.55s cubic-bezier(0.23,1,0.32,1), box-shadow 0.55s ease";
-                e.currentTarget.style.transform =
-                  "perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0) scale(1)";
-                e.currentTarget.style.boxShadow = "";
-              }}
-            >
-              {/* Top accent line */}
-              <div className="mv-card-accent mv-accent-pink"></div>
+          {/* Diagram Area */}
+          <motion.div className="mv-diagram-area" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 1, delay: 0.2 }}>
+            
+            {/* Connecting Lines SVG (Background) */}
+            <svg className="mv-diagram-lines" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid meet">
+              {/* Left red line. Starts left top, curves down to center */}
+              <path className="mv-path-red" d="M 210 130 L 300 130 Q 330 130 330 160 L 330 250 Q 330 280 360 280 L 380 280" />
+              <circle cx="380" cy="280" r="6" className="mv-dot-path-red" />
+              
+              {/* Right blue line. Starts right top, curves down to center */}
+              <path className="mv-path-blue" d="M 790 130 L 700 130 Q 670 130 670 160 L 670 250 Q 670 280 640 280 L 620 280" />
+              <circle cx="620" cy="280" r="6" className="mv-dot-path-blue" />
+            </svg>
 
-              {/* Decorative SVG illustration */}
-              <div className="mv-deco" aria-hidden="true">
-                <svg
-                  viewBox="0 0 220 180"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="160"
-                    cy="40"
-                    r="70"
-                    fill="rgba(236,72,153,0.05)"
-                  />
-                  <circle
-                    cx="160"
-                    cy="40"
-                    r="44"
-                    fill="rgba(236,72,153,0.07)"
-                  />
-                  <circle cx="160" cy="40" r="22" fill="rgba(236,72,153,0.1)" />
-                  {/* Target crosshairs */}
-                  <line
-                    x1="160"
-                    y1="10"
-                    x2="160"
-                    y2="70"
-                    stroke="rgba(236,72,153,0.25)"
-                    strokeWidth="1.5"
-                    strokeDasharray="4 4"
-                  />
-                  <line
-                    x1="130"
-                    y1="40"
-                    x2="190"
-                    y2="40"
-                    stroke="rgba(236,72,153,0.25)"
-                    strokeWidth="1.5"
-                    strokeDasharray="4 4"
-                  />
-                  {/* Rocket path */}
-                  <path
-                    d="M30 150 Q60 100 100 70 Q130 48 155 35"
-                    stroke="rgba(236,72,153,0.3)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeDasharray="6 5"
-                    fill="none"
-                  />
-                  {/* Rocket body */}
-                  <ellipse
-                    cx="158"
-                    cy="33"
-                    rx="8"
-                    ry="14"
-                    fill="rgba(236,72,153,0.5)"
-                    transform="rotate(-35 158 33)"
-                  />
-                  <path
-                    d="M150 42 l-8 10 6-1 2-9z"
-                    fill="rgba(236,72,153,0.35)"
-                  />
-                  <path
-                    d="M165 24 l10-8 -1 6-9 2z"
-                    fill="rgba(236,72,153,0.35)"
-                  />
-                  <circle cx="158" cy="33" r="3" fill="rgba(236,72,153,0.7)" />
-                  {/* Sparkles */}
-                  <circle cx="45" cy="140" r="3" fill="rgba(236,72,153,0.4)" />
-                  <circle cx="75" cy="110" r="2" fill="rgba(236,72,153,0.3)" />
-                  <circle cx="25" cy="120" r="2" fill="rgba(236,72,153,0.25)" />
-                </svg>
+            <div className="mv-diagram-content">
+              {/* LEFT: Mission */}
+              <div className="mv-col-mission">
+                <div className="mv-icon-circle mv-icon-red">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                  </svg>
+                </div>
+                <h3 className="mv-diagram-heading">OUR <span className="mv-text-red">MISSION</span></h3>
+                <p className="mv-diagram-desc">
+                  Empowering organizations with innovative,<br/>scalable technology solutions that accelerate<br/>growth, drive efficiency, and unlock lasting<br/>digital excellence.
+                </p>
+                <ul className="mv-diagram-bullets mv-bullets-red">
+                  <li><span className="mv-check-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span> Innovation First</li>
+                  <li><span className="mv-check-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span> Digital Transformation</li>
+                  <li><span className="mv-check-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span> Operational Excellence</li>
+                  <li><span className="mv-check-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span> Customer Success</li>
+                </ul>
               </div>
 
-              {/* Card body */}
-              <div className="mv-card-body">
-                {/* Tag */}
-                <span className="mv-card-tag mv-tag-pink">Mission</span>
-
-                {/* Heading */}
-                <h3 className="mv-card-title">Our Mission</h3>
-
-                {/* Description */}
-                <p className="mv-card-desc">
-                  Empowering organizations with innovative, scalable technology
-                  solutions that accelerate growth, drive efficiency, and unlock
-                  lasting digital excellence.
-                </p>
-
-                {/* Pillars */}
-                <ul className="mv-pillars">
-                  {[
-                    "Innovation First",
-                    "Digital Transformation",
-                    "Operational Excellence",
-                    "Customer Success",
-                  ].map((p) => (
-                    <li key={p} className="mv-pillar mv-pillar-pink">
-                      <svg viewBox="0 0 16 16" fill="none">
-                        <circle
-                          cx="8"
-                          cy="8"
-                          r="7"
-                          stroke="#EC4899"
-                          strokeWidth="1.5"
-                        />
-                        <path
-                          d="M5 8l2 2 4-4"
-                          stroke="#EC4899"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Icon row */}
-                <div className="mv-icon-row">
-                  {[
-                    {
-                      label: "Innovate",
-                      svg: (
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M12 2a7 7 0 0 1 7 7c0 2.6-1.4 4.87-3.5 6.13V18a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-2.87A7 7 0 0 1 12 2z"
-                            stroke="#EC4899"
-                            strokeWidth="1.8"
-                            strokeLinejoin="round"
-                          />
-                          <path
-                            d="M9 21h6"
-                            stroke="#EC4899"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                          />
-                        </svg>
-                      ),
-                    },
-                    {
-                      label: "Deliver",
-                      svg: (
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M5 12l5 5L20 7"
-                            stroke="#EC4899"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      ),
-                    },
-                    {
-                      label: "Scale",
-                      svg: (
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M3 17l4-8 4 4 4-6 4 10"
-                            stroke="#EC4899"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      ),
-                    },
-                    {
-                      label: "Impact",
-                      svg: (
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <circle
-                            cx="12"
-                            cy="12"
-                            r="9"
-                            stroke="#EC4899"
-                            strokeWidth="1.8"
-                          />
-                          <circle
-                            cx="12"
-                            cy="12"
-                            r="4"
-                            stroke="#EC4899"
-                            strokeWidth="1.8"
-                          />
-                          <circle cx="12" cy="12" r="1" fill="#EC4899" />
-                        </svg>
-                      ),
-                    },
-                  ].map((ic) => (
-                    <div key={ic.label} className="mv-icon-chip mv-chip-pink">
-                      <div className="mv-chip-icon">{ic.svg}</div>
-                      <span>{ic.label}</span>
-                    </div>
-                  ))}
+              {/* CENTER: Node */}
+              <div className="mv-col-center">
+                <div className="mv-center-circle-wrapper">
+                  <div className="mv-center-concentric mv-concentric-1"></div>
+                  <div className="mv-center-concentric mv-concentric-2"></div>
+                  <div className="mv-center-concentric mv-concentric-3"></div>
+                  <div className="mv-center-solid">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M9 18h6" />
+                      <path d="M10 22h4" />
+                      <path d="M12 2v1" />
+                      <path d="M12 7a5 5 0 0 0-5 5c0 2 1.5 3 2 5h6c.5-2 2-3 2-5a5 5 0 0 0-5-5z" />
+                      <path d="M4 12h1" />
+                      <path d="M19 12h1" />
+                      <path d="M6 6l.7.7" />
+                      <path d="M18 6l-.7.7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* ── Vision Card ── */}
-            <div
-              className="mv-card mv-card-vision vision-card-gsap"
-              onMouseMove={(e) => {
-                const r = e.currentTarget.getBoundingClientRect();
-                const x = e.clientX - r.left;
-                const y = e.clientY - r.top;
-                const rx = -((y - r.height / 2) / (r.height / 2)) * 9;
-                const ry = ((x - r.width / 2) / (r.width / 2)) * 12;
-                e.currentTarget.style.transition =
-                  "transform 0.08s linear, box-shadow 0.08s linear";
-                e.currentTarget.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px) scale(1.015)`;
-                e.currentTarget.style.boxShadow = `${-ry * 1.5}px ${rx * 1.5}px 40px rgba(59,130,246,0.18), 0 20px 60px rgba(0,0,0,0.1)`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transition =
-                  "transform 0.55s cubic-bezier(0.23,1,0.32,1), box-shadow 0.55s ease";
-                e.currentTarget.style.transform =
-                  "perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0) scale(1)";
-                e.currentTarget.style.boxShadow = "";
-              }}
-            >
-              {/* Top accent line */}
-              <div className="mv-card-accent mv-accent-blue"></div>
-
-              {/* Decorative SVG illustration */}
-              <div className="mv-deco" aria-hidden="true">
-                <svg
-                  viewBox="0 0 220 180"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="155"
-                    cy="50"
-                    r="72"
-                    fill="rgba(59,130,246,0.05)"
-                  />
-                  <circle
-                    cx="155"
-                    cy="50"
-                    r="48"
-                    fill="rgba(59,130,246,0.06)"
-                  />
-                  <circle
-                    cx="155"
-                    cy="50"
-                    r="26"
-                    fill="rgba(59,130,246,0.09)"
-                  />
-                  {/* Globe meridians */}
-                  <ellipse
-                    cx="155"
-                    cy="50"
-                    rx="26"
-                    ry="18"
-                    stroke="rgba(59,130,246,0.3)"
-                    strokeWidth="1.2"
-                    fill="none"
-                  />
-                  <line
-                    x1="155"
-                    y1="32"
-                    x2="155"
-                    y2="68"
-                    stroke="rgba(59,130,246,0.3)"
-                    strokeWidth="1.2"
-                  />
-                  <line
-                    x1="129"
-                    y1="50"
-                    x2="181"
-                    y2="50"
-                    stroke="rgba(59,130,246,0.3)"
-                    strokeWidth="1.2"
-                  />
-                  {/* Orbiting dots */}
-                  <circle cx="178" cy="32" r="4" fill="rgba(59,130,246,0.5)" />
-                  <circle cx="132" cy="68" r="3" fill="rgba(59,130,246,0.4)" />
-                  <circle
-                    cx="125"
-                    cy="38"
-                    r="2.5"
-                    fill="rgba(59,130,246,0.3)"
-                  />
-                  {/* Connection lines */}
-                  <path
-                    d="M35 155 Q80 110 120 75"
-                    stroke="rgba(59,130,246,0.2)"
-                    strokeWidth="1.5"
-                    strokeDasharray="5 5"
-                    fill="none"
-                  />
-                  <path
-                    d="M55 165 Q95 125 130 85"
-                    stroke="rgba(59,130,246,0.15)"
-                    strokeWidth="1"
-                    strokeDasharray="4 5"
-                    fill="none"
-                  />
-                  {/* Node dots */}
-                  <circle cx="35" cy="155" r="4" fill="rgba(59,130,246,0.35)" />
-                  <circle cx="55" cy="165" r="3" fill="rgba(59,130,246,0.25)" />
-                  <circle
-                    cx="20"
-                    cy="140"
-                    r="2.5"
-                    fill="rgba(59,130,246,0.2)"
-                  />
-                </svg>
-              </div>
-
-              {/* Card body */}
-              <div className="mv-card-body">
-                {/* Tag */}
-                <span className="mv-card-tag mv-tag-blue">Vision</span>
-
-                {/* Heading */}
-                <h3 className="mv-card-title">Our Vision</h3>
-
-                {/* Description */}
-                <p className="mv-card-desc">
-                  To be a globally recognized technology partner — driving
-                  innovation, accelerating transformation, and creating
-                  sustainable value for businesses and communities worldwide.
-                </p>
-
-                {/* Pillars */}
-                <ul className="mv-pillars">
-                  {[
-                    "Global Innovation Leader",
-                    "Future-Ready Solutions",
-                    "Digital Leadership",
-                    "Sustainable Growth",
-                  ].map((p) => (
-                    <li key={p} className="mv-pillar mv-pillar-blue">
-                      <svg viewBox="0 0 16 16" fill="none">
-                        <circle
-                          cx="8"
-                          cy="8"
-                          r="7"
-                          stroke="#3B82F6"
-                          strokeWidth="1.5"
-                        />
-                        <path
-                          d="M5 8l2 2 4-4"
-                          stroke="#3B82F6"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Icon row */}
-                <div className="mv-icon-row">
-                  {[
-                    {
-                      label: "Global",
-                      svg: (
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <circle
-                            cx="12"
-                            cy="12"
-                            r="9"
-                            stroke="#3B82F6"
-                            strokeWidth="1.8"
-                          />
-                          <path
-                            d="M2 12h20M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9z"
-                            stroke="#3B82F6"
-                            strokeWidth="1.8"
-                          />
-                        </svg>
-                      ),
-                    },
-                    {
-                      label: "Lead",
-                      svg: (
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M12 2l2.5 7.5H22l-6.25 4.5 2.5 7.5L12 17l-6.25 4.5 2.5-7.5L2 9.5h7.5L12 2z"
-                            stroke="#3B82F6"
-                            strokeWidth="1.8"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      ),
-                    },
-                    {
-                      label: "Transform",
-                      svg: (
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M12 3v3M12 18v3M3 12h3M18 12h3"
-                            stroke="#3B82F6"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                          />
-                          <circle
-                            cx="12"
-                            cy="12"
-                            r="4"
-                            stroke="#3B82F6"
-                            strokeWidth="1.8"
-                          />
-                        </svg>
-                      ),
-                    },
-                    {
-                      label: "Sustain",
-                      svg: (
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M12 22c5.5-3 9-7.5 9-12A9 9 0 0 0 3 10c0 4.5 3.5 9 9 12z"
-                            stroke="#3B82F6"
-                            strokeWidth="1.8"
-                            strokeLinejoin="round"
-                          />
-                          <path
-                            d="M12 22V12"
-                            stroke="#3B82F6"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                          />
-                        </svg>
-                      ),
-                    },
-                  ].map((ic) => (
-                    <div key={ic.label} className="mv-icon-chip mv-chip-blue">
-                      <div className="mv-chip-icon">{ic.svg}</div>
-                      <span>{ic.label}</span>
-                    </div>
-                  ))}
+              {/* RIGHT: Vision */}
+              <div className="mv-col-vision">
+                <div className="mv-icon-circle mv-icon-blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5a2 2 0 0 0 0-2.83l-2.67-2.67a2 2 0 0 0-2.83 0z" />
+                    <path d="M12 15l-3-3" />
+                    <path d="M15 12l-3-3" />
+                    <path d="M22 2s-3 1-6 2l-6 6-1 4 4-1 6-6c1-3 2-6 2-6z" />
+                  </svg>
                 </div>
+                <h3 className="mv-diagram-heading">OUR <span className="mv-text-blue">VISION</span></h3>
+                <p className="mv-diagram-desc">
+                  To be a globally recognized technology partner<br/>driving innovation, accelerating transformation,<br/>and creating sustainable value for businesses<br/>and communities worldwide.
+                </p>
+                <ul className="mv-diagram-bullets mv-bullets-blue">
+                  <li><span className="mv-check-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span> Global Innovation Leader</li>
+                  <li><span className="mv-check-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span> Future-Ready Solutions</li>
+                  <li><span className="mv-check-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span> Digital Leadership</li>
+                  <li><span className="mv-check-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span> Sustainable Growth</li>
+                </ul>
               </div>
             </div>
-          </div>
-          {/* /mv-cards */}
+          </motion.div>
+
+          {/* Bottom Values Pill */}
+          <motion.div className="mv-pill-card" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 1, delay: 0.4 }}>
+            <div className="mv-pill-item">
+              <div className="mv-pill-icon mv-pill-red">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2v1"/><path d="M12 7a5 5 0 0 0-5 5c0 2 1.5 3 2 5h6c.5-2 2-3 2-5a5 5 0 0 0-5-5z"/></svg>
+              </div>
+              <h4>Innovate</h4>
+              <p>Create new possibilities<br/>through creativity</p>
+            </div>
+            <div className="mv-pill-divider"></div>
+            <div className="mv-pill-item">
+              <div className="mv-pill-icon mv-pill-purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+              </div>
+              <h4>Deliver</h4>
+              <p>Build with precision<br/>and deliver excellence</p>
+            </div>
+            <div className="mv-pill-divider"></div>
+            <div className="mv-pill-item">
+              <div className="mv-pill-icon mv-pill-blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h4>Transform</h4>
+              <p>Empower businesses<br/>through transformation</p>
+            </div>
+            <div className="mv-pill-divider"></div>
+            <div className="mv-pill-item">
+              <div className="mv-pill-icon mv-pill-green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <h4>Impact</h4>
+              <p>Drive meaningful impact<br/>that matters</p>
+            </div>
+            <div className="mv-pill-divider"></div>
+            <div className="mv-pill-item">
+              <div className="mv-pill-icon mv-pill-red-heart">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <h4>Sustain</h4>
+              <p>Build a better tomorrow<br/>for everyone</p>
+            </div>
+          </motion.div>
+
+          {/* Bottom Quote */}
+          <motion.div className="mv-footer-quote" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.8, delay: 0.6 }}>
+            <span className="mv-quote-mark mv-quote-left">“</span>
+            <p>Our <span className="mv-text-red">mission</span> drives us today. Our <span className="mv-text-blue">vision</span> inspires our tomorrow.</p>
+            <span className="mv-quote-mark mv-quote-right">”</span>
+          </motion.div>
+
         </div>
-        {/* /mv-inner */}
       </section>
-
-      {/* ── Core Values ── */}
       <section className="cv-section">
         {/* Decorative background arcs */}
         <div className="cv-bg-arc cv-arc-1" aria-hidden="true"></div>
@@ -5810,44 +5205,10 @@ const About = () => {
                 grad1: "#4F46E5",
                 grad2: "#7C3AED",
                 icon: (
-                  <svg viewBox="0 0 40 40" fill="none">
-                    <defs>
-                      <linearGradient
-                        id="cv-g1a"
-                        x1="0"
-                        y1="0"
-                        x2="40"
-                        y2="40"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stopColor="#4F46E5" />
-                        <stop offset="1" stopColor="#7C3AED" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M20 4a10 10 0 0 1 10 10c0 3.7-2 6.93-5 8.67V28a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1v-5.33A10 10 0 0 1 20 4z"
-                      fill="url(#cv-g1a)"
-                      opacity=".9"
-                    />
-                    <rect
-                      x="15"
-                      y="30"
-                      width="10"
-                      height="3"
-                      rx="1.5"
-                      fill="url(#cv-g1a)"
-                      opacity=".6"
-                    />
-                    <rect
-                      x="16"
-                      y="34"
-                      width="8"
-                      height="2.5"
-                      rx="1.25"
-                      fill="url(#cv-g1a)"
-                      opacity=".4"
-                    />
-                    <circle cx="20" cy="13" r="3" fill="white" opacity=".7" />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                    <path d="M9 18h6" />
+                    <path d="M10 22h4" />
                   </svg>
                 ),
               },
@@ -5858,32 +5219,9 @@ const About = () => {
                 grad1: "#EC4899",
                 grad2: "#F43F5E",
                 icon: (
-                  <svg viewBox="0 0 40 40" fill="none">
-                    <defs>
-                      <linearGradient
-                        id="cv-g2a"
-                        x1="0"
-                        y1="0"
-                        x2="40"
-                        y2="40"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stopColor="#EC4899" />
-                        <stop offset="1" stopColor="#F43F5E" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M20 4L6 10v10c0 8.28 5.93 16.02 14 18 8.07-1.98 14-9.72 14-18V10L20 4z"
-                      fill="url(#cv-g2a)"
-                      opacity=".9"
-                    />
-                    <path
-                      d="M14 20l4 4 8-8"
-                      stroke="white"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 11 2 2 4-4" />
                   </svg>
                 ),
               },
@@ -5894,79 +5232,22 @@ const About = () => {
                 grad1: "#F59E0B",
                 grad2: "#EF4444",
                 icon: (
-                  <svg viewBox="0 0 40 40" fill="none">
-                    <defs>
-                      <linearGradient
-                        id="cv-g3a"
-                        x1="0"
-                        y1="0"
-                        x2="40"
-                        y2="40"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stopColor="#F59E0B" />
-                        <stop offset="1" stopColor="#EF4444" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M20 4l3.09 9.51H33l-8.09 5.88 3.09 9.51L20 23l-8 6.9 3.09-9.51L7 13.51h9.91L20 4z"
-                      fill="url(#cv-g3a)"
-                      opacity=".9"
-                    />
-                    <circle cx="20" cy="20" r="4" fill="white" opacity=".6" />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                    <path d="M4 22h16" />
+                    <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34" />
+                    <path d="M12 2a6 6 0 0 1 6 6v3.5a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8a6 6 0 0 1 6-6z" />
                   </svg>
                 ),
               },
               {
                 id: "collaboration",
                 title: "Collaboration",
-                desc: "Great solutions emerge when diverse minds unite. We thrive as one team — with our clients and within.",
+                desc: "Great solutions emerge when diverse minds unite. We thrive as one team â€” with our clients and within.",
                 grad1: "#10B981",
                 grad2: "#06B6D4",
-                icon: (
-                  <svg viewBox="0 0 40 40" fill="none">
-                    <defs>
-                      <linearGradient
-                        id="cv-g4a"
-                        x1="0"
-                        y1="0"
-                        x2="40"
-                        y2="40"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stopColor="#10B981" />
-                        <stop offset="1" stopColor="#06B6D4" />
-                      </linearGradient>
-                    </defs>
-                    <circle
-                      cx="12"
-                      cy="14"
-                      r="6"
-                      fill="url(#cv-g4a)"
-                      opacity=".8"
-                    />
-                    <circle
-                      cx="28"
-                      cy="14"
-                      r="6"
-                      fill="url(#cv-g4a)"
-                      opacity=".8"
-                    />
-                    <circle
-                      cx="20"
-                      cy="26"
-                      r="6"
-                      fill="url(#cv-g4a)"
-                      opacity=".95"
-                    />
-                    <path
-                      d="M12 20c3.5 1.5 7 2 8 6M28 20c-3.5 1.5-7 2-8 6"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                ),
+                icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>),
               },
               {
                 id: "customer-success",
@@ -5974,42 +5255,7 @@ const About = () => {
                 desc: "Your success is our success. We go beyond delivery to ensure lasting impact and measurable results.",
                 grad1: "#7C3AED",
                 grad2: "#4F46E5",
-                icon: (
-                  <svg viewBox="0 0 40 40" fill="none">
-                    <defs>
-                      <linearGradient
-                        id="cv-g5a"
-                        x1="0"
-                        y1="0"
-                        x2="40"
-                        y2="40"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stopColor="#7C3AED" />
-                        <stop offset="1" stopColor="#4F46E5" />
-                      </linearGradient>
-                    </defs>
-                    <circle
-                      cx="20"
-                      cy="14"
-                      r="8"
-                      fill="url(#cv-g5a)"
-                      opacity=".9"
-                    />
-                    <path
-                      d="M7 36c0-7.18 5.82-13 13-13s13 5.82 13 13"
-                      fill="url(#cv-g5a)"
-                      opacity=".6"
-                    />
-                    <path
-                      d="M16 13l2.5 2.5L23 11"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                ),
+                icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>),
               },
               {
                 id: "continuous-learning",
@@ -6017,72 +5263,12 @@ const About = () => {
                 desc: "In tech, standing still means falling behind. We foster relentless curiosity and perpetual growth.",
                 grad1: "#0EA5E9",
                 grad2: "#6366F1",
-                icon: (
-                  <svg viewBox="0 0 40 40" fill="none">
-                    <defs>
-                      <linearGradient
-                        id="cv-g6a"
-                        x1="0"
-                        y1="0"
-                        x2="40"
-                        y2="40"
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop stopColor="#0EA5E9" />
-                        <stop offset="1" stopColor="#6366F1" />
-                      </linearGradient>
-                    </defs>
-                    <rect
-                      x="8"
-                      y="8"
-                      width="24"
-                      height="28"
-                      rx="4"
-                      fill="url(#cv-g6a)"
-                      opacity=".9"
-                    />
-                    <rect
-                      x="12"
-                      y="15"
-                      width="16"
-                      height="2"
-                      rx="1"
-                      fill="white"
-                      opacity=".8"
-                    />
-                    <rect
-                      x="12"
-                      y="20"
-                      width="12"
-                      height="2"
-                      rx="1"
-                      fill="white"
-                      opacity=".6"
-                    />
-                    <rect
-                      x="12"
-                      y="25"
-                      width="8"
-                      height="2"
-                      rx="1"
-                      fill="white"
-                      opacity=".4"
-                    />
-                    <circle cx="29" cy="10" r="5" fill="#F59E0B" />
-                    <path
-                      d="M27 10l1.5 1.5L31 8"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                ),
+                icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>),
               },
             ].map((val, i) => (
               <div
                 key={val.id}
-                className="cv-card"
+                className={`cv-card ${activeCvId === val.id ? "cv-active" : ""}`} onClick={() => setActiveCvId(val.id)}
                 style={{
                   "--delay": `${i * 0.1}s`,
                   "--g1": val.grad1,
@@ -6105,7 +5291,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* What We Do — Premium Redesign */}
+      {/* What We Do â€” Premium Redesign */}
       <section className="wwd-section">
         {/* Dot patterns */}
         <div className="wwd-dots wwd-dots-left" aria-hidden="true"></div>
@@ -6124,7 +5310,7 @@ const About = () => {
             </p>
           </div>
 
-          {/* 3×2 Card Grid */}
+          {/* 3Ã—2 Card Grid */}
           <div className="wwd-grid">
             {[
               {
@@ -6281,6 +5467,8 @@ const About = () => {
                 <div
                   className="wwd-card"
                   style={{ "--accent": svc.accent, "--icon-bg": svc.iconBg }}
+                  onMouseMove={(e) => handleCardMouseMove(e, 4.5)}
+                  onMouseLeave={handleCardMouseLeave}
                 >
                   {/* Left colour bar */}
                   <div className="wwd-card-bar"></div>
@@ -6320,7 +5508,7 @@ const About = () => {
         <div className="wc-dots wc-dots-right" aria-hidden="true"></div>
 
         <div className="wc-inner">
-          {/* ── Header ── */}
+          {/* â”€â”€ Header â”€â”€ */}
           <div className="wc-header wc-gsap-header">
             <h2 className="wc-title">
               Why Choose <span className="wc-brand-tan">Tan</span>
@@ -6333,7 +5521,7 @@ const About = () => {
             </p>
           </div>
 
-          {/* ── 3-column orbit layout ── */}
+          {/* â”€â”€ 3-column orbit layout â”€â”€ */}
           <div className="wc-orbit-layout">
             {/* LEFT cards */}
             <div className="wc-col wc-col-left">
@@ -6415,6 +5603,8 @@ const About = () => {
                     "--icon-bg": item.iconBg,
                     "--delay": `${i * 0.12}s`,
                   }}
+                  onMouseMove={(e) => handleCardMouseMove(e, 4.5)}
+                  onMouseLeave={handleCardMouseLeave}
                 >
                   <div className="wc-card-icon">
                     <div className="wc-icon-circle">{item.icon}</div>
@@ -6442,7 +5632,7 @@ const About = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Card 1 (Innovative Solutions) → Dot 1 */}
+                {/* Card 1 (Innovative Solutions) â†’ Dot 1 */}
                 <path
                   d="M 0,80 L 15,80 L 40,137"
                   stroke="#d1d5db"
@@ -6450,7 +5640,7 @@ const About = () => {
                   strokeDasharray="5 5"
                   strokeLinecap="round"
                 />
-                {/* Card 2 (Quality & Reliability) → Dot 2 */}
+                {/* Card 2 (Quality & Reliability) â†’ Dot 2 */}
                 <path
                   d="M 0,200 L 20,200"
                   stroke="#d1d5db"
@@ -6458,7 +5648,7 @@ const About = () => {
                   strokeDasharray="5 5"
                   strokeLinecap="round"
                 />
-                {/* Card 3 (Customer-Centric) → Dot 3 */}
+                {/* Card 3 (Customer-Centric) â†’ Dot 3 */}
                 <path
                   d="M 0,320 L 15,320 L 40,263"
                   stroke="#d1d5db"
@@ -6466,7 +5656,7 @@ const About = () => {
                   strokeDasharray="5 5"
                   strokeLinecap="round"
                 />
-                {/* Card 4 (Agile & Transparent) → Dot 4 */}
+                {/* Card 4 (Agile & Transparent) â†’ Dot 4 */}
                 <path
                   d="M 260,80 L 245,80 L 220,137"
                   stroke="#d1d5db"
@@ -6474,7 +5664,7 @@ const About = () => {
                   strokeDasharray="5 5"
                   strokeLinecap="round"
                 />
-                {/* Card 5 (On-Time Delivery) → Dot 5 */}
+                {/* Card 5 (On-Time Delivery) â†’ Dot 5 */}
                 <path
                   d="M 260,200 L 240,200"
                   stroke="#d1d5db"
@@ -6482,7 +5672,7 @@ const About = () => {
                   strokeDasharray="5 5"
                   strokeLinecap="round"
                 />
-                {/* Card 6 (Long-Term Partnership) → Dot 6 */}
+                {/* Card 6 (Long-Term Partnership) â†’ Dot 6 */}
                 <path
                   d="M 260,320 L 245,320 L 220,263"
                   stroke="#d1d5db"
@@ -6617,6 +5807,8 @@ const About = () => {
                     "--icon-bg": item.iconBg,
                     "--delay": `${i * 0.12 + 0.06}s`,
                   }}
+                  onMouseMove={(e) => handleCardMouseMove(e, 4.5)}
+                  onMouseLeave={handleCardMouseLeave}
                 >
                   <div className="wc-card-icon">
                     <div className="wc-icon-circle">{item.icon}</div>
@@ -6738,7 +5930,6 @@ const About = () => {
                     key={i}
                     className="opportunity-item careers-tag-gsap gsap-reveal"
                   >
-                    <span className="opportunity-icon">⚡</span>
                     <span className="opportunity-label">{role}</span>
                   </div>
                 ))}
@@ -6835,3 +6026,10 @@ const About = () => {
 };
 
 export default About;
+
+
+
+
+
+
+

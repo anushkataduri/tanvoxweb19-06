@@ -23,6 +23,7 @@ const portfolioItems = [
         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
       </svg>
     ),
+    color: "#EF4444",
   },
   {
     title: "Case Studies",
@@ -45,6 +46,7 @@ const portfolioItems = [
         <line x1="16" y1="17" x2="8" y2="17" />
       </svg>
     ),
+    color: "#EC4899",
   },
   {
     title: "Technologies",
@@ -66,6 +68,7 @@ const portfolioItems = [
         <polyline points="2 12 12 17 22 12" />
       </svg>
     ),
+    color: "#10B981",
   },
   {
     title: "Testimonials",
@@ -85,6 +88,7 @@ const portfolioItems = [
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
       </svg>
     ),
+    color: "#3B82F6",
   },
 ];
 
@@ -109,6 +113,7 @@ const collaborationItems = [
         <polyline points="17 11 19 13 23 9" />
       </svg>
     ),
+    color: "#3B82F6",
   },
   {
     title: "Business Partners",
@@ -130,6 +135,7 @@ const collaborationItems = [
         <circle cx="12" cy="10" r="3" />
       </svg>
     ),
+    color: "#10B981",
   },
   {
     title: "Strategic Alliances",
@@ -149,6 +155,7 @@ const collaborationItems = [
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
+    color: "#8B5CF6",
   },
   {
     title: "Become a Partner",
@@ -171,6 +178,7 @@ const collaborationItems = [
         <line x1="23" y1="11" x2="17" y2="11" />
       </svg>
     ),
+    color: "#EF4444",
   },
 ];
 
@@ -382,6 +390,7 @@ const navigationData = [
     hasMegaMenu: true,
   },
   { id: "menu", label: "Explore", path: "#menu", hasSimpleDropdown: true },
+  { id: "contact", label: "Contact Us", path: "#contact" },
 ];
 
 export default function Header() {
@@ -576,7 +585,7 @@ export default function Header() {
             aria-label="Main Navigation"
           >
             <ul className="nav-list">
-              {navigationData.map((item) => {
+              {navigationData.filter(item => item.id !== "contact").map((item) => {
                 const isMega = item.hasMegaMenu;
                 const isSimple = item.hasSimpleDropdown;
                 const hasSub = isMega || isSimple;
@@ -655,6 +664,10 @@ export default function Header() {
                                           ] = el)
                                         }
                                         className="mega-item-link"
+                                        style={{
+                                          "--item-color": sub.color,
+                                          "--item-color-light": `${sub.color}15`,
+                                        }}
                                         role="menuitem"
                                         onKeyDown={(e) =>
                                           handleDropdownItemKeyDown(
@@ -669,7 +682,7 @@ export default function Header() {
                                           setActiveDropdown(null);
                                         }}
                                       >
-                                        <div className="mega-item-icon-wrapper red-theme">
+                                        <div className="mega-item-icon-wrapper dynamic-theme">
                                           {sub.icon}
                                         </div>
                                         <div className="mega-item-text">
@@ -720,6 +733,10 @@ export default function Header() {
                                           ] = el)
                                         }
                                         className="mega-item-link"
+                                        style={{
+                                          "--item-color": sub.color,
+                                          "--item-color-light": `${sub.color}15`,
+                                        }}
                                         role="menuitem"
                                         onKeyDown={(e) =>
                                           handleDropdownItemKeyDown(
@@ -734,7 +751,7 @@ export default function Header() {
                                           setActiveDropdown(null);
                                         }}
                                       >
-                                        <div className="mega-item-icon-wrapper blue-theme">
+                                        <div className="mega-item-icon-wrapper dynamic-theme">
                                           {sub.icon}
                                         </div>
                                         <div className="mega-item-text">

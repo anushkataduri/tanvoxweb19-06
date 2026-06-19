@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import '../Portfolio/ProductsRedesign.css';
 import { caseStudiesData } from './caseStudiesData';
-import projectsHeroBg from '../../assets/heroAbout.png';
+import projectsHeroBg from '../../assets/portfolio_hero.png';
 
 // Thematic illustration images (using the newly added assets)
 import csOperations from '../../assets/cs_operations_platforms.png';

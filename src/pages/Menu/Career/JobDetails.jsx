@@ -345,37 +345,43 @@ const JobDetails = ({ currentHash }) => {
     }));
   };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
+const handleFormSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbybM0GqF8nXdLPC5AcIIAoTT5JDG1ApFZmlPhhpfbbyBLMIQ0aFq9AG2no87m7G3a4/exec",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            fullName: formData.fullName,
-            email: formData.email,
-            passedYear: formData.passedYear,
-            resumeLink: formData.resumeLink,
-            position: job.title,
-          }),
-        },
-      );
+  try {
+    setLoading(true);
 
-      alert("Application Submitted Successfully");
+await fetch(
+  "https://script.google.com/macros/s/AKfycbxGr1b6YPVeGXVJgDpDuPhtfmN8xpE4PPdSrV5HzB-uDHHQV7mLPCgFjgcc3DxkjzWK/exec",
+  {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify({
+      fullName: formData.fullName,
+      email: formData.email,
+      passedYear: formData.passedYear,
+      resumeLink: formData.resumeLink,
+      position: job.title,
+    }),
+  }
+);
 
-      setFormData({
-        fullName: "",
-        email: "",
-        passedYear: "",
-        resumeLink: "",
-      });
-    } catch (error) {
-      console.error(error);
-      alert("Submission Failed");
-    }
-  };
+alert("Application Submitted Successfully");
+
+
+    setFormData({
+      fullName: "",
+      email: "",
+      passedYear: "",
+      resumeLink: "",
+    });
+  } catch (error) {
+    console.error(error);
+    alert("Submission Failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -659,7 +665,7 @@ const JobDetails = ({ currentHash }) => {
                         name="fullName"
                         value={formData.fullName}
                         onChange={handleFormChange}
-                        placeholder="John Doe"
+                        placeholder="Nagaraju Kondru"
                         required
                       />
                     </div>
@@ -672,7 +678,7 @@ const JobDetails = ({ currentHash }) => {
                         name="email"
                         value={formData.email}
                         onChange={handleFormChange}
-                        placeholder="john.doe@example.com"
+                        placeholder="nagaraju@example.com"
                         required
                       />
                     </div>

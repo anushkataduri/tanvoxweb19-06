@@ -9,7 +9,7 @@ import renntoLogo from '../../assets/rennto.png';
 import txhubLogo from '../../assets/TXhublogo.png';
 import renntoMarketingIll from '../../assets/rennto_marketing_ill.png';
 import txhubMarketingIll from '../../assets/txhub_marketing_ill.png';
-import projectsHeroBg from '../../assets/heroAbout.png';
+import projectsHeroBg from '../../assets/portfolio_hero.png';
 
 // 3D Tilt Hook for smooth interactive cards
 function use3DTilt(selector) {

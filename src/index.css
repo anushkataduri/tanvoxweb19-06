@@ -465,6 +465,11 @@ button {
   color: var(--color-navy);
 }
 
+.mega-item-icon-wrapper.dynamic-theme {
+  background-color: var(--item-color-light);
+  color: var(--item-color);
+}
+
 .mega-item-link:hover .mega-item-icon-wrapper.red-theme {
   background-color: var(--color-red);
   color: var(--color-white);
@@ -473,6 +478,15 @@ button {
 .mega-item-link:hover .mega-item-icon-wrapper.blue-theme {
   background-color: var(--color-navy);
   color: var(--color-white);
+}
+
+.mega-item-link:hover .mega-item-icon-wrapper.dynamic-theme {
+  background-color: var(--item-color) !important;
+  color: var(--color-white) !important;
+}
+
+.mega-item-link:hover .mega-item-title {
+  color: var(--item-color) !important;
 }
 
 .mega-item-text {
